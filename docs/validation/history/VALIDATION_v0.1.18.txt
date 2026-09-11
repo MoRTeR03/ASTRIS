@@ -1,0 +1,36 @@
+ASTRIS v0.1.18 validation
+=========================
+
+
+> astris-web@0.1.18 check:map-parity
+> node tools/validate-v0118.mjs
+
+PASS root version 0.1.18
+PASS client version 0.1.18
+PASS server version 0.1.18
+PASS health version 0.1.18
+PASS map parity script points to v0.1.18
+PASS angular distance exported from geo helper
+PASS OrbitalMap imports angular distance explicitly
+PASS 2D label sorting uses defined angular helper
+PASS same-point angular distance is zero
+PASS quarter-sphere angular distance is 90 degrees
+PASS invalid angular inputs degrade safely
+PASS map error boundary exists
+PASS App wraps map in boundary
+PASS map boundary fallback styling exists
+PASS globe scroll zoom is center anchored
+PASS globe double click remains disabled
+PASS legacy custom globe wheel shim removed
+PASS map CSS brace balance
+
+18/18 PASS
+
+node --check server/index.mjs
+PASS
+node --check server/routes/api.routes.mjs
+PASS
+node --check client/src/lib/geo.js
+PASS
+
+Full npm install/build not completed in sandbox: dependency install timed out; source archive remains clean (no node_modules/package-lock generated).

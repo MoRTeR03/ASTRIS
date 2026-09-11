@@ -1,0 +1,26 @@
+ASTRIS v0.1.10 VALIDATION
+========================
+
+Static map/UI gate: 22/22 PASS
+Client JS/JSX parse: 12/12 PASS
+Server/tools node --check: PASS
+CSS brace balance: PASS
+Synthetic Starlink DOM budget: PASS
+  inputRows: 15000
+  domRows: 360
+  selectedPreserved: true
+
+Key release assertions:
+- native compact MapLibre AttributionControl restored in bottom-left
+- custom ASTRIS map-info popover removed
+- same-satellite click toggles selection off
+- previously white 3D/observer controls explicitly themed
+- globe DOM hit-targets/labels selected from current viewport
+- viewport label budget <= 180
+- 2D interaction/label source selected from current viewport and cached between camera moves
+- client-side constellation changes invalidate the globe GPU marker buffer without waiting for a new scene timestamp
+- full Starlink GPU catalogue retained
+- constellation-colored labels retained
+- Node watch preserves terminal output
+
+Browser/WebGL live acceptance: NOT CLAIMED in sandbox; run on target Windows browser.

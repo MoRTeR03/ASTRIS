@@ -1,0 +1,35 @@
+ASTRIS v0.1.5 — FULL IRMAS MAPLIBRE PARITY VALIDATION
+Date: 2026-09-10
+
+PASS  versions 0.1.5
+PASS  persistent full-orbit toggle
+PASS  separate track cache
+PASS  client motion interpolation
+PASS  movement tuning restored
+PASS  constellation-coloured 2D labels
+PASS  constellation-coloured globe labels
+PASS  panel collapse fills map
+PASS  vector quick-action icons
+PASS  only intended MapLibre controls
+PASS  building ownership recovery
+PASS  observer zoom adaptation
+PASS  late IRMAS CSS imported
+PASS  v0.1.5 final overrides imported
+PASS  Starlink scene limit retained
+PASS  irmas-map-parity.css brace balance — balance=0
+PASS  astris-map-v015.css brace balance — balance=0
+
+ASTRIS v0.1.5 map-parity checks: 17/17
+
+Render budget:
+{
+  "ok": true,
+  "inputRows": 15000,
+  "domRows": 360,
+  "selectedPreserved": true,
+  "selectMs": 6.084
+}
+
+Server syntax: PASS (node --check all .mjs)
+Client JS/JSX parse: PASS 11/11 (TypeScript parser)
+npm install/build: NOT RUN — registry access timed out in sandbox; run on target PC.

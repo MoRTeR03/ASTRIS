@@ -1,0 +1,42 @@
+ASTRIS v0.1.20 — Globe Camera + GPU Buffer Stability
+
+Static validation:
+PASS root/client/server version = 0.1.20
+PASS /api/health version = 0.1.20
+PASS check:map-parity -> validate-v0120.mjs
+PASS globe camera guard strips easeTo.around in globe
+PASS scroll/touch globe interactions are center anchored
+PASS aroundCenter=false
+PASS double-click globe zoom disabled
+PASS high-performance WebGL context
+PASS MSAA disabled
+PASS preserveDrawingBuffer=false
+PASS 4-slot GPU VBO streaming ring
+PASS STREAM_DRAW + bufferSubData updates
+PASS no per-frame gl.getParameter state readback in ASTRIS custom layer
+PASS premultiplied-alpha marker/line output
+PASS redundant globe repaint removed
+PASS v0.1.19 MapLibre zoom-expression scaling retained
+PASS OrbitalMap.jsx parsed by TypeScript JSX parser (noEmit/noResolve)
+PASS AstrisOrbitalLayer.js node --check
+PASS server routes/index node --check
+
+npm install / production build:
+NOT RUN TO COMPLETION in sandbox because npm registry dependency download timed out twice.
+This is an environment/network limitation, not a reported source parse failure.
+
+Required local acceptance:
+1. npm install
+2. npm run check:map-parity
+3. npm run build
+4. npm run dev
+5. exercise Globe for 10+ minutes with wheel/drag/rotate/pitch and Globe<->Mercator switches
+
+Target console state:
+- 0 x "Easing around a point is not supported under globe projection"
+- 0 x ASTRIS JavaScript exceptions
+- 0 x MapLibre label-expression validation errors
+- 0 x "WebGL: too many errors"
+
+Chromium READ-usage warning:
+The exact message is also tracked upstream in MapLibre. v0.1.20 removes ASTRIS-side immediate VBO rewrites and synchronous custom-layer GL state reads. If an isolated READ-usage warning remains without GL errors or FPS degradation, treat it as upstream Chromium/MapLibre diagnostic rather than an ASTRIS fatal runtime failure.

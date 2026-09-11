@@ -1,0 +1,14 @@
+ASTRIS v0.1.19 validation
+=========================
+PASS: tools/validate-v0119.mjs
+PASS: server/index.mjs node --check
+PASS: server/routes/api.routes.mjs node --check
+PASS: client/vite.config.js node --check
+PASS: client/src/lib/mapStyleExpressions.js node --check
+
+Validated:
+- client default port 5174 with strictPort
+- API default port 3101
+- /api proxy target isolation
+- MapLibre zoom text-size expressions preserved as top-level interpolate/step
+- label layout write deduplication

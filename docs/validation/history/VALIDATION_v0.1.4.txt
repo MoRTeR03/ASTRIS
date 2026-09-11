@@ -1,0 +1,31 @@
+ASTRIS v0.1.4 STATIC / LOGIC VALIDATION
+Date: 2026-09-10
+
+PASS  controlled panel disclosure
+PASS  IRMAS LOS segmented mode
+PASS  LOS setting persistence
+PASS  WGS84 LOS integration
+PASS  camera-linked synthetic sky
+PASS  solar disc
+PASS  dark orbital buttons
+PASS  canonical dark range track
+PASS  physical LOS overhead visible
+PASS  physical LOS backside occluded
+
+ASTRIS v0.1.4 parity checks: 10/10
+
+Starlink synthetic render budget:
+inputRows: 15000
+DOM rows: 360
+selected preserved: true
+PASS
+
+Server JS/MJS node --check: PASS
+Client JS/JSX TypeScript parse: 11/11 PASS
+CSS brace balance: PASS (377 / 377 at validation time)
+
+Not executed in sandbox:
+- npm install
+- Vite production build
+- live MapLibre/WebGL browser acceptance
+Reason: project dependencies are intentionally not bundled in release source.

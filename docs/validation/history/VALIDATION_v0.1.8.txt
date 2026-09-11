@@ -1,0 +1,25 @@
+ASTRIS v0.1.8 validation
+========================
+
+Static/client-server gates:
+- tools/validate-v018.mjs: 21/21 PASS
+- client JS/JSX TypeScript transpile parse: 12 files PASS
+- server/tools node --check: PASS
+- styles.css brace balance: PASS
+- map-parity.css brace balance: PASS
+
+Performance/regression gates:
+- synthetic render budget inputRows=15000, domRows=360, selectedPreserved=true: PASS
+- profile-service tests: 2/2 PASS
+
+Visual-source checks:
+- v0.1.4 map-parity.css exact byte prefix: PASS (63071 bytes)
+- v0.1.4 styles.css exact byte prefix: PASS (6402 bytes)
+- production main.jsx imports only styles.css + map-parity.css: PASS
+- v0.1.5/v0.1.6/v0.1.7 competing map CSS removed from runtime: PASS
+- v0.1.4 synthetic stars + Sun CSS present: PASS
+- MapLibre control container fixed-corner override present: PASS
+
+Not claimed in sandbox:
+- npm install / Vite production build: NOT RUN (project dependencies are not installed in this runtime).
+- live browser/WebGL acceptance: MUST be confirmed on the user's machine.

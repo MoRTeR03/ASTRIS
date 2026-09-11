@@ -1,0 +1,4 @@
+ASTRIS v0.1.6 client static parse
+Parsed 12 client JS/JSX source files with TypeScript transpile parser.
+Failures: 0
+Result: PASS

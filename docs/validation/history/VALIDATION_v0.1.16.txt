@@ -1,0 +1,44 @@
+ASTRIS v0.1.16 — RELEASE VALIDATION
+====================================
+
+Static parser / syntax
+----------------------
+CLIENT_PARSE: 13/13 PASS
+SERVER_TOOLS_NODE_CHECK: PASS
+CSS_BRACES: PASS
+STARFIELD_SVG_XML: 3/3 PASS
+
+v0.1.16 regression gate
+-----------------------
+22/22 PASS
+- versions 0.1.16
+- persistent OS catalogue cache
+- CelesTrak failure circuit breaker
+- 403/429 >= 2 h cooldown
+- stale cache fallback
+- Retry-After propagation
+- client scene backoff
+- keep last rendered scene on provider failure
+- ipapi.co → ipwho.is fallback
+- IP disk fallback
+- browser last observer
+- restored pre-sidereal Sun projection
+- normal globe drag updates starfield
+- 3-layer infinite starfield
+- no finite star image edge
+- loader-black space background
+- missing circle sprite recovery
+
+Synthetic Starlink render budget
+--------------------------------
+inputRows: 15000
+DOM rows: 360
+selectedPreserved: true
+result: PASS
+
+Not claimed in sandbox
+----------------------
+- npm dependency installation
+- dependency-based full server tests
+- Vite production build
+- live browser / WebGL acceptance

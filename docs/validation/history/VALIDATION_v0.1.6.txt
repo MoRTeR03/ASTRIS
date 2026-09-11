@@ -1,0 +1,40 @@
+ASTRIS v0.1.6 — REGRESSION RECOVERY + PROFILES VALIDATION
+Date: 2026-09-10
+
+Static regression/profile gate:
+PASS  versions 0.1.6
+PASS  map info footer restored
+PASS  duplicate header state/toggle removed
+PASS  IRMAS scale styling restored
+PASS  IRMAS disclosure body restored
+PASS  semantic strip tones restored
+PASS  metric tones applied in widget
+PASS  GPU current/next marker interpolation
+PASS  globe track clock follows interpolated marker time
+PASS  globe no Starlink 3 FPS CPU cap
+PASS  2D interpolation uses bounded rows
+PASS  prediction horizon exceeds poll cadence
+PASS  orbit track scene anchor is exact
+PASS  server-backed profiles
+PASS  profile writes serialized
+PASS  profile manager lives in map head
+PASS  profile JSON excluded from git
+PASS  v0.1.6 CSS imported last
+PASS  only intended MapLibre controls
+PASS  v0.1.6 CSS brace balance
+
+ASTRIS v0.1.6 regression/profile checks: 20/20 PASS
+
+Profile service standalone tests: 2/2 PASS
+Server syntax: PASS (node --check all .mjs)
+Client JS/JSX static parse: PASS (12 files, 0 failures)
+Synthetic Starlink render budget: PASS
+  inputRows=15000
+  domRows=360
+  selectedPreserved=true
+
+NOT CLAIMED AS PASS IN SANDBOX:
+- dependency-based full npm test suite requiring satellite.js
+- Vite production build
+Reason: npm install timed out against external registry/network in sandbox.
+Run these on the target PC before browser acceptance.

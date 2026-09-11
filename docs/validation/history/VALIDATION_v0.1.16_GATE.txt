@@ -1,0 +1,31 @@
+PASS root version 0.1.16
+PASS client version 0.1.16
+PASS server version 0.1.16
+PASS health version 0.1.16
+PASS map parity script points to v0.1.16
+PASS persistent OS catalogue cache configured
+PASS CelesTrak failure circuit breaker exists
+PASS CelesTrak 403/429 opens two-hour cooldown
+PASS stale cache remains usable
+PASS 503 exposes Retry-After
+PASS client backs off after scene failure
+PASS client keeps rendered scene on provider failure
+PASS IP provider fallback configured
+PASS IP disk fallback configured
+PASS browser remembers last observer
+PASS sun projection restored to pre-sidereal camera contract
+PASS starfield responds to normal globe pan
+PASS infinite multilayer starfield assets exist
+PASS starfield repeats without finite edge
+PASS loader-black map sky retained
+PASS MapLibre missing circle sprites resolved locally
+PASS map CSS brace balance
+
+22/22 PASS
+{
+  "ok": true,
+  "inputRows": 15000,
+  "domRows": 360,
+  "selectedPreserved": true,
+  "selectMs": 6.092
+}

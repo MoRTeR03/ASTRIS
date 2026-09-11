@@ -1,0 +1,18 @@
+PASS root version 0.1.11
+PASS client version 0.1.11
+PASS server version 0.1.11
+PASS health version 0.1.11
+PASS entry loader component mounted
+PASS entry loader uses current Orbit brand glyph
+PASS entry loader waits for scene readiness with safety timeout
+PASS entry loader CSS imported
+PASS entry loader has reduced-motion fallback
+PASS entry loader exits with opacity instead of layout animation
+PASS custom map information popover restored
+PASS custom info exposes map diagnostics
+PASS native compact MapLibre attribution remains
+PASS native attribution remains bottom-left
+PASS same-satellite click toggle retained
+PASS Node watch preserves output
+
+16/16 PASS

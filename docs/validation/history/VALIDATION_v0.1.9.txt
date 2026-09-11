@@ -1,0 +1,50 @@
+ASTRIS v0.1.9 — synchronization/style validation
+
+PASS  versions are 0.1.9
+PASS  single visual CSS runtime
+PASS  v0.1.6 header/profile surface restored
+PASS  v0.1.6 semantic FIX strip restored
+PASS  v0.1.6 map meta surface restored
+PASS  panel body stabilized
+PASS  responsive typography retained
+PASS  navigation control is top-left
+PASS  scale control remains bottom-left
+PASS  MapLibre control corners pinned
+PASS  map info button + popover restored
+PASS  latest style request is queued during style load
+PASS  settings sync uses style readiness, not full tile loaded state
+PASS  catalog-level scene cache enables instant GNSS filters
+PASS  display horizon is local/immediate
+PASS  one visual clock drives marker/track/LOS
+PASS  LOS vertices interpolate current satellite position
+PASS  small track sets use tight clock buckets
+PASS  track geometry no longer invalidated by generic revision
+PASS  marker geometry no longer invalidated by unrelated revision
+PASS  selected orbit sampling is high resolution
+PASS  Starlink render budget remains bounded
+PASS  server-backed profiles retained
+PASS  v0.1.4 starfield + Sun retained
+PASS  duplicate fullscreen control absent
+PASS  CSS brace balance — balance=0
+
+ASTRIS v0.1.9 synchronization/style checks: 26/26
+
+Render budget:
+{
+  "ok": true,
+  "inputRows": 15000,
+  "domRows": 360,
+  "selectedPreserved": true,
+  "selectMs": 5.748
+}
+
+Pure orbital clock check:
+{
+  "epoch": 30,
+  "quarterSidereal": -60,
+  "ok": true
+}
+
+Syntax checks:
+PASS server/tools + plain client JS node --check
+Client parser: 12/12 PASS

@@ -1,0 +1,152 @@
+.astris-entry-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: #f8fafc;
+  background:
+    radial-gradient(circle at 50% 47%, rgba(139,92,246,.08), transparent 25%),
+    #020204;
+  opacity: 1;
+  transition: opacity 380ms ease, visibility 380ms ease;
+}
+.astris-entry-loader.is-leaving { opacity: 0; visibility: hidden; pointer-events: none; }
+.astris-entry-loader__stars {
+  position: absolute;
+  inset: -3%;
+  opacity: .76;
+  background-image: url('../assets/starfield/astris-loader-starfield.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: translate3d(0,0,0) scale(1.035);
+  will-change: transform, opacity;
+  animation: astris-loader-stars 18s ease-in-out infinite alternate;
+}
+.astris-entry-loader__stars::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 24% 72%, rgba(96,165,250,.045), transparent 34%),
+    radial-gradient(ellipse at 74% 28%, rgba(139,92,246,.035), transparent 30%),
+    linear-gradient(118deg, transparent 28%, rgba(148,163,184,.018) 48%, transparent 70%);
+}
+.astris-entry-loader__lockup {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  width: min(520px, 86vw);
+  transform: translateY(-1.5vh);
+}
+.astris-entry-loader__glyph {
+  position: relative;
+  display: grid;
+  width: 76px;
+  height: 76px;
+  place-items: center;
+  margin-bottom: 16px;
+  color: #f4f1ff;
+  filter: drop-shadow(0 0 18px rgba(139,92,246,.18));
+  animation: astris-loader-glyph-in 650ms cubic-bezier(.2,.75,.25,1) both;
+}
+.astris-entry-loader__glyph > svg { position: relative; z-index: 2; }
+.astris-entry-loader__orbit-ring {
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(167,139,250,.46);
+  border-left-color: rgba(34,211,238,.78);
+  border-radius: 50%;
+  transform: rotate(28deg) scaleY(.42);
+  animation: astris-loader-orbit-ring 2.1s linear infinite;
+}
+.astris-entry-loader__satellite {
+  position: absolute;
+  top: 13px;
+  left: 50%;
+  z-index: 3;
+  width: 5px;
+  height: 5px;
+  margin-left: -2.5px;
+  border-radius: 50%;
+  background: #67e8f9;
+  box-shadow: 0 0 9px rgba(103,232,249,.95), 0 0 20px rgba(139,92,246,.42);
+  transform-origin: 2.5px 25px;
+  animation: astris-loader-satellite 1.35s linear infinite;
+}
+.astris-entry-loader__wordmark {
+  color: #f8fafc;
+  font: 800 clamp(28px, 3.25vw, 46px)/1 Inter, ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: .24em;
+  text-indent: .24em;
+  text-shadow: 0 0 20px rgba(255,255,255,.05);
+  animation: astris-loader-wordmark-in 540ms 100ms ease both;
+}
+.astris-entry-loader__subtitle {
+  max-width: 92%;
+  margin-top: 9px;
+  overflow: hidden;
+  color: #6f7788;
+  font: 650 clamp(8px, .66vw, 11px)/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: .075em;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  animation: astris-loader-wordmark-in 540ms 180ms ease both;
+}
+.astris-entry-loader__progress {
+  position: relative;
+  width: min(250px, 58vw);
+  height: 1px;
+  margin-top: 25px;
+  overflow: hidden;
+  background: rgba(148,163,184,.16);
+}
+.astris-entry-loader__progress > i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 38%;
+  background: linear-gradient(90deg, transparent, #8b5cf6 42%, #67e8f9 100%);
+  box-shadow: 0 0 10px rgba(103,232,249,.28);
+  animation: astris-loader-progress 1.05s cubic-bezier(.4,0,.2,1) infinite;
+}
+.astris-entry-loader small {
+  margin-top: 11px;
+  color: #4f596b;
+  font: 750 clamp(8px, .56vw, 10px)/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  animation: astris-loader-wordmark-in 540ms 260ms ease both;
+}
+@keyframes astris-loader-glyph-in {
+  from { opacity: 0; transform: scale(.76) rotate(-12deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
+@keyframes astris-loader-wordmark-in {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes astris-loader-orbit-ring { to { transform: rotate(388deg) scaleY(.42); } }
+@keyframes astris-loader-satellite { to { transform: rotate(360deg); } }
+@keyframes astris-loader-progress {
+  0% { left: -42%; opacity: .15; }
+  20% { opacity: 1; }
+  100% { left: 112%; opacity: .15; }
+}
+@keyframes astris-loader-stars {
+  from { transform: translate3d(-4px,-2px,0) scale(1.035); opacity: .70; }
+  to { transform: translate3d(4px,2px,0) scale(1.045); opacity: .82; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .astris-entry-loader,
+  .astris-entry-loader *,
+  .astris-entry-loader *::before,
+  .astris-entry-loader *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 120ms !important;
+  }
+}

@@ -1,0 +1,11 @@
+ASTRIS v0.1.11 VALIDATION
+
+PASS tools/validate-v0111.mjs — 16/16
+PASS TypeScript parser client JS/JSX — 13/13
+PASS server .mjs node --check
+PASS custom ASTRIS map info popover restored
+PASS native MapLibre compact attribution retained
+PASS entry loader mounted and scene-ready aware
+PASS prefers-reduced-motion fallback
+
+NOTE: Full Vite/browser visual acceptance still requires npm dependencies and a real browser/WebGL runtime.

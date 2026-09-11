@@ -1,0 +1,16 @@
+ASTRIS v0.1.12 — Loader Starfield Realism + Extended Hold
+
+Static validation:
+PASS root/client/server version = 0.1.12
+PASS health API version = 0.1.12
+PASS minimum loader duration = 2850 ms
+PASS safety timeout = 8400 ms
+PASS loader status remains "Завантаження орбітальної сцени"
+PASS non-tiled SVG star catalogue enabled
+PASS old 132px/183px repeating star tiles removed
+PASS SVG star catalogue contains >300 circles
+PASS loader motion uses transform/opacity
+PASS prefers-reduced-motion retained
+PASS server/index.mjs node --check
+
+Note: full Vite production build was not executed in this container because project node_modules are not bundled.

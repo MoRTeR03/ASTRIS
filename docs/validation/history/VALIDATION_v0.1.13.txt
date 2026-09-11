@@ -1,0 +1,13 @@
+ASTRIS v0.1.13 — Map Starfield + Favicon
+
+Static acceptance:
+- root/client/server version = 0.1.13
+- health API version = 0.1.13
+- MapLibre realistic no-repeat starfield asset present
+- Map star catalogue equals accepted loader catalogue
+- >=300 star nodes
+- bounded camera parallax for no-repeat field
+- UTC Sun CSS retained
+- transparent orbital favicon present and linked
+
+Run: node tools/validate-v0113.mjs

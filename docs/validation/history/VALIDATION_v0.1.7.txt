@@ -1,0 +1,26 @@
+ASTRIS v0.1.7 — v0.1.4 VISUAL CONTRACT ROLLBACK VALIDATION
+
+PASS  versions 0.1.7
+PASS  v0.1.4 controlled disclosure markup restored
+PASS  v0.1.4 disclosure visual contract restored
+PASS  v0.1.4 section body geometry restored
+PASS  v0.1.4 header chrome restored
+PASS  profile manager retained inside restored head
+PASS  v0.1.4 ScaleControl shape restored
+PASS  visual rollback CSS imported last
+PASS  map info footer preserved
+PASS  duplicate header state/toggle remains removed
+PASS  semantic strip tones preserved
+PASS  GPU current/next marker interpolation preserved
+PASS  globe track clock preservation
+PASS  prediction horizon preservation
+PASS  server-backed profiles preserved
+PASS  profile writes serialized
+PASS  only intended MapLibre controls preserved
+PASS  profile JSON excluded from git
+PASS  orbit track scene anchor preserved
+PASS  rollback CSS brace balance
+
+ASTRIS v0.1.7 visual rollback checks: 20/20 PASS
+Client TypeScript parse: 12/12 PASS
+Server/tools node --check: PASS

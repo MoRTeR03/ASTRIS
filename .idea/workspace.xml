@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5eabd4be-d874-483f-a152-d235e4633c62" name="Changes" comment="&#10;readme update">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="132" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MoRTeR03&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MoRTeR03/ASTRIS&quot;,
+    &quot;accountId&quot;: &quot;3ee3f6de-cb9d-4590-ba09-681c77176c85&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.7539480648355008" />
+      <entry key="MS500" value="3.607328877879521" />
+      <entry key="S2" value="4.575278531267916" />
+      <entry key="S5" value="4.822745614523946" />
+      <entry key="S10" value="4.910861685942733" />
+      <entry key="S30" value="5.393546937624163" />
+      <entry key="S60" value="7.0424413360244955" />
+      <entry key="M2" value="9.529090350178482" />
+      <entry key="M5" value="12.51990874214179" />
+      <entry key="M10" value="15.30735373653104" />
+      <entry key="M15" value="17.81978527171657" />
+      <entry key="M30" value="24.572932077646648" />
+      <entry key="H1" value="36.184861956301056" />
+      <entry key="H2" value="52.513929221965896" />
+      <entry key="H4" value="69.76887963738167" />
+      <entry key="D1" value="96.30574155994972" />
+      <entry key="W1" value="102.834735030099" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.7130238966888054" />
+      <entry key="MS500" value="3.589062148843582" />
+      <entry key="S2" value="4.569537158725106" />
+      <entry key="S5" value="4.820332777524872" />
+      <entry key="S10" value="4.909629383936277" />
+      <entry key="S30" value="5.3921601504211765" />
+      <entry key="S60" value="7.039897057284046" />
+      <entry key="M2" value="9.52642537276421" />
+      <entry key="M5" value="12.518224770550685" />
+      <entry key="M10" value="15.306366396208206" />
+      <entry key="M15" value="17.81908740764226" />
+      <entry key="M30" value="24.572557120066847" />
+      <entry key="H1" value="36.18466257993812" />
+      <entry key="H2" value="52.51382270146194" />
+      <entry key="H4" value="69.76882252022538" />
+      <entry key="D1" value="96.3057308895513" />
+      <entry key="W1" value="102.834733461204" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3J8psXkXslAw0oXO4BnlFkWHAvK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "javascript.preferred.runtime.type.id": "node",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.intellij.platform.ide.impl.presentationAssistant.PresentationAssistantConfigurable",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\roman\WebstormProjects\ASTRIS\server\data" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-WS-262.9437.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5eabd4be-d874-483f-a152-d235e4633c62" name="Changes" comment="" />
+      <created>1789052757124</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1789052757124</updated>
+      <workItem from="1789052759695" duration="22782000" />
+      <workItem from="1789084135030" duration="3586000" />
+      <workItem from="1789088815136" duration="412000" />
+    </task>
+    <task id="LOCAL-00001" summary="&#10;readme update">
+      <option name="closed" value="true" />
+      <created>1789083969168</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1789083969168</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="&#10;readme update" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;readme update" />
+  </component>
+</project>

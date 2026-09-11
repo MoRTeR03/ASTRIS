@@ -1,0 +1,20 @@
+ASTRIS v0.1.15 — Live Labels Recovery + v0.1.5 Quick Actions
+
+Static acceptance:
+- validate-v0115.mjs: 15/15 PASS
+- client JS/JSX TypeScript transpile parse: 13/13 PASS
+- server *.mjs node --check: PASS
+- map-parity.css brace balance: PASS
+- clean-source baseline: derived directly from ASTRIS v0.1.14 FULL SOURCE
+
+Runtime changes verified statically:
+- base labels no longer trigger setStyle via style key
+- raster label variants use RasterTileSource.setTiles()
+- orbital labels have dedicated immediate layout-effect apply path
+- Globe custom layer exposes refreshLabels() with projection cadence reset
+- v0.1.5 Lucide quick-actions contract restored
+- Globe + 3D buildings independence preserved
+
+Not claimed in this environment:
+- live browser/WebGL acceptance
+- npm install / Vite production build with downloaded dependencies

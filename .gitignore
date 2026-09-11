@@ -1,0 +1,14 @@
+node_modules/
+client/node_modules/
+server/node_modules/
+client/dist/
+server/cache/*.json
+!server/cache/.gitkeep
+.env
+.DS_Store
+Thumbs.db
+*.log
+server/reports/*.json
+!server/reports/.gitkeep
+server/data/astris-profiles.json
+!server/data/.gitkeep

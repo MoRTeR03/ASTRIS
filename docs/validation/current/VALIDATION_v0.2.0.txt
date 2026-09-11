@@ -1,0 +1,48 @@
+=== ASTRIS v0.2.0 STRUCTURAL GATE ===
+PASS  root package version is 0.2.0
+PASS  client package version is 0.2.0
+PASS  server package version is 0.2.0
+PASS  MapLibre is pinned to 6.9.0
+PASS  active validator path points to v0.2.0 gate
+PASS  health endpoint reports 0.2.0
+PASS  Vite MapLibre worker uses ?worker&url
+PASS  MapLibre CSS is imported from app entrypoint
+PASS  OrbitalMap uses v6 namespace import
+PASS  no v5 default MapLibre import remains in active client
+PASS  no map.transform private API remains
+PASS  old globe ease monkey patch is removed
+PASS  native globe interactions are enabled without around-point override
+PASS  custom renderer consumes public projection shader data
+PASS  projection variants are cached, not recompiled every frame
+PASS  projection helper uses public MercatorCoordinate import
+PASS  renderer keeps projection-independent GPU geometry
+PASS  4-slot streamed VBO ring is retained
+PASS  styles are consolidated in client/src/styles
+PASS  starfield assets are consolidated in assets/starfield
+PASS  map preview images are consolidated in public/map-previews
+PASS  favicon is consolidated in public/icons
+PASS  React entry files live in client/src/app
+PASS  map components live in components/map
+PASS  map code is split into config/geometry/rendering
+PASS  server runtime lives under server/src
+PASS  server scripts point to server/src/index.mjs
+PASS  historical validators are not in active validation folder
+PASS  historical validation reports are under docs/validation/history
+PASS  repository structure documentation exists
+PASS  v0.2.0 release documentation exists
+PASS  client index references organized favicon and app entrypoint
+PASS  Vite uses isolated ASTRIS defaults 5174 -> 3101
+PASS  README declares v0.2.0 and current ports
+PASS  no active source imports old pre-reorg paths
+
+ASTRIS v0.2.0 structural/map gate: 35/35 PASS
+
+=== JS/MJS SYNTAX ===
+JS/MJS syntax: PASS
+
+=== JSX SYNTAX ===
+JSX syntax: PASS (6 files)
+
+=== RELATIVE IMPORT / CSS ASSET RESOLUTION ===
+Relative import resolution: PASS (29 source files checked)
+CSS asset resolution: PASS (3 stylesheets checked)

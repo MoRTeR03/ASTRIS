@@ -1,0 +1,21 @@
+{
+  "name": "astris-server",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch --watch-preserve-output src/index.mjs",
+    "start": "node src/index.mjs",
+    "test": "node --test",
+    "bench:scene": "node bench/scene-benchmark.mjs",
+    "check:render-budget": "node bench/render-budget-check.mjs"
+  },
+  "dependencies": {
+    "cors": "2.8.6",
+    "express": "5.2.1",
+    "satellite.js": "7.1.0"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}

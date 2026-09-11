@@ -1,0 +1,9 @@
+{
+  "version": "0.1.6",
+  "ok": true,
+  "inputRows": 15000,
+  "domRows": 360,
+  "selectedPreserved": true,
+  "selectMsObserved": 7.461,
+  "note": "Synthetic run in packaging environment; timing is indicative, budgets are the acceptance contract."
+}

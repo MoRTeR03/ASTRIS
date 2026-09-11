@@ -1,0 +1,31 @@
+ASTRIS v0.1.14 — Globe Buildings, Labels, Celestial Sky & Brand Parity
+
+Static regression gate:
+- validate-v0114.mjs: 19/19 PASS
+- client JS/JSX syntax: 13/13 PASS
+- server/tools node --check: PASS
+- CSS brace balance: PASS
+- Starlink render-budget synthetic: PASS
+  inputRows: 15000
+  domRows: 360
+  selectedPreserved: true
+
+Dependency-based npm test:
+- 7 tests PASS
+- 2 orbital/catalog tests NOT RUNNABLE in this sandbox because satellite.js is not installed (ERR_MODULE_NOT_FOUND).
+- This is an environment/dependency absence, not a test assertion failure. Run npm install then npm test on the target PC.
+
+Production Vite build:
+- not claimed as PASS without installed project dependencies.
+
+Release gates covered:
+- globe + buildings no forced projection downgrade
+- dedicated viewport-budgeted 2D satellite-label source
+- MapLibre cross-source symbol collision isolation
+- Globe label projection-transition fallback
+- v0.1.4 quick-actions visual contract
+- centered profile actions
+- loader-black map starfield
+- GMST + camera-bearing celestial motion
+- UTC Sun retained
+- favicon is exact Lucide Orbit glyph used by ASTRIS brand-mark

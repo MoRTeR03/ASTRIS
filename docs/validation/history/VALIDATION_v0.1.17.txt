@@ -1,0 +1,21 @@
+ASTRIS v0.1.17 — RELEASE VALIDATION
+
+PASS 25/25 static regression gate (tools/validate-v0117.mjs)
+PASS server/services/catalog-service.mjs syntax (node --check)
+PASS server/routes/api.routes.mjs syntax (node --check)
+PASS server/index.mjs syntax (node --check)
+PASS tools/validate-v0117.mjs syntax (node --check)
+PASS isolated provider failover test:
+     CelesTrak HTTP 403 -> Satvisor mirror HTTP 200 -> persistent cache -> no refetch while fresh
+PASS upstream HTML sanitization in isolated failover test
+PASS v0.1.16 Sun/starfield static parity checks retained
+PASS no whitespace-error output from git diff --check
+
+NOT RUN in sandbox: full npm workspace install / Vite production build.
+Reason: package installation did not complete within the sandbox network timeout.
+Run on the target workstation:
+  npm install
+  npm run check
+
+Important diagnostic note:
+Chromium's "READ-usage buffer was written..." message is also reported upstream by MapLibre users and is emitted from Chromium's GLES2 readback shadow-copy implementation. ASTRIS v0.1.17 removes ASTRIS-side error-texture churn and unsupported globe pointer easing, but does not suppress browser console messages or claim an upstream Chrome/MapLibre warning can never appear.

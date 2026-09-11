@@ -1,0 +1,7 @@
+ASTRIS v0.1.17 VALIDATION
+25/25 static release checks PASS
+server syntax PASS
+provider failover/cache isolated test PASS
+provider HTML sanitization PASS
+v0.1.16 Sun/starfield parity retained
+full Vite build: NOT RUN in sandbox (npm dependency install timeout); run `npm install && npm run check` on target workstation

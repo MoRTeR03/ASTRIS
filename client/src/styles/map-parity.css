@@ -3318,3 +3318,29 @@ section.astris-map-native[data-astris-map-native="true"] .astris-map-building-op
         gap: 6px;
     }
 }
+
+/* ========================================================================== */
+/* ASTRIS v0.2.3 — desktop panel reflow + MapLibre full-stage ownership       */
+/* ========================================================================== */
+/*
+ * Several earlier parity blocks redefine the desktop workbench with a more
+ * specific `section.astris-map-native[...]` selector. That rule was winning
+ * over the old `.panel-closed .workbench` declaration, so hiding the aside
+ * removed its DOM paint but left the second grid column reserved. The stage
+ * therefore stayed at the old width and the remainder appeared as empty black
+ * space. Keep this rule last and at equal/higher specificity.
+ */
+section.astris-map-native[data-astris-map-native="true"].panel-closed .astris-map-native-workbench {
+    grid-template-columns: minmax(0, 1fr) !important;
+}
+
+section.astris-map-native[data-astris-map-native="true"].panel-closed .astris-map-native-stage {
+    grid-column: 1 / -1;
+    inline-size: 100%;
+    min-inline-size: 0;
+}
+
+section.astris-map-native[data-astris-map-native="true"].panel-closed .astris-map-native-panel {
+    display: none !important;
+}
+

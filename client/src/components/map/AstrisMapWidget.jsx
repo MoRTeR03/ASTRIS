@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
+import { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import {
   Crosshair,
   Download,
@@ -102,6 +102,25 @@ export default function AstrisMapWidget({
     center: { lat: 28, lon: 20, zoom: .8 }, bearing: 0, pitch: 0,
     projection: settings.globe ? 'globe' : 'mercator', orbitalRenderFps: 0,
   });
+
+  // The panel is part of the workbench grid, so toggling it changes the real
+  // MapLibre content box. CSS commits first; then wait two animation frames
+  // before asking the map to resize so the new grid track geometry is final.
+  // OrbitalMap.resize() also reconciles the synthetic sky/Sun after the
+  // MapLibre render, preserving the v0.2.2 reset-parity behaviour.
+  useLayoutEffect(() => {
+    let raf1 = 0;
+    let raf2 = 0;
+    raf1 = window.requestAnimationFrame(() => {
+      raf2 = window.requestAnimationFrame(() => {
+        mapRef.current?.resize?.();
+      });
+    });
+    return () => {
+      if (raf1) window.cancelAnimationFrame(raf1);
+      if (raf2) window.cancelAnimationFrame(raf2);
+    };
+  }, [settings.panelOpen]);
   const layer = ASTRIS_MAP_LAYERS[settings.layer];
   const selected = scene.selected || scene.rows?.find((row) => String(row.noradId) === String(selectedNoradId)) || null;
   const selectedAboveHorizon = selected && Number.isFinite(Number(selected.elevationDeg))

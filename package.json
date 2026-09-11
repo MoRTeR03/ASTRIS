@@ -1,6 +1,6 @@
 {
   "name": "astris-web",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": true,
   "description": "ASTRIS — Advanced Satellite Tracking & Real-time Interactive System",
   "scripts": {
@@ -12,7 +12,7 @@
     "check": "npm run check:map-parity && npm run test && npm run build",
     "bench:scene": "npm run bench:scene --workspace astris-server",
     "check:render-budget": "npm run check:render-budget --workspace astris-server",
-    "check:map-parity": "node tools/validation/current/validate-v022.mjs"
+    "check:map-parity": "node tools/validation/current/validate-v023.mjs"
   },
   "devDependencies": {
     "concurrently": "^9.2.4"

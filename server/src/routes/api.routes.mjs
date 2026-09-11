@@ -39,7 +39,7 @@ export function createApiRouter({ catalogService, ipLocationService, profileServ
   const router = express.Router();
 
   router.get('/api/health', (_req, res) => {
-    res.json({ ok: true, product: 'ASTRIS', version: '0.2.2', now: new Date().toISOString() });
+    res.json({ ok: true, product: 'ASTRIS', version: '0.2.3', now: new Date().toISOString() });
   });
 
 

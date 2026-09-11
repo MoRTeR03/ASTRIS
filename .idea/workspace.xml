@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5eabd4be-d874-483f-a152-d235e4633c62" name="Changes" comment="&#10;readme update">
+      <changelist_data name="MoRTeR03" email="" automatic="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/map/AstrisMapWidget.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/map/AstrisMapWidget.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/map/OrbitalMap.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/map/OrbitalMap.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/styles/map-parity.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/map-parity.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api.routes.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api.routes.mjs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +26,11 @@
     <option name="cachedIndexableFilesCount" value="132" />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="MoRTeR03" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -36,23 +51,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.7539480648355008" />
-      <entry key="MS500" value="3.607328877879521" />
-      <entry key="S2" value="4.575278531267916" />
-      <entry key="S5" value="4.822745614523946" />
-      <entry key="S10" value="4.910861685942733" />
-      <entry key="S30" value="5.393546937624163" />
-      <entry key="S60" value="7.0424413360244955" />
-      <entry key="M2" value="9.529090350178482" />
-      <entry key="M5" value="12.51990874214179" />
-      <entry key="M10" value="15.30735373653104" />
-      <entry key="M15" value="17.81978527171657" />
-      <entry key="M30" value="24.572932077646648" />
-      <entry key="H1" value="36.184861956301056" />
-      <entry key="H2" value="52.513929221965896" />
-      <entry key="H4" value="69.76887963738167" />
-      <entry key="D1" value="96.30574155994972" />
-      <entry key="W1" value="102.834735030099" />
+      <entry key="MS100" value="1.3657303356627466" />
+      <entry key="MS500" value="3.3755980954627827" />
+      <entry key="S2" value="7.202508482115589" />
+      <entry key="S5" value="9.17514749071135" />
+      <entry key="S10" value="10.026808872509147" />
+      <entry key="S30" value="11.065646281218594" />
+      <entry key="S60" value="12.839971515714499" />
+      <entry key="M2" value="15.399380945487993" />
+      <entry key="M5" value="18.4543678280056" />
+      <entry key="M10" value="21.268253409099664" />
+      <entry key="M15" value="23.789925090253217" />
+      <entry key="M30" value="30.55290929013647" />
+      <entry key="H1" value="42.17047415058269" />
+      <entry key="H2" value="58.503658528032055" />
+      <entry key="H4" value="75.76211870133461" />
+      <entry key="D1" value="102.30419806528208" />
+      <entry key="W1" value="108.83449988570793" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -74,23 +89,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.7130238966888054" />
-      <entry key="MS500" value="3.589062148843582" />
-      <entry key="S2" value="4.569537158725106" />
-      <entry key="S5" value="4.820332777524872" />
-      <entry key="S10" value="4.909629383936277" />
-      <entry key="S30" value="5.3921601504211765" />
-      <entry key="S60" value="7.039897057284046" />
-      <entry key="M2" value="9.52642537276421" />
-      <entry key="M5" value="12.518224770550685" />
-      <entry key="M10" value="15.306366396208206" />
-      <entry key="M15" value="17.81908740764226" />
-      <entry key="M30" value="24.572557120066847" />
-      <entry key="H1" value="36.18466257993812" />
-      <entry key="H2" value="52.51382270146194" />
-      <entry key="H4" value="69.76882252022538" />
-      <entry key="D1" value="96.3057308895513" />
-      <entry key="W1" value="102.834733461204" />
+      <entry key="MS100" value="1.3283455293232727" />
+      <entry key="MS500" value="3.348773319198771" />
+      <entry key="S2" value="7.178298468638429" />
+      <entry key="S5" value="9.161632746624562" />
+      <entry key="S10" value="10.019220937770456" />
+      <entry key="S30" value="11.061983560514488" />
+      <entry key="S60" value="12.836293535273562" />
+      <entry key="M2" value="15.396145057111347" />
+      <entry key="M5" value="18.452449756871335" />
+      <entry key="M10" value="21.26714722414949" />
+      <entry key="M15" value="23.789147510726547" />
+      <entry key="M30" value="30.55249420661436" />
+      <entry key="H1" value="42.17025463883441" />
+      <entry key="H2" value="58.50354192077259" />
+      <entry key="H4" value="75.76205653575394" />
+      <entry key="D1" value="102.30418655269575" />
+      <entry key="W1" value="108.83449819647863" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -121,7 +136,7 @@
     "node.js.selected.package.jshint": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.intellij.platform.ide.impl.presentationAssistant.PresentationAssistantConfigurable",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>
@@ -146,7 +161,7 @@
       <updated>1789052757124</updated>
       <workItem from="1789052759695" duration="22782000" />
       <workItem from="1789084135030" duration="3586000" />
-      <workItem from="1789088815136" duration="412000" />
+      <workItem from="1789088815136" duration="1479000" />
     </task>
     <task id="LOCAL-00001" summary="&#10;readme update">
       <option name="closed" value="true" />

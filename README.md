@@ -5,8 +5,44 @@
 **Офіційна назва проєкту:**  
 **«Вебсистема інтерактивного моніторингу та візуалізації орбітального руху штучних супутників Землі»**
 
-> **Поточний baseline: `v0.2.0`**  
+> **Поточний baseline: `v0.2.2`**  
 > Full-stack вебсистема для інтерактивного відображення GNSS- та Starlink-супутників у 2D/3D, розрахунку їх положення за SGP4/SDP4, аналізу видимості відносно спостерігача та візуалізації орбітальних характеристик.
+
+---
+
+## Що змінилося у v0.2.2
+
+`v0.2.2` — Sun Reset Parity Fix. Цей реліз свідомо повертає **саме ту формулу synthetic Sun, яка в v0.2.0 давала правильний результат після кнопки Reset**, і виправляє не математику Сонця, а порядок resize/render синхронізації.
+
+- повністю відкотили невдалу v0.2.1 зміну, яка прив'язувала відстань Сонця до `projectedEarthRadius` і робила Сонце занадто близьким до Землі;
+- restored accepted v0.2.0/v0.1.12 formula: `rawSunDistance = ((180 - centralAngle) / 90) * min(viewport) * 0.5`;
+- cold start тепер один раз застосовує той самий observer-centered camera preset, що й кнопка **Reset**, замість залишатися на bootstrap-центрі `[20, 28]`;
+- відкриття disclosure-меню більше не викликає ручні multi-frame `map.resize()` з React-панелі;
+- реальний розмір map canvas відстежується через `ResizeObserver`; resize запускається тільки коли **фактичний content box карти** змінився;
+- Sun/starfield синхронізуються після наступного MapLibre `render`, тобто використовують уже committed globe transform — той самий порядок, який дає правильний результат після Reset;
+- збережено типографічні виправлення панелі з v0.2.1;
+- MapLibre GL JS 6.9.0, WebGL2 renderer, ports 5174/3101 і структура репозиторію v0.2.x не змінені.
+
+### Чому це відповідає поведінці Reset
+
+MapLibre `jumpTo()` миттєво задає camera state, а `Map.resize()` синхронізує карту з реальним розміром контейнера. У v0.2.2 synthetic Sun не перераховується посеред React layout transition. Якщо container дійсно змінив розмір, ASTRIS чекає наступний MapLibre render і лише тоді використовує `map.project()`. Відкриття звичайної disclosure-секції, яке не змінює map content box, більше взагалі не зачіпає Sun.
+
+---
+
+## Що змінилося у v0.2.1
+
+`v0.2.1` — stabilization pass для synthetic Sun та типографіки панелі карти. **Solar scaling частина цього релізу була скасована у v0.2.2**, тоді як typography fixes збережені.
+
+- synthetic Sun тепер використовує фактичний render viewport MapLibre (canvas backing size / applied pixel ratio), а не DOM-розмір, який міг змінитися на кадр раніше за camera transform;
+- відстань Сонця від центра Землі прив'язана до фактичного projected Earth radius, тому співвідношення не «пливе» при зміні ширини панелі, висоти, zoom або responsive layout;
+- додано повторну синхронізацію Sun/starfield на MapLibre `resize` та після першого `style.load`;
+- відкриття/закриття disclosure-секцій панелі запускає контрольований `map.resize()` multi-frame pass;
+- у `astris-map-native-panel` уніфіковано title/subtitle stacks для `3D будівлі` та `Мітка спостерігача`; прибрано візуальне склеювання `<b>` і `<small>`;
+- baseline зберігає MapLibre GL JS `6.9.0`, WebGL2 renderer, dev-порти `5174 / 3101` і структуру репозиторію з v0.2.0.
+
+### Чому виправлення Sun зроблено саме так
+
+`Map.project()` повертає координати у viewport карти, тоді як зовнішній React-контейнер може змінити CSS-розмір раніше, ніж MapLibre завершить resize camera/canvas. MapLibre документує, що `Map.resize()` оновлює карту відповідно до розміру контейнера та генерує `resize`/`move` events. У v0.2.1 весь screen-space solar math використовує лише узгоджений MapLibre viewport і повторно синхронізується після resize.
 
 ---
 
@@ -687,8 +723,8 @@ ASTRIS може використовуватися як практичний п�
 ## Поточна версія
 
 ```text
-ASTRIS v0.2.0
-Repository Reorganization + MapLibre 6 Globe Renderer Migration
+ASTRIS v0.2.2
+Sun Reset Parity Fix
 ```
 
 Повна історія змін:

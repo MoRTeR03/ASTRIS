@@ -348,6 +348,10 @@ const OrbitalMap = forwardRef(function OrbitalMap({ rows, tracks, track, trackRe
   const cameraInteractingRef = useRef(false);
   const nativeRevisionRef = useRef(0);
   const syncRafRef = useRef(0);
+  const solarSyncRafRef = useRef(0);
+  const solarSyncTimerRef = useRef(0);
+  const solarRenderHandlerRef = useRef(null);
+  const bootstrapPresetAppliedRef = useRef(false);
   const styleRestoreTimersRef = useRef([]);
   const styleRevisionRef = useRef(0);
   const appliedStyleKeyRef = useRef('');
@@ -473,6 +477,54 @@ const OrbitalMap = forwardRef(function OrbitalMap({ rows, tracks, track, trackRe
   }
 
 
+  function scheduleSpaceBackgroundSync(map, { resize = false } = {}) {
+    if (!map || mapRef.current !== map) return;
+    if (solarSyncRafRef.current) window.cancelAnimationFrame(solarSyncRafRef.current);
+    if (solarSyncTimerRef.current) window.clearTimeout(solarSyncTimerRef.current);
+    if (solarRenderHandlerRef.current) {
+      try { map.off('render', solarRenderHandlerRef.current); } catch { /* noop */ }
+      solarRenderHandlerRef.current = null;
+    }
+    solarSyncRafRef.current = window.requestAnimationFrame(() => {
+      solarSyncRafRef.current = 0;
+      if (mapRef.current !== map) return;
+      if (resize) {
+        try { map.resize({ astrisLayout: true }); } catch { /* detached/settling map */ }
+      }
+      let completed = false;
+      const apply = () => {
+        if (completed || mapRef.current !== map) return;
+        completed = true;
+        if (solarSyncTimerRef.current) {
+          window.clearTimeout(solarSyncTimerRef.current);
+          solarSyncTimerRef.current = 0;
+        }
+        syncSpaceBackgroundCamera(map);
+        applyObserverMarkerScale(map);
+        emitRuntime(map);
+      };
+      // The post-reset variant is correct because jumpTo/resize has already
+      // committed the camera transform before the Sun is evaluated. Preserve
+      // that exact sequencing for responsive panel changes as well: wait for a
+      // MapLibre render instead of mixing a new DOM width with an old globe
+      // transform.
+      const onRender = () => {
+        solarRenderHandlerRef.current = null;
+        apply();
+      };
+      solarRenderHandlerRef.current = onRender;
+      try { map.once('render', onRender); map.triggerRepaint?.(); } catch { solarRenderHandlerRef.current = null; }
+      solarSyncTimerRef.current = window.setTimeout(() => {
+        if (solarRenderHandlerRef.current === onRender) {
+          try { map.off('render', onRender); } catch { /* noop */ }
+          solarRenderHandlerRef.current = null;
+        }
+        apply();
+      }, 96);
+    });
+  }
+
+
   function syncProjectionZoomInteractions(map) {
     if (!map) return;
     // MapLibre v6 has projection-aware globe controls. Use the native handlers
@@ -515,7 +567,12 @@ const OrbitalMap = forwardRef(function OrbitalMap({ rows, tracks, track, trackRe
     } else {
       map.easeTo({ center, zoom: Math.max(2.2, Math.min(9, map.getZoom())), pitch: 0, bearing: 0, duration: 320 });
     }
-    window.requestAnimationFrame(() => { ensureProjection(map); nativeRef.current?.invalidateProjection?.(); emitRuntime(map); });
+    window.requestAnimationFrame(() => {
+      ensureProjection(map);
+      nativeRef.current?.invalidateProjection?.();
+      scheduleSpaceBackgroundSync(map);
+      emitRuntime(map);
+    });
   }
 
   function addOperationalLayers(map) {
@@ -937,7 +994,7 @@ const OrbitalMap = forwardRef(function OrbitalMap({ rows, tracks, track, trackRe
   function applySkyAndLight(map, date = new Date()) {
     const s = stateRef.current.settings;
     const synthetic = s.globe && s.orbitalOverlay.enabled && s.orbitalOverlay.spaceBackgroundMode !== 'off';
-    syncSpaceBackgroundCamera(map, date);
+    scheduleSpaceBackgroundSync(map);
     try {
       map.setSky(s.globe && s.atmosphere ? {
         'sky-color': synthetic ? '#020204' : '#010104',
@@ -1054,7 +1111,22 @@ const OrbitalMap = forwardRef(function OrbitalMap({ rows, tracks, track, trackRe
       labelDefaultsRef.current.clear();
       labelAppliedRef.current.clear();
       try { addOperationalLayers(map); } catch (error) { console.error('[ASTRIS map] overlay restore failed', error); }
-      syncSpaceBackgroundCamera(map);
+      // Cold start must use the same camera contract as the Reset button. If
+      // observer coordinates are already available, apply that exact preset
+      // once; otherwise the observer effect below will do it when location
+      // arrives. This removes the historical [20, 28] bootstrap mismatch.
+      const initialObserver = stateRef.current.observer;
+      if (!bootstrapPresetAppliedRef.current
+        && Number.isFinite(Number(initialObserver?.lat))
+        && Number.isFinite(Number(initialObserver?.lon))) {
+        bootstrapPresetAppliedRef.current = true;
+        window.requestAnimationFrame(() => {
+          if (mapRef.current !== map) return;
+          applyViewPreset(map, stateRef.current.settings.globe ? 'globe' : (stateRef.current.settings.buildings ? 'city' : 'flat'));
+        });
+      } else {
+        scheduleSpaceBackgroundSync(map, { resize: true });
+      }
       scheduleStyleRestore(map);
       syncObserverMarker(map);
       emitRuntime(map);
@@ -1067,6 +1139,11 @@ const OrbitalMap = forwardRef(function OrbitalMap({ rows, tracks, track, trackRe
     const onMapMotion = () => {
       syncSpaceBackgroundCamera(map);
       applyObserverMarkerScale(map);
+    };
+    const onMapResize = () => {
+      // Reproduce the post-Reset ordering: let MapLibre render the resized
+      // globe first, then evaluate the accepted v0.2.0 Sun formula.
+      scheduleSpaceBackgroundSync(map);
     };
     const onMoveEnd = () => {
       cameraInteractingRef.current = false;
@@ -1084,7 +1161,7 @@ const OrbitalMap = forwardRef(function OrbitalMap({ rows, tracks, track, trackRe
     const onStyleSettling = () => {
       if (typeof map.isStyleLoaded === 'function' && map.isStyleLoaded() && reconcileStyleAfterLoad(map)) return;
       ensureProjection(map);
-      syncSpaceBackgroundCamera(map);
+      scheduleSpaceBackgroundSync(map);
       try { enforceBuildingOwnership(map); } catch { /* style settling */ }
       if (nativeRef.current && !map.getLayer(nativeRef.current.id)) {
         try { map.addLayer(nativeRef.current.layer); } catch { /* style settling */ }
@@ -1105,6 +1182,7 @@ const OrbitalMap = forwardRef(function OrbitalMap({ rows, tracks, track, trackRe
     map.on('roll', onMapMotion);
     map.on('moveend', onMoveEnd);
     map.on('zoom', onMapMotion);
+    map.on('resize', onMapResize);
     map.on('click', IDS.points, (event) => {
       const id = event.features?.[0]?.properties?.noradId;
       const row = stateRef.current.rows.find((item) => String(item.noradId) === String(id));
@@ -1112,12 +1190,39 @@ const OrbitalMap = forwardRef(function OrbitalMap({ rows, tracks, track, trackRe
     });
     map.on('mouseenter', IDS.points, () => { map.getCanvas().style.cursor = 'pointer'; });
     map.on('mouseleave', IDS.points, () => { map.getCanvas().style.cursor = ''; });
+
+    // Observe the actual MapLibre container instead of guessing when an ASTRIS
+    // disclosure changes layout. Desktop accordion changes that do not resize
+    // the map now do nothing; panel open/close changes trigger exactly one
+    // resize/sun reconciliation on the real content-box change.
+    let lastObservedSize = '';
+    const resizeObserver = typeof ResizeObserver === 'function'
+      ? new ResizeObserver((entries) => {
+        const entry = entries?.[0];
+        const width = Math.round(Number(entry?.contentRect?.width || 0));
+        const height = Math.round(Number(entry?.contentRect?.height || 0));
+        if (width < 2 || height < 2) return;
+        const key = `${width}x${height}`;
+        if (key === lastObservedSize) return;
+        lastObservedSize = key;
+        scheduleSpaceBackgroundSync(map, { resize: true });
+      })
+      : null;
+    resizeObserver?.observe(containerRef.current);
+
     const solarTimer = window.setInterval(() => {
       const currentMap = mapRef.current;
       if (currentMap && (typeof currentMap.isStyleLoaded !== 'function' || currentMap.isStyleLoaded())) applySkyAndLight(currentMap);
     }, 15_000);
     return () => {
       window.clearInterval(solarTimer);
+      resizeObserver?.disconnect();
+      if (solarSyncRafRef.current) window.cancelAnimationFrame(solarSyncRafRef.current);
+      if (solarSyncTimerRef.current) window.clearTimeout(solarSyncTimerRef.current);
+      if (solarRenderHandlerRef.current) {
+        try { map.off('render', solarRenderHandlerRef.current); } catch { /* noop */ }
+        solarRenderHandlerRef.current = null;
+      }
       if (syncRafRef.current) window.cancelAnimationFrame(syncRafRef.current);
       if (motionRef.current.raf) window.cancelAnimationFrame(motionRef.current.raf);
       clearStyleRestoreTimers();
@@ -1128,6 +1233,25 @@ const OrbitalMap = forwardRef(function OrbitalMap({ rows, tracks, track, trackRe
       nativeRef.current = null;
     };
   }, []);
+
+  useLayoutEffect(() => {
+    const map = mapRef.current;
+    if (!map || bootstrapPresetAppliedRef.current) return;
+    if (!Number.isFinite(Number(observer?.lat)) || !Number.isFinite(Number(observer?.lon))) return;
+    const center = map.getCenter?.();
+    const stillBootstrapCamera = center
+      && Math.abs(Number(center.lng) - 20) < 0.001
+      && Math.abs(Number(center.lat) - 28) < 0.001;
+    // Do not overwrite a restored profile or a camera the operator already
+    // moved. Only replace the original hard-coded bootstrap view with the same
+    // observer-centered view used by the Reset button.
+    if (!stillBootstrapCamera) {
+      bootstrapPresetAppliedRef.current = true;
+      return;
+    }
+    bootstrapPresetAppliedRef.current = true;
+    applyViewPreset(map, stateRef.current.settings.globe ? 'globe' : (stateRef.current.settings.buildings ? 'city' : 'flat'));
+  }, [observer?.lat, observer?.lon]);
 
   // Label toggles are live UI controls, not style lifecycle events. Apply them
   // immediately and replay once after style.load only when MapLibre is in the
@@ -1388,7 +1512,11 @@ const OrbitalMap = forwardRef(function OrbitalMap({ rows, tracks, track, trackRe
       nativeRef.current?.invalidateProjection?.();
       window.requestAnimationFrame(() => { map.resize(); emitRuntime(map); });
     },
-    resize() { mapRef.current?.resize(); },
+    resize() {
+      const map = mapRef.current;
+      if (!map) return;
+      scheduleSpaceBackgroundSync(map, { resize: true });
+    },
   }), []);
 
   return <div ref={containerRef} className={`astris-map-native-canvas orbital-map ${settings.globe && settings.orbitalOverlay.enabled && settings.orbitalOverlay.spaceBackgroundMode !== 'off' ? 'is-space-orbit-bg is-space-synthetic' : ''}`} style={{ '--map-brightness': settings.brightness / 100 }} />;

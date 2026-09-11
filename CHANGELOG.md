@@ -1,5 +1,25 @@
 # Changelog
 
+## v0.2.2 — Sun Reset Parity Fix
+
+- restored the exact accepted v0.2.0/v0.1.12 synthetic-Sun distance formula used when the Reset camera state looked correct;
+- reverted the v0.2.1 projected-Earth-radius solar-distance experiment that pulled the Sun too close to the globe;
+- cold start now applies the same observer-centered camera preset as the Reset button once observer coordinates are available;
+- removed disclosure-state-driven multi-frame `map.resize()` calls from `AstrisMapWidget`;
+- added `ResizeObserver` on the actual MapLibre container so resize reconciliation happens only when the map content box truly changes;
+- Sun/starfield synchronization is deferred until the next MapLibre `render` after a resize, preventing old globe projection + new DOM size races;
+- retained the v0.2.1 panel typography fixes and all v0.2.0 MapLibre 6/WebGL2 architecture.
+
+## v0.2.1 — Sun/Layout Synchronization + Panel Typography
+
+- fixed the synthetic Sun jumping or becoming misaligned after opening panel disclosures, changing controls, or during the first responsive layout pass;
+- solar screen-space math now uses MapLibre's applied render viewport (`canvas.width / map.getPixelRatio()`) instead of the outer DOM container size;
+- tied Sun distance to the projected Earth radius so the Sun/Earth geometry remains invariant across responsive layout and zoom changes;
+- added post-resize and post-style-load Sun/starfield synchronization;
+- disclosure-panel layout changes now trigger controlled multi-frame `map.resize()` reconciliation;
+- normalized title/subtitle typography in `astris-map-native-panel`, fixing concatenated text in observer-marker and 3D-building status blocks;
+- retained MapLibre 6.9.0, WebGL2 orbital renderer, repository organization, provider failover, persistent cache and ASTRIS 5174/3101 port isolation.
+
 ## v0.2.0 — Repository Reorganization + MapLibre 6 Globe Renderer Migration
 
 - reorganized client, server, docs and validation files by responsibility;

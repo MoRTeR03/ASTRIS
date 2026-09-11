@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import {
   Crosshair,
   Download,
@@ -142,12 +142,6 @@ export default function AstrisMapWidget({
   const patchGrid = (value) => setSettings((current) => ({ ...current, graticule: { ...current.graticule, ...value } }));
   const setSection = (key, open) => setSettings((current) => ({ ...current, panelSections: { ...current.panelSections, [key]: open } }));
 
-  useEffect(() => {
-    const resize = () => mapRef.current?.resize?.();
-    const raf = window.requestAnimationFrame(resize);
-    const timer = window.setTimeout(resize, 230);
-    return () => { window.cancelAnimationFrame(raf); window.clearTimeout(timer); };
-  }, [settings.panelOpen]);
 
   const applyPreset = (key) => {
     setSettings((current) => {

@@ -1,361 +1,493 @@
 /* Stage UI-20.0 — native React MapLibre module */
 .astris-map-native {
-  --map-border: rgba(108, 126, 155, 0.17);
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-width: 0;
-  min-height: 100%;
-  height: 100%;
-  overflow: hidden;
-  color: #dbe5f2;
-  background: #05080f;
+    --map-border: rgba(108, 126, 155, 0.17);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    min-height: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: #dbe5f2;
+    background: #05080f;
 }
 
 .astris-map-native-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 13px 14px 10px;
-  border-bottom: 1px solid var(--map-border);
-  background: linear-gradient(180deg, rgba(16, 21, 34, 0.94), rgba(8, 11, 19, 0.86));
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 13px 14px 10px;
+    border-bottom: 1px solid var(--map-border);
+    background: linear-gradient(180deg, rgba(16, 21, 34, 0.94), rgba(8, 11, 19, 0.86));
 }
 
 .astris-map-native-head .module-kicker {
-  display: block;
-  color: #8f7bd1;
-  font-size: var(--type-nano, 8px);
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+    display: block;
+    color: #8f7bd1;
+    font-size: var(--type-nano, 8px);
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
 .astris-map-native-head h2 {
-  margin: 3px 0 2px;
-  color: #f3f5fb;
-  font-size: 16px;
-  line-height: 1.1;
+    margin: 3px 0 2px;
+    color: #f3f5fb;
+    font-size: 16px;
+    line-height: 1.1;
 }
 
 .astris-map-native-head p {
-  margin: 0;
-  color: #718097;
-  font-size: var(--type-micro, 9px);
+    margin: 0;
+    color: #718097;
+    font-size: var(--type-micro, 9px);
 }
 
 .astris-map-native-head-actions {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 7px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 7px;
 }
 
 .astris-map-native-head-actions .engine-state,
 .astris-map-native-head-actions button {
-  min-height: var(--control-height-xs, 29px);
-  padding: 0 9px;
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  border-radius: 9px;
-  color: #9eacc0;
-  background: rgba(4, 7, 13, 0.64);
-  font-size: var(--type-micro, 9px);
-  font-weight: 700;
+    min-height: var(--control-height-xs, 29px);
+    padding: 0 9px;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 9px;
+    color: #9eacc0;
+    background: rgba(4, 7, 13, 0.64);
+    font-size: var(--type-micro, 9px);
+    font-weight: 700;
 }
 
 .astris-map-native-head-actions .engine-state.ready {
-  color: #c8bbff;
-  border-color: rgba(139, 92, 246, 0.32);
+    color: #c8bbff;
+    border-color: rgba(139, 92, 246, 0.32);
 }
 
-.astris-map-native-head-actions .engine-state.error { color: #fca5a5; border-color: rgba(239, 68, 68, 0.3); }
-.astris-map-native-head-actions button { cursor: pointer; }
+.astris-map-native-head-actions .engine-state.error {
+    color: #fca5a5;
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.astris-map-native-head-actions button {
+    cursor: pointer;
+}
 
 .astris-map-native-strip {
-  display: grid;
-  grid-template-columns: minmax(145px, 0.85fr) minmax(400px, 3fr) auto;
-  align-items: stretch;
-  gap: 8px;
-  padding: 8px 10px;
-  border-bottom: 1px solid var(--map-border);
-  background: rgba(5, 8, 14, 0.97);
+    display: grid;
+    grid-template-columns: minmax(145px, 0.85fr) minmax(400px, 3fr) auto;
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--map-border);
+    background: rgba(5, 8, 14, 0.97);
 }
 
 .astris-map-native-status,
 .astris-map-native-metric {
-  min-width: 0;
-  padding: 7px 8px;
-  border: 1px solid rgba(148, 163, 184, 0.12);
-  border-radius: 10px;
-  background: rgba(13, 18, 29, 0.66);
+    min-width: 0;
+    padding: 7px 8px;
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 10px;
+    background: rgba(13, 18, 29, 0.66);
 }
 
 .astris-map-native-status small,
 .astris-map-native-metric small {
-  display: block;
-  color: #67768d;
-  font-size: var(--type-nano, 7px);
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+    display: block;
+    color: #67768d;
+    font-size: var(--type-nano, 7px);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .astris-map-native-status b,
 .astris-map-native-metric b {
-  display: block;
-  margin-top: 2px;
-  overflow: hidden;
-  color: #e5eaf4;
-  font-size: var(--type-caption, 10px);
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    display: block;
+    margin-top: 2px;
+    overflow: hidden;
+    color: #e5eaf4;
+    font-size: var(--type-caption, 10px);
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .astris-map-native-status span,
 .astris-map-native-metric span {
-  display: block;
-  margin-top: 2px;
-  overflow: hidden;
-  color: #708096;
-  font-size: var(--type-nano, 7.5px);
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    display: block;
+    margin-top: 2px;
+    overflow: hidden;
+    color: #708096;
+    font-size: var(--type-nano, 7.5px);
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.astris-map-native-status { border-left: 2px solid #8b5cf6; }
-.astris-map-native-strip.tone-ok .astris-map-native-status { border-left-color: #8b5cf6; }
-.astris-map-native-strip.tone-warn .astris-map-native-status { border-left-color: #f59e0b; }
-.astris-map-native-strip.tone-danger .astris-map-native-status { border-left-color: #ef4444; }
-.astris-map-native-metric.tone-ok b { color: #c4b5fd; }
-.astris-map-native-metric.tone-warn b { color: #fbbf24; }
-.astris-map-native-metric.tone-danger b { color: #fca5a5; }
+.astris-map-native-status {
+    border-left: 2px solid #8b5cf6;
+}
+
+.astris-map-native-strip.tone-ok .astris-map-native-status {
+    border-left-color: #8b5cf6;
+}
+
+.astris-map-native-strip.tone-warn .astris-map-native-status {
+    border-left-color: #f59e0b;
+}
+
+.astris-map-native-strip.tone-danger .astris-map-native-status {
+    border-left-color: #ef4444;
+}
+
+.astris-map-native-metric.tone-ok b {
+    color: #c4b5fd;
+}
+
+.astris-map-native-metric.tone-warn b {
+    color: #fbbf24;
+}
+
+.astris-map-native-metric.tone-danger b {
+    color: #fca5a5;
+}
 
 .astris-map-native-metrics {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(72px, 1fr));
-  gap: 6px;
-  min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(72px, 1fr));
+    gap: 6px;
+    min-width: 0;
 }
 
 .astris-map-native-quick-actions {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(76px, 1fr));
-  gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(76px, 1fr));
+    gap: 5px;
 }
 
 .astris-map-native-quick-actions button,
 .astris-map-native-floating-actions button {
-  border: 1px solid rgba(148, 163, 184, 0.15);
-  border-radius: 8px;
-  color: #8d9aae;
-  background: rgba(14, 19, 30, 0.72);
-  font-size: var(--type-nano, 8px);
-  font-weight: 700;
-  cursor: pointer;
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-radius: 8px;
+    color: #8d9aae;
+    background: rgba(14, 19, 30, 0.72);
+    font-size: var(--type-nano, 8px);
+    font-weight: 700;
+    cursor: pointer;
 }
 
 .astris-map-native-quick-actions button.active {
-  color: #d9d0ff;
-  border-color: rgba(139, 92, 246, 0.35);
-  background: rgba(124, 92, 255, 0.13);
+    color: #d9d0ff;
+    border-color: rgba(139, 92, 246, 0.35);
+    background: rgba(124, 92, 255, 0.13);
 }
 
 .astris-map-native-quick-actions button:disabled,
-.astris-map-native-floating-actions button:disabled { opacity: 0.42; cursor: not-allowed; }
-
-.astris-map-native-workbench {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 310px;
-  flex: 1 1 auto;
-  min-height: 370px;
-  overflow: hidden;
+.astris-map-native-floating-actions button:disabled {
+    opacity: 0.42;
+    cursor: not-allowed;
 }
 
-.astris-map-native.panel-closed .astris-map-native-workbench { grid-template-columns: minmax(0, 1fr); inline-size: 100%; }
-.astris-map-native.panel-closed .astris-map-native-panel { display: none; }
+.astris-map-native-workbench {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 310px;
+    flex: 1 1 auto;
+    min-height: 370px;
+    overflow: hidden;
+}
+
+.astris-map-native.panel-closed .astris-map-native-workbench {
+    grid-template-columns: minmax(0, 1fr);
+    inline-size: 100%;
+}
+
+.astris-map-native.panel-closed .astris-map-native-panel {
+    display: none;
+}
 
 .astris-map-native-stage {
-  position: relative;
-  min-width: 0;
-  min-height: 360px;
-  overflow: hidden;
-  background: #080c14;
+    position: relative;
+    min-width: 0;
+    min-height: 360px;
+    overflow: hidden;
+    background: #080c14;
 }
 
 .astris-map-native-canvas,
 .astris-map-native-canvas > .maplibregl-map {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .astris-map-native-loading {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 100%;
-  color: #748197;
-  font-size: var(--type-caption, 10px);
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    color: #748197;
+    font-size: var(--type-caption, 10px);
 }
 
-.astris-map-native.is-dim .astris-map-native-canvas { filter: brightness(0.84) saturate(0.88); }
+.astris-map-native.is-dim .astris-map-native-canvas {
+    filter: brightness(0.84) saturate(0.88);
+}
 
 .astris-map-native-grid {
-  position: absolute;
-  z-index: 4;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(139, 92, 246, 0.09) 1px, transparent 1px),
+    position: absolute;
+    z-index: 4;
+    inset: 0;
+    pointer-events: none;
+    background-image: linear-gradient(rgba(139, 92, 246, 0.09) 1px, transparent 1px),
     linear-gradient(90deg, rgba(139, 92, 246, 0.09) 1px, transparent 1px);
-  background-size: 46px 46px;
-  mask-image: radial-gradient(circle at center, #000 10%, transparent 85%);
+    background-size: 46px 46px;
+    mask-image: radial-gradient(circle at center, #000 10%, transparent 85%);
 }
 
 .astris-map-native-crosshair {
-  position: absolute;
-  z-index: 5;
-  top: 50%;
-  left: 50%;
-  width: 30px;
-  height: 30px;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
 }
 
 .astris-map-native-crosshair i,
-.astris-map-native-crosshair b { position: absolute; background: rgba(203, 213, 225, 0.64); }
-.astris-map-native-crosshair i { top: 14px; left: 0; width: 30px; height: 1px; }
-.astris-map-native-crosshair b { top: 0; left: 14px; width: 1px; height: 30px; }
+.astris-map-native-crosshair b {
+    position: absolute;
+    background: rgba(203, 213, 225, 0.64);
+}
+
+.astris-map-native-crosshair i {
+    top: 14px;
+    left: 0;
+    width: 30px;
+    height: 1px;
+}
+
+.astris-map-native-crosshair b {
+    top: 0;
+    left: 14px;
+    width: 1px;
+    height: 30px;
+}
 
 .astris-map-native-floating-actions {
-  position: absolute;
-  z-index: 8;
-  top: 12px;
-  right: 12px;
-  display: grid;
-  gap: 6px;
+    position: absolute;
+    z-index: 8;
+    top: 12px;
+    right: 12px;
+    display: grid;
+    gap: 6px;
 }
 
 .astris-map-native-floating-actions button {
-  width: 34px;
-  height: 34px;
-  font-size: 14px;
-  background: rgba(5, 8, 14, 0.84);
-  backdrop-filter: blur(10px);
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+    background: rgba(5, 8, 14, 0.84);
+    backdrop-filter: blur(10px);
 }
 
 .astris-map-native-coordinate-chip {
-  position: absolute;
-  z-index: 7;
-  right: 10px;
-  bottom: 9px;
-  max-width: calc(100% - 20px);
-  overflow: hidden;
-  padding: 5px 8px;
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  border-radius: 8px;
-  color: #8d9aae;
-  background: rgba(4, 7, 13, 0.76);
-  font: 700 8px/1.2 ui-monospace, SFMono-Regular, Consolas, monospace;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  backdrop-filter: blur(8px);
+    position: absolute;
+    z-index: 7;
+    right: 10px;
+    bottom: 9px;
+    max-width: calc(100% - 20px);
+    overflow: hidden;
+    padding: 5px 8px;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 8px;
+    color: #8d9aae;
+    background: rgba(4, 7, 13, 0.76);
+    font: 700 8px/1.2 ui-monospace, SFMono-Regular, Consolas, monospace;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    backdrop-filter: blur(8px);
 }
 
 .astris-map-native-panel {
-  min-width: 0;
-  overflow: auto;
-  border-left: 1px solid var(--map-border);
-  background: linear-gradient(180deg, rgba(10, 14, 23, 0.99), rgba(5, 8, 14, 0.99));
-  scrollbar-width: thin;
-  scrollbar-color: rgba(124, 92, 255, 0.28) transparent;
+    min-width: 0;
+    overflow: auto;
+    border-left: 1px solid var(--map-border);
+    background: linear-gradient(180deg, rgba(10, 14, 23, 0.99), rgba(5, 8, 14, 0.99));
+    scrollbar-width: thin;
+    scrollbar-color: rgba(124, 92, 255, 0.28) transparent;
 }
 
 .astris-map-native-panel > section {
-  padding: 11px;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    padding: 11px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
 }
 
 .control-section-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
 }
-.control-section-head b { display: block; color: #d9e0eb; font-size: var(--type-caption, 10px); }
-.control-section-head span { display: block; margin-top: 2px; color: #68768c; font-size: var(--type-nano, 7.5px); }
-.control-section-head > span { text-align: right; }
+
+.control-section-head b {
+    display: block;
+    color: #d9e0eb;
+    font-size: var(--type-caption, 10px);
+}
+
+.control-section-head span {
+    display: block;
+    margin-top: 2px;
+    color: #68768c;
+    font-size: var(--type-nano, 7.5px);
+}
+
+.control-section-head > span {
+    text-align: right;
+}
+
 .control-section-head .master {
-  min-width: 38px;
-  height: var(--control-target-min, 23px);
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  border-radius: 7px;
-  color: #77859a;
-  background: rgba(18, 24, 37, 0.7);
-  font-size: var(--type-nano, 8px);
-  font-weight: 800;
-  cursor: pointer;
+    min-width: 38px;
+    height: var(--control-target-min, 23px);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 7px;
+    color: #77859a;
+    background: rgba(18, 24, 37, 0.7);
+    font-size: var(--type-nano, 8px);
+    font-weight: 800;
+    cursor: pointer;
 }
-.control-section-head .master.active { color: #d8ccff; border-color: rgba(139, 92, 246, 0.4); background: rgba(124, 92, 255, 0.15); }
+
+.control-section-head .master.active {
+    color: #d8ccff;
+    border-color: rgba(139, 92, 246, 0.4);
+    background: rgba(124, 92, 255, 0.15);
+}
 
 .astris-map-native-layer-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 6px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
 }
 
 .astris-map-native-layer-grid button {
-  display: grid;
-  grid-template-columns: 39px 1fr;
-  align-items: center;
-  gap: 7px;
-  min-width: 0;
-  min-height: 44px;
-  padding: 5px;
-  border: 1px solid rgba(148, 163, 184, 0.12);
-  border-radius: 9px;
-  color: #8391a6;
-  text-align: left;
-  background: rgba(17, 22, 34, 0.6);
-  cursor: pointer;
+    display: grid;
+    grid-template-columns: 39px 1fr;
+    align-items: center;
+    gap: 7px;
+    min-width: 0;
+    min-height: 44px;
+    padding: 5px;
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 9px;
+    color: #8391a6;
+    text-align: left;
+    background: rgba(17, 22, 34, 0.6);
+    cursor: pointer;
 }
 
-.astris-map-native-layer-grid button.active { border-color: rgba(139, 92, 246, 0.43); background: rgba(124, 92, 255, 0.12); }
+.astris-map-native-layer-grid button.active {
+    border-color: rgba(139, 92, 246, 0.43);
+    background: rgba(124, 92, 255, 0.12);
+}
+
 .astris-map-native-layer-grid i {
-  display: grid;
-  place-items: center;
-  width: 37px;
-  height: 32px;
-  border-radius: 7px;
-  color: rgba(255, 255, 255, 0.86);
-  background: linear-gradient(145deg, #244667, #132538);
-  font-size: var(--type-nano, 7px);
-  font-style: normal;
-  font-weight: 900;
+    display: grid;
+    place-items: center;
+    width: 37px;
+    height: 32px;
+    border-radius: 7px;
+    color: rgba(255, 255, 255, 0.86);
+    background: linear-gradient(145deg, #244667, #132538);
+    font-size: var(--type-nano, 7px);
+    font-style: normal;
+    font-weight: 900;
 }
-.astris-map-native-layer-grid i.layer-cartoDark { background: linear-gradient(145deg, #252a35, #090b10); }
-.astris-map-native-layer-grid i.layer-cartoLight { color: #273448; background: linear-gradient(145deg, #eef2f7, #bfc9d5); }
-.astris-map-native-layer-grid i.layer-topo { background: linear-gradient(145deg, #577145, #283920); }
-.astris-map-native-layer-grid i.layer-esriSat { background: linear-gradient(145deg, #4e6242, #18281b); }
-.astris-map-native-layer-grid i.layer-esriTopo { background: linear-gradient(145deg, #8f7650, #423525); }
-.astris-map-native-layer-grid b { display: block; overflow: hidden; color: #c9d1de; font-size: var(--type-micro, 8.5px); text-overflow: ellipsis; white-space: nowrap; }
-.astris-map-native-layer-grid small { display: block; overflow: hidden; margin-top: 2px; color: #65748a; font-size: var(--type-nano, 6.5px); text-overflow: ellipsis; white-space: nowrap; }
 
-.astris-map-native-range { display: block; margin-top: 9px; }
-.astris-map-native-range > span { display: flex; justify-content: space-between; color: #7c899d; font-size: var(--type-nano, 8px); }
-.astris-map-native-range > span b { color: #9da9bb; font-weight: 600; }
-.astris-map-native-range > span i { color: #ad9cff; font-style: normal; font-weight: 700; }
-.astris-map-native-range input { width: 100%; height: 15px; margin: 3px 0 0; accent-color: #8b5cf6; }
+.astris-map-native-layer-grid i.layer-cartoDark {
+    background: linear-gradient(145deg, #252a35, #090b10);
+}
+
+.astris-map-native-layer-grid i.layer-cartoLight {
+    color: #273448;
+    background: linear-gradient(145deg, #eef2f7, #bfc9d5);
+}
+
+.astris-map-native-layer-grid i.layer-topo {
+    background: linear-gradient(145deg, #577145, #283920);
+}
+
+.astris-map-native-layer-grid i.layer-esriSat {
+    background: linear-gradient(145deg, #4e6242, #18281b);
+}
+
+.astris-map-native-layer-grid i.layer-esriTopo {
+    background: linear-gradient(145deg, #8f7650, #423525);
+}
+
+.astris-map-native-layer-grid b {
+    display: block;
+    overflow: hidden;
+    color: #c9d1de;
+    font-size: var(--type-micro, 8.5px);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.astris-map-native-layer-grid small {
+    display: block;
+    overflow: hidden;
+    margin-top: 2px;
+    color: #65748a;
+    font-size: var(--type-nano, 6.5px);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.astris-map-native-range {
+    display: block;
+    margin-top: 9px;
+}
+
+.astris-map-native-range > span {
+    display: flex;
+    justify-content: space-between;
+    color: #7c899d;
+    font-size: var(--type-nano, 8px);
+}
+
+.astris-map-native-range > span b {
+    color: #9da9bb;
+    font-weight: 600;
+}
+
+.astris-map-native-range > span i {
+    color: #ad9cff;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.astris-map-native-range input {
+    width: 100%;
+    height: 15px;
+    margin: 3px 0 0;
+    accent-color: #8b5cf6;
+}
 
 .astris-map-native-toggle-grid,
 .astris-map-native-sensor-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px;
 }
 
 .astris-map-native-toggle-grid button,
@@ -363,298 +495,394 @@
 .astris-map-native-mode-row button,
 .astris-map-native-preset-row button,
 .astris-map-native-clear {
-  min-width: 0;
-  min-height: 31px;
-  border: 1px solid rgba(148, 163, 184, 0.12);
-  border-radius: 8px;
-  color: #77869a;
-  background: rgba(16, 21, 32, 0.62);
-  font-size: var(--type-nano, 7px);
-  font-weight: 700;
-  cursor: pointer;
+    min-width: 0;
+    min-height: 31px;
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 8px;
+    color: #77869a;
+    background: rgba(16, 21, 32, 0.62);
+    font-size: var(--type-nano, 7px);
+    font-weight: 700;
+    cursor: pointer;
 }
 
-.astris-map-native-toggle-grid button span { display: block; color: #9785cd; font-size: var(--type-label, 11px); }
-.astris-map-native-toggle-grid button b { display: block; margin-top: 2px; font-size: var(--type-nano, 6.5px); }
+.astris-map-native-toggle-grid button span {
+    display: block;
+    color: #9785cd;
+    font-size: var(--type-label, 11px);
+}
+
+.astris-map-native-toggle-grid button b {
+    display: block;
+    margin-top: 2px;
+    font-size: var(--type-nano, 6.5px);
+}
+
 .astris-map-native-toggle-grid button.active,
-.astris-map-native-mode-row button.active { color: #d9d0ff; border-color: rgba(139, 92, 246, 0.38); background: rgba(124, 92, 255, 0.13); }
-
-.astris-map-native-sensor-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.astris-map-native-sensor-grid button {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 5px;
-  min-height: 27px;
-  padding: 0 6px;
-  text-align: left;
+.astris-map-native-mode-row button.active {
+    color: #d9d0ff;
+    border-color: rgba(139, 92, 246, 0.38);
+    background: rgba(124, 92, 255, 0.13);
 }
-.astris-map-native-sensor-grid button i { width: 6px; height: 6px; border-radius: 50%; background: #4b5563; }
-.astris-map-native-sensor-grid button.active { color: #dce3ef; border-color: color-mix(in srgb, var(--sensor-accent) 46%, transparent); }
-.astris-map-native-sensor-grid button.active i { background: var(--sensor-accent); box-shadow: 0 0 8px color-mix(in srgb, var(--sensor-accent) 70%, transparent); }
+
+.astris-map-native-sensor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.astris-map-native-sensor-grid button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    min-height: 27px;
+    padding: 0 6px;
+    text-align: left;
+}
+
+.astris-map-native-sensor-grid button i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4b5563;
+}
+
+.astris-map-native-sensor-grid button.active {
+    color: #dce3ef;
+    border-color: color-mix(in srgb, var(--sensor-accent) 46%, transparent);
+}
+
+.astris-map-native-sensor-grid button.active i {
+    background: var(--sensor-accent);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--sensor-accent) 70%, transparent);
+}
 
 .astris-map-native-preset-row,
 .astris-map-native-mode-row {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 5px;
-  margin-top: 8px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 5px;
+    margin-top: 8px;
 }
-.astris-map-native-mode-row { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 0; }
-.astris-map-native-preset-row button { min-height: 26px; }
-.astris-map-native-clear { width: 100%; margin-top: 7px; }
+
+.astris-map-native-mode-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 0;
+}
+
+.astris-map-native-preset-row button {
+    min-height: 26px;
+}
+
+.astris-map-native-clear {
+    width: 100%;
+    margin-top: 7px;
+}
 
 .astris-map-native-meta {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 7px 10px;
-  border-top: 1px solid var(--map-border);
-  color: #66758a;
-  background: rgba(4, 7, 13, 0.97);
-  font-size: var(--type-nano, 7.5px);
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 7px 10px;
+    border-top: 1px solid var(--map-border);
+    color: #66758a;
+    background: rgba(4, 7, 13, 0.97);
+    font-size: var(--type-nano, 7.5px);
 }
 
 /* MapLibre controls fit the operator shell. */
 .astris-map-native .maplibregl-ctrl-group {
-  overflow: hidden;
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  border-radius: 9px;
-  background: rgba(4, 7, 13, 0.78);
-  box-shadow: none;
-  backdrop-filter: blur(10px);
+    overflow: hidden;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 9px;
+    background: rgba(4, 7, 13, 0.78);
+    box-shadow: none;
+    backdrop-filter: blur(10px);
 }
-.astris-map-native .maplibregl-ctrl-group button { filter: invert(0.85); }
-.astris-map-native .maplibregl-ctrl-attrib { color: #77859b; background: rgba(4, 7, 13, 0.7); font-size: var(--type-nano, 7px); }
-.astris-map-native .maplibregl-ctrl-attrib a { color: #9987d4; }
+
+.astris-map-native .maplibregl-ctrl-group button {
+    filter: invert(0.85);
+}
+
+.astris-map-native .maplibregl-ctrl-attrib {
+    color: #77859b;
+    background: rgba(4, 7, 13, 0.7);
+    font-size: var(--type-nano, 7px);
+}
+
+.astris-map-native .maplibregl-ctrl-attrib a {
+    color: #9987d4;
+}
 
 @container (max-width: 980px) {
-  .astris-map-native-strip { grid-template-columns: 1fr; }
-  .astris-map-native-quick-actions { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .astris-map-native-workbench { grid-template-columns: minmax(0, 1fr) 270px; }
+    .astris-map-native-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .astris-map-native-quick-actions {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .astris-map-native-workbench {
+        grid-template-columns: minmax(0, 1fr) 270px;
+    }
 }
 
 @container (max-width: 720px) {
-  .astris-map-native-head { align-items: stretch; flex-direction: column; }
-  .astris-map-native-head-actions { justify-content: flex-start; }
-  .astris-map-native-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .astris-map-native-workbench { grid-template-columns: 1fr; overflow: auto; }
-  .astris-map-native-stage { min-height: 360px; }
-  .astris-map-native-panel { max-height: none; border-top: 1px solid var(--map-border); border-left: 0; }
-  .astris-map-native.panel-closed .astris-map-native-panel { display: none; }
+    .astris-map-native-head {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .astris-map-native-head-actions {
+        justify-content: flex-start;
+    }
+
+    .astris-map-native-metrics {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .astris-map-native-workbench {
+        grid-template-columns: 1fr;
+        overflow: auto;
+    }
+
+    .astris-map-native-stage {
+        min-height: 360px;
+    }
+
+    .astris-map-native-panel {
+        max-height: none;
+        border-top: 1px solid var(--map-border);
+        border-left: 0;
+    }
+
+    .astris-map-native.panel-closed .astris-map-native-panel {
+        display: none;
+    }
 }
 
 @container (max-width: 460px) {
-  .astris-map-native-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .astris-map-native-quick-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .astris-map-native-layer-grid { grid-template-columns: 1fr; }
-  .astris-map-native-meta { flex-direction: column; }
+    .astris-map-native-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .astris-map-native-quick-actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .astris-map-native-layer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .astris-map-native-meta {
+        flex-direction: column;
+    }
 }
 
 /* Stage UI-20.1 — responsive MapLibre globe / 3D operator console. */
 section.astris-map-native[data-astris-map-native="true"][data-astris-renderer="maplibre-native"] {
-  --map-font-2xs: clamp(9px, calc(0.20cqi + 7px), 13px);
-  --map-font-xs: clamp(10px, calc(0.28cqi + 7px), 15px);
-  --map-font-sm: clamp(11px, calc(0.38cqi + 7px), 18px);
-  --map-font-md: clamp(15px, calc(0.52cqi + 8px), 25px);
-  --map-font-lg: clamp(20px, calc(0.72cqi + 9px), 34px);
-  --map-control-h: clamp(34px, 2.4cqi, 48px);
-  --map-gap: clamp(6px, 0.65cqi, 12px);
-  --map-panel-width: clamp(310px, 23cqi, 430px);
-  container-type: inline-size;
-  color: #e9e9ed !important;
-  background: #000 !important;
+    --map-font-2xs: clamp(9px, calc(0.20cqi + 7px), 13px);
+    --map-font-xs: clamp(10px, calc(0.28cqi + 7px), 15px);
+    --map-font-sm: clamp(11px, calc(0.38cqi + 7px), 18px);
+    --map-font-md: clamp(15px, calc(0.52cqi + 8px), 25px);
+    --map-font-lg: clamp(20px, calc(0.72cqi + 9px), 34px);
+    --map-control-h: clamp(34px, 2.4cqi, 48px);
+    --map-gap: clamp(6px, 0.65cqi, 12px);
+    --map-panel-width: clamp(310px, 23cqi, 430px);
+    container-type: inline-size;
+    color: #e9e9ed !important;
+    background: #000 !important;
 }
 
 .astris-map-native-head {
-  gap: var(--map-gap) !important;
-  padding: clamp(10px, 0.85cqi, 16px) clamp(11px, 1cqi, 18px) !important;
-  border-bottom-color: var(--border) !important;
-  background: #09090b !important;
+    gap: var(--map-gap) !important;
+    padding: clamp(10px, 0.85cqi, 16px) clamp(11px, 1cqi, 18px) !important;
+    border-bottom-color: var(--border) !important;
+    background: #09090b !important;
 }
 
 .astris-map-native-head .module-kicker {
-  color: #8f8f98 !important;
-  font-size: var(--map-font-2xs) !important;
-  letter-spacing: 0.14em;
+    color: #8f8f98 !important;
+    font-size: var(--map-font-2xs) !important;
+    letter-spacing: 0.14em;
 }
 
 .astris-map-native-head h2 {
-  margin-top: 4px !important;
-  color: #fafafa !important;
-  font-size: var(--map-font-md) !important;
-  font-weight: 720;
-  letter-spacing: -0.035em;
+    margin-top: 4px !important;
+    color: #fafafa !important;
+    font-size: var(--map-font-md) !important;
+    font-weight: 720;
+    letter-spacing: -0.035em;
 }
 
 .astris-map-native-head p {
-  color: #85858e !important;
-  font-size: var(--map-font-xs) !important;
-  line-height: 1.35;
+    color: #85858e !important;
+    font-size: var(--map-font-xs) !important;
+    line-height: 1.35;
 }
 
 .astris-map-native-head-actions .engine-state,
 .astris-map-native-head-actions button {
-  min-height: var(--map-control-h) !important;
-  padding-inline: clamp(9px, 0.75cqi, 14px) !important;
-  border-color: var(--border) !important;
-  border-radius: 10px !important;
-  color: #a9a9b0 !important;
-  background: #111114 !important;
-  font-size: var(--map-font-xs) !important;
+    min-height: var(--map-control-h) !important;
+    padding-inline: clamp(9px, 0.75cqi, 14px) !important;
+    border-color: var(--border) !important;
+    border-radius: 10px !important;
+    color: #a9a9b0 !important;
+    background: #111114 !important;
+    font-size: var(--map-font-xs) !important;
 }
 
 .astris-map-native-head-actions .engine-state.ready {
-  color: #ddd6fe !important;
-  border-color: rgba(139, 92, 246, 0.32) !important;
+    color: #ddd6fe !important;
+    border-color: rgba(139, 92, 246, 0.32) !important;
 }
 
 .astris-map-native-strip {
-  grid-template-columns: minmax(175px, 0.8fr) minmax(480px, 3fr) auto !important;
-  gap: var(--map-gap) !important;
-  padding: clamp(7px, 0.6cqi, 11px) clamp(9px, 0.8cqi, 14px) !important;
-  border-bottom-color: var(--border) !important;
-  background: #050506 !important;
+    grid-template-columns: minmax(175px, 0.8fr) minmax(480px, 3fr) auto !important;
+    gap: var(--map-gap) !important;
+    padding: clamp(7px, 0.6cqi, 11px) clamp(9px, 0.8cqi, 14px) !important;
+    border-bottom-color: var(--border) !important;
+    background: #050506 !important;
 }
 
 .astris-map-native-status,
 .astris-map-native-metric {
-  padding: clamp(7px, 0.55cqi, 11px) !important;
-  border-color: var(--border) !important;
-  border-radius: 10px !important;
-  background: var(--map-card-background, #0d0d10) !important;
+    padding: clamp(7px, 0.55cqi, 11px) !important;
+    border-color: var(--border) !important;
+    border-radius: 10px !important;
+    background: var(--map-card-background, #0d0d10) !important;
 }
 
 .astris-map-native-status small,
 .astris-map-native-metric small {
-  color: #777781 !important;
-  font-size: var(--map-font-2xs) !important;
+    color: #777781 !important;
+    font-size: var(--map-font-2xs) !important;
 }
 
 .astris-map-native-status b,
 .astris-map-native-metric b {
-  color: var(--map-value-color, #f2f2f4) !important;
-  font-size: var(--map-font-sm) !important;
+    color: var(--map-value-color, #f2f2f4) !important;
+    font-size: var(--map-font-sm) !important;
 }
 
 .astris-map-native-status span,
 .astris-map-native-metric span {
-  color: #81818a !important;
-  font-size: var(--map-font-2xs) !important;
+    color: #81818a !important;
+    font-size: var(--map-font-2xs) !important;
 }
 
 .astris-map-native-metrics,
 .astris-map-native-quick-actions {
-  gap: max(5px, 0.45cqi) !important;
+    gap: max(5px, 0.45cqi) !important;
 }
 
 .astris-map-native-quick-actions button,
 .astris-map-native-floating-actions button {
-  border-color: var(--border) !important;
-  color: #b2b2ba !important;
-  background: rgba(14, 14, 17, 0.9) !important;
-  font-size: var(--map-font-xs) !important;
+    border-color: var(--border) !important;
+    color: #b2b2ba !important;
+    background: rgba(14, 14, 17, 0.9) !important;
+    font-size: var(--map-font-xs) !important;
 }
 
 .astris-map-native-quick-actions button.active {
-  color: #ede9fe !important;
-  border-color: rgba(139, 92, 246, 0.36) !important;
-  background: rgba(139, 92, 246, 0.16) !important;
+    color: #ede9fe !important;
+    border-color: rgba(139, 92, 246, 0.36) !important;
+    background: rgba(139, 92, 246, 0.16) !important;
 }
 
 .astris-map-native-workbench {
-  grid-template-columns: minmax(0, 1fr) var(--map-panel-width) !important;
-  position: relative;
-  flex: 1 1 clamp(360px, 48cqi, 780px);
-  min-height: 0 !important;
-  background: #000;
+    grid-template-columns: minmax(0, 1fr) var(--map-panel-width) !important;
+    position: relative;
+    flex: 1 1 clamp(360px, 48cqi, 780px);
+    min-height: 0 !important;
+    background: #000;
 }
 
 .astris-map-native-stage {
-  min-height: 0 !important;
-  background: #000 !important;
+    min-height: 0 !important;
+    background: #000 !important;
 }
 
 .astris-map-native-canvas {
-  filter: brightness(var(--map-brightness, 0.92));
-  transition: filter 180ms ease;
+    filter: brightness(var(--map-brightness, 0.92));
+    transition: filter 180ms ease;
 }
 
 .astris-map-native.is-dim .astris-map-native-canvas {
-  filter: brightness(calc(var(--map-brightness, 0.92) - 0.12)) saturate(0.9) !important;
+    filter: brightness(calc(var(--map-brightness, 0.92) - 0.12)) saturate(0.9) !important;
 }
 
 .astris-map-native.is-globe .astris-map-native-stage {
-  background: radial-gradient(circle at 50% 48%, #10101b, #000 68%) !important;
+    background: radial-gradient(circle at 50% 48%, #10101b, #000 68%) !important;
 }
 
 .astris-map-native-panel {
-  min-width: 0;
-  padding: clamp(7px, 0.58cqi, 11px);
-  border-left-color: var(--border) !important;
-  background: linear-gradient(180deg, rgba(15, 16, 21, .98), rgba(6, 7, 11, .995)) !important;
-  box-shadow: inset 1px 0 rgba(255,255,255,.025), inset 0 1px rgba(255,255,255,.018);
-  font-size: var(--map-font-xs) !important;
-  overscroll-behavior: contain;
-  scrollbar-gutter: stable;
+    min-width: 0;
+    padding: clamp(7px, 0.58cqi, 11px);
+    border-left-color: var(--border) !important;
+    background: linear-gradient(180deg, rgba(15, 16, 21, .98), rgba(6, 7, 11, .995)) !important;
+    box-shadow: inset 1px 0 rgba(255, 255, 255, .025), inset 0 1px rgba(255, 255, 255, .018);
+    font-size: var(--map-font-xs) !important;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
 }
 
 .astris-map-native-panel > section:not(.astris-map-panel-section) {
-  padding: clamp(11px, 0.9cqi, 17px) !important;
-  border-bottom-color: var(--border) !important;
+    padding: clamp(11px, 0.9cqi, 17px) !important;
+    border-bottom-color: var(--border) !important;
 }
 
 .control-section-head b {
-  color: #f1f1f3 !important;
-  font-size: var(--map-font-sm) !important;
+    color: #f1f1f3 !important;
+    font-size: var(--map-font-sm) !important;
 }
 
 .control-section-head span,
 .control-section-head small {
-  color: #76767f !important;
-  font-size: var(--map-font-2xs) !important;
+    color: #76767f !important;
+    font-size: var(--map-font-2xs) !important;
 }
 
 .astris-map-native-view-presets {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: max(6px, 0.5cqi);
-  margin-top: 9px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: max(6px, 0.5cqi);
+    margin-top: 9px;
 }
 
 .astris-map-native-view-presets button {
-  min-height: clamp(62px, 5.4cqi, 88px);
-  padding: clamp(8px, 0.7cqi, 12px);
-  border: 1px solid var(--border);
-  border-radius: 11px;
-  color: #dddde2;
-  background: #101012;
-  text-align: left;
-  cursor: pointer;
+    min-height: clamp(62px, 5.4cqi, 88px);
+    padding: clamp(8px, 0.7cqi, 12px);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    color: #dddde2;
+    background: #101012;
+    text-align: left;
+    cursor: pointer;
 }
 
 .astris-map-native-view-presets button:hover,
 .astris-map-native-view-presets button:focus-visible {
-  border-color: rgba(167, 139, 250, 0.4);
-  background: #17171b;
+    border-color: rgba(167, 139, 250, 0.4);
+    background: #17171b;
 }
 
 .astris-map-native-view-presets b {
-  display: block;
-  font-size: var(--map-font-sm);
+    display: block;
+    font-size: var(--map-font-sm);
 }
 
 .astris-map-native-view-presets small {
-  display: block;
-  margin-top: 4px;
-  color: #777780;
-  font-size: var(--map-font-2xs);
-  line-height: 1.25;
+    display: block;
+    margin-top: 4px;
+    color: #777780;
+    font-size: var(--map-font-2xs);
+    line-height: 1.25;
 }
 
 .astris-map-native-layer-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: max(6px, 0.5cqi) !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: max(6px, 0.5cqi) !important;
 }
 
 .astris-map-native-layer-grid button,
@@ -663,10 +891,10 @@ section.astris-map-native[data-astris-map-native="true"][data-astris-renderer="m
 .astris-map-native-mode-row button,
 .astris-map-native-preset-row button,
 .astris-map-native-clear {
-  border-color: var(--border) !important;
-  color: #a7a7af !important;
-  background: #101012 !important;
-  font-size: var(--map-font-xs) !important;
+    border-color: var(--border) !important;
+    color: #a7a7af !important;
+    background: #101012 !important;
+    font-size: var(--map-font-xs) !important;
 }
 
 .astris-map-native-layer-grid button:hover,
@@ -674,9 +902,9 @@ section.astris-map-native[data-astris-map-native="true"][data-astris-renderer="m
 .astris-map-native-sensor-grid button:hover,
 .astris-map-native-mode-row button:hover,
 .astris-map-native-preset-row button:hover {
-  border-color: rgba(255, 255, 255, 0.18) !important;
-  color: #fff !important;
-  background: #17171a !important;
+    border-color: rgba(255, 255, 255, 0.18) !important;
+    color: #fff !important;
+    background: #17171a !important;
 }
 
 .astris-map-native-layer-grid button.active,
@@ -684,775 +912,1264 @@ section.astris-map-native[data-astris-map-native="true"][data-astris-renderer="m
 .astris-map-native-sensor-grid button.active,
 .astris-map-native-mode-row button.active,
 .astris-map-native-panel .master.active {
-  color: #f5f3ff !important;
-  border-color: rgba(139, 92, 246, 0.45) !important;
-  background: rgba(139, 92, 246, 0.16) !important;
+    color: #f5f3ff !important;
+    border-color: rgba(139, 92, 246, 0.45) !important;
+    background: rgba(139, 92, 246, 0.16) !important;
 }
 
 .astris-map-native-layer-grid button > i {
-  min-width: clamp(44px, 4cqi, 64px) !important;
-  min-height: clamp(30px, 2.8cqi, 42px) !important;
-  font-size: var(--map-font-2xs) !important;
-  border-radius: 8px !important;
-  background: linear-gradient(145deg, #18181c, #08080a) !important;
+    min-width: clamp(44px, 4cqi, 64px) !important;
+    min-height: clamp(30px, 2.8cqi, 42px) !important;
+    font-size: var(--map-font-2xs) !important;
+    border-radius: 8px !important;
+    background: linear-gradient(145deg, #18181c, #08080a) !important;
 }
 
 .astris-map-native-layer-grid button > span b {
-  font-size: var(--map-font-xs) !important;
+    font-size: var(--map-font-xs) !important;
 }
 
 .astris-map-native-layer-grid button > span small {
-  color: #6f6f78 !important;
-  font-size: var(--map-font-2xs) !important;
+    color: #6f6f78 !important;
+    font-size: var(--map-font-2xs) !important;
 }
 
 .astris-map-native-range span b,
 .astris-map-native-range span i {
-  font-size: var(--map-font-xs) !important;
+    font-size: var(--map-font-xs) !important;
 }
 
 .astris-map-native-range input[type='range'] {
-  accent-color: #8b5cf6;
+    accent-color: #8b5cf6;
 }
 
 .astris-map-native-floating-actions {
-  top: clamp(9px, 0.8cqi, 16px) !important;
-  right: clamp(9px, 0.8cqi, 16px) !important;
+    top: clamp(9px, 0.8cqi, 16px) !important;
+    right: clamp(9px, 0.8cqi, 16px) !important;
 }
 
 .astris-map-native-floating-actions button {
-  width: clamp(36px, 3cqi, 48px) !important;
-  height: clamp(36px, 3cqi, 48px) !important;
-  border-radius: 10px !important;
-  font-size: clamp(15px, 1.2cqi, 22px) !important;
-  backdrop-filter: blur(14px);
+    width: clamp(36px, 3cqi, 48px) !important;
+    height: clamp(36px, 3cqi, 48px) !important;
+    border-radius: 10px !important;
+    font-size: clamp(15px, 1.2cqi, 22px) !important;
+    backdrop-filter: blur(14px);
 }
 
 .astris-map-native-coordinate-chip,
 .astris-map-native-meta {
-  color: #a0a0a8 !important;
-  border-color: var(--border) !important;
-  background: rgba(10, 10, 12, 0.88) !important;
-  font-size: var(--map-font-xs) !important;
+    color: #a0a0a8 !important;
+    border-color: var(--border) !important;
+    background: rgba(10, 10, 12, 0.88) !important;
+    font-size: var(--map-font-xs) !important;
 }
 
 .astris-map-native-grid {
-  background-size: clamp(36px, 3.6cqi, 62px) clamp(36px, 3.6cqi, 62px) !important;
-  background-image:
-    linear-gradient(rgba(139, 92, 246, 0.075) 1px, transparent 1px),
+    background-size: clamp(36px, 3.6cqi, 62px) clamp(36px, 3.6cqi, 62px) !important;
+    background-image: linear-gradient(rgba(139, 92, 246, 0.075) 1px, transparent 1px),
     linear-gradient(90deg, rgba(139, 92, 246, 0.075) 1px, transparent 1px) !important;
 }
 
 .astris-map-native-crosshair {
-  width: clamp(30px, 2.7cqi, 48px) !important;
-  height: clamp(30px, 2.7cqi, 48px) !important;
+    width: clamp(30px, 2.7cqi, 48px) !important;
+    height: clamp(30px, 2.7cqi, 48px) !important;
 }
 
 .astris-map-native .maplibregl-ctrl-group {
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: rgba(11, 11, 14, 0.9);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.38);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(11, 11, 14, 0.9);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.38);
 }
 
 .astris-map-native .maplibregl-ctrl-group button {
-  width: clamp(34px, 2.8cqi, 46px);
-  height: clamp(34px, 2.8cqi, 46px);
-  background-color: transparent;
+    width: clamp(34px, 2.8cqi, 46px);
+    height: clamp(34px, 2.8cqi, 46px);
+    background-color: transparent;
 }
 
 .astris-map-native .maplibregl-ctrl-scale,
 .astris-map-native .maplibregl-ctrl-attrib {
-  color: #b5b5bd;
-  border-color: var(--border);
-  background: rgba(8, 8, 10, 0.78);
-  font-size: var(--map-font-2xs);
-  backdrop-filter: blur(10px);
+    color: #b5b5bd;
+    border-color: var(--border);
+    background: rgba(8, 8, 10, 0.78);
+    font-size: var(--map-font-2xs);
+    backdrop-filter: blur(10px);
 }
 
 @container (min-width: 1500px) {
-  .astris-map-native-strip { grid-template-columns: minmax(220px, 0.8fr) minmax(620px, 3fr) auto !important; }
-  .astris-map-native-metrics { grid-template-columns: repeat(5, minmax(100px, 1fr)) !important; }
-  .astris-map-native-panel { padding-bottom: 8px; }
+    .astris-map-native-strip {
+        grid-template-columns: minmax(220px, 0.8fr) minmax(620px, 3fr) auto !important;
+    }
+
+    .astris-map-native-metrics {
+        grid-template-columns: repeat(5, minmax(100px, 1fr)) !important;
+    }
+
+    .astris-map-native-panel {
+        padding-bottom: 8px;
+    }
 }
 
 @container (max-width: 980px) {
-  .astris-map-native-strip { grid-template-columns: 1fr !important; }
-  .astris-map-native-quick-actions { grid-template-columns: repeat(4, 1fr) !important; }
-  .astris-map-native-workbench { grid-template-columns: minmax(0, 1fr) !important; }
-  .astris-map-native-panel { position: absolute; z-index: 20; inset: 0 0 0 auto; width: min(420px, 94%); box-shadow: -24px 0 70px rgba(0,0,0,.72); }
-  .astris-map-native.panel-closed .astris-map-native-panel { display: none; }
+    .astris-map-native-strip {
+        grid-template-columns: 1fr !important;
+    }
+
+    .astris-map-native-quick-actions {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    .astris-map-native-workbench {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    .astris-map-native-panel {
+        position: absolute;
+        z-index: 20;
+        inset: 0 0 0 auto;
+        width: min(420px, 94%);
+        box-shadow: -24px 0 70px rgba(0, 0, 0, .72);
+    }
+
+    .astris-map-native.panel-closed .astris-map-native-panel {
+        display: none;
+    }
 }
 
 @container (max-width: 620px) {
-  .astris-map-native-head { flex-direction: column; }
-  .astris-map-native-head-actions { width: 100%; justify-content: flex-start !important; }
-  .astris-map-native-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-  .astris-map-native-quick-actions { grid-template-columns: repeat(2, 1fr) !important; }
-  .astris-map-native-view-presets,
-  .astris-map-native-layer-grid { grid-template-columns: 1fr !important; }
+    .astris-map-native-head {
+        flex-direction: column;
+    }
+
+    .astris-map-native-head-actions {
+        width: 100%;
+        justify-content: flex-start !important;
+    }
+
+    .astris-map-native-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .astris-map-native-quick-actions {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .astris-map-native-view-presets,
+    .astris-map-native-layer-grid {
+        grid-template-columns: 1fr !important;
+    }
 }
 
 .astris-map-native.layout-compact .astris-map-native-head {
-  padding-block: 7px;
+    padding-block: 7px;
 }
 
 .astris-map-native.layout-compact .astris-map-native-head p,
 .astris-map-native.layout-compact .astris-map-native-status span,
 .astris-map-native.layout-compact .astris-map-native-metric span {
-  display: none;
+    display: none;
 }
 
 .astris-map-native.layout-compact .astris-map-native-strip {
-  padding-block: 5px;
+    padding-block: 5px;
 }
 
 .astris-map-native.layout-compact .astris-map-native-status,
 .astris-map-native.layout-compact .astris-map-native-metric {
-  padding-block: 5px;
+    padding-block: 5px;
 }
 
 .astris-map-native.layout-spacious .astris-map-native-workbench {
-  flex-basis: clamp(520px, 56cqi, 980px);
+    flex-basis: clamp(520px, 56cqi, 980px);
 }
 
 /* MAP-2.4 — new 3D material controls. Existing card selectors are refined in stabilization-ui21-4-1.css. */
 .astris-map-building-material-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
 }
 
 .astris-map-building-material-grid label {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  gap: 5px;
-  color: #aab4c3;
-  font-weight: 700;
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 5px;
+    color: #aab4c3;
+    font-weight: 700;
 }
 
 .astris-map-building-material-grid select {
-  width: 100%;
-  min-height: 38px;
-  padding: 0 10px;
-  color-scheme: dark;
-  border: 1px solid #3b4452;
-  border-radius: 9px;
-  color: #eef2f7;
-  background: #0d1117;
-  box-shadow: inset 0 1px rgba(255, 255, 255, .035);
+    width: 100%;
+    min-height: 38px;
+    padding: 0 10px;
+    color-scheme: dark;
+    border: 1px solid #3b4452;
+    border-radius: 9px;
+    color: #eef2f7;
+    background: #0d1117;
+    box-shadow: inset 0 1px rgba(255, 255, 255, .035);
 }
 
 .astris-map-building-material-grid select:hover,
 .astris-map-building-material-grid select:focus {
-  border-color: rgba(125, 211, 252, .48);
-  background: #151b24;
-  outline: none;
+    border-color: rgba(125, 211, 252, .48);
+    background: #151b24;
+    outline: none;
 }
 
 .astris-map-building-material-grid option {
-  color: #f8fafc;
-  background: #0d1117;
+    color: #f8fafc;
+    background: #0d1117;
 }
 
 @media (max-width: 680px) {
-  .astris-map-building-material-grid {
-    grid-template-columns: 1fr;
-  }
+    .astris-map-building-material-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* MAP-2.5 — Vector Standard owns its native 3D layer. */
 .astris-map-native-toggle-grid button.is-locked,
 .astris-map-native-toggle-grid button:disabled {
-  cursor: not-allowed;
-  opacity: .72;
-  border-color: rgba(125, 211, 252, .24);
-  background: rgba(14, 116, 144, .08);
+    cursor: not-allowed;
+    opacity: .72;
+    border-color: rgba(125, 211, 252, .24);
+    background: rgba(14, 116, 144, .08);
 }
 
 .astris-map-native-toggle-grid button.is-locked small {
-  display: block;
-  margin-top: 2px;
-  color: #7dd3fc;
-  font-size: var(--map-font-xs, .72rem);
-  font-weight: 800;
-  letter-spacing: .04em;
-  text-transform: uppercase;
+    display: block;
+    margin-top: 2px;
+    color: #7dd3fc;
+    font-size: var(--map-font-xs, .72rem);
+    font-weight: 800;
+    letter-spacing: .04em;
+    text-transform: uppercase;
 }
 
 .astris-map-building-controls.is-native-style {
-  border-color: rgba(125, 211, 252, .22);
-  background: linear-gradient(180deg, rgba(14, 116, 144, .075), rgba(15, 23, 42, .82));
+    border-color: rgba(125, 211, 252, .22);
+    background: linear-gradient(180deg, rgba(14, 116, 144, .075), rgba(15, 23, 42, .82));
 }
 
 .astris-map-native-building-lock {
-  display: grid;
-  gap: 7px;
-  padding: 11px;
-  border: 1px solid rgba(125, 211, 252, .16);
-  border-radius: 10px;
-  background: rgba(2, 6, 23, .42);
+    display: grid;
+    gap: 7px;
+    padding: 11px;
+    border: 1px solid rgba(125, 211, 252, .16);
+    border-radius: 10px;
+    background: rgba(2, 6, 23, .42);
 }
 
-.astris-map-native-building-lock b { color: #e0f2fe; }
-.astris-map-native-building-lock span { color: #94a3b8; font-size: var(--map-font-sm, .8rem); line-height: 1.45; }
-.astris-map-native-building-lock button { justify-self: start; }
+.astris-map-native-building-lock b {
+    color: #e0f2fe;
+}
+
+.astris-map-native-building-lock span {
+    color: #94a3b8;
+    font-size: var(--map-font-sm, .8rem);
+    line-height: 1.45;
+}
+
+.astris-map-native-building-lock button {
+    justify-self: start;
+}
 
 .astris-map-orbital-controls .astris-map-orbital-status {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.45rem;
-  margin: 0.65rem 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.45rem;
+    margin: 0.65rem 0;
 }
 
 .astris-map-orbital-status > span {
-  display: grid;
-  min-width: 0;
-  padding: 0.55rem 0.45rem;
-  border: 1px solid color-mix(in srgb, var(--border, #334155) 72%, transparent);
-  border-radius: 0.75rem;
-  background: color-mix(in srgb, var(--panel, #0f172a) 88%, transparent);
-  text-align: center;
+    display: grid;
+    min-width: 0;
+    padding: 0.55rem 0.45rem;
+    border: 1px solid color-mix(in srgb, var(--border, #334155) 72%, transparent);
+    border-radius: 0.75rem;
+    background: color-mix(in srgb, var(--panel, #0f172a) 88%, transparent);
+    text-align: center;
 }
 
 .astris-map-orbital-status b {
-  color: var(--text-strong, #f8fafc);
-  font-size: 0.95rem;
-  line-height: 1;
+    color: var(--text-strong, #f8fafc);
+    font-size: 0.95rem;
+    line-height: 1;
 }
 
 .astris-map-orbital-status small {
-  margin-top: 0.3rem;
-  color: var(--text-muted, #94a3b8);
-  font-size: 0.66rem;
+    margin-top: 0.3rem;
+    color: var(--text-muted, #94a3b8);
+    font-size: 0.66rem;
 }
 
 .astris-map-orbital-options,
 .astris-map-orbital-constellations {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin: 0.55rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.55rem 0;
 }
 
 .astris-map-orbital-options button,
 .astris-map-orbital-constellations button {
-  flex: 1 1 auto;
-  min-width: 4.5rem;
+    flex: 1 1 auto;
+    min-width: 4.5rem;
 }
 
 .astris-map-orbital-error {
-  margin: 0.45rem 0;
-  padding: 0.55rem 0.65rem;
-  border: 1px solid rgba(248, 113, 113, 0.42);
-  border-radius: 0.7rem;
-  background: rgba(127, 29, 29, 0.22);
-  color: #fecaca;
+    margin: 0.45rem 0;
+    padding: 0.55rem 0.65rem;
+    border: 1px solid rgba(248, 113, 113, 0.42);
+    border-radius: 0.7rem;
+    background: rgba(127, 29, 29, 0.22);
+    color: #fecaca;
 }
 
 .astris-map-orbital-controls > p:last-child {
-  margin: 0.6rem 0 0;
-  color: var(--text-muted, #94a3b8);
-  font-size: 0.72rem;
-  line-height: 1.45;
+    margin: 0.6rem 0 0;
+    color: var(--text-muted, #94a3b8);
+    font-size: 0.72rem;
+    line-height: 1.45;
 }
 
 @media (max-width: 56rem) {
-  .astris-map-orbital-controls .astris-map-orbital-status {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+    .astris-map-orbital-controls .astris-map-orbital-status {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 
 /* SAT-3.1 — 3D-only orbital scene, explicit filters and picked-satellite UI. */
 .astris-map-orbital-mode-lock {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: center;
-  gap: .65rem;
-  margin: .65rem 0;
-  padding: .65rem .75rem;
-  border: 1px solid color-mix(in srgb, #8b5cf6 38%, transparent);
-  border-radius: .8rem;
-  background: linear-gradient(135deg, rgba(76,29,149,.18), rgba(15,23,42,.72));
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: .65rem;
+    margin: .65rem 0;
+    padding: .65rem .75rem;
+    border: 1px solid color-mix(in srgb, #8b5cf6 38%, transparent);
+    border-radius: .8rem;
+    background: linear-gradient(135deg, rgba(76, 29, 149, .18), rgba(15, 23, 42, .72));
 }
+
 .astris-map-orbital-mode-lock > span {
-  padding: .35rem .55rem;
-  border: 1px solid rgba(196,181,253,.32);
-  border-radius: 999px;
-  color: #ede9fe;
-  background: rgba(139,92,246,.16);
-  font-size: .72rem;
-  font-weight: 850;
-  letter-spacing: .04em;
-  white-space: nowrap;
+    padding: .35rem .55rem;
+    border: 1px solid rgba(196, 181, 253, .32);
+    border-radius: 999px;
+    color: #ede9fe;
+    background: rgba(139, 92, 246, .16);
+    font-size: .72rem;
+    font-weight: 850;
+    letter-spacing: .04em;
+    white-space: nowrap;
 }
-.astris-map-orbital-mode-lock small { color: #a7adbb; font-size: .68rem; line-height: 1.35; }
+
+.astris-map-orbital-mode-lock small {
+    color: #a7adbb;
+    font-size: .68rem;
+    line-height: 1.35;
+}
 
 .astris-map-orbital-constellations {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: .42rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .42rem;
 }
+
 .astris-map-orbital-constellations button {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
-  gap: .45rem;
-  min-width: 0;
-  padding: .52rem .58rem;
-  border: 1px solid rgba(148,163,184,.14);
-  border-radius: .72rem;
-  color: #7f8796;
-  background: rgba(8,12,22,.72);
-  text-align: left;
-  opacity: .58;
-  transition: border-color 140ms ease, background 140ms ease, opacity 140ms ease, transform 140ms ease;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: .45rem;
+    min-width: 0;
+    padding: .52rem .58rem;
+    border: 1px solid rgba(148, 163, 184, .14);
+    border-radius: .72rem;
+    color: #7f8796;
+    background: rgba(8, 12, 22, .72);
+    text-align: left;
+    opacity: .58;
+    transition: border-color 140ms ease, background 140ms ease, opacity 140ms ease, transform 140ms ease;
 }
-.astris-map-orbital-constellations button:hover { transform: translateY(-1px); opacity: .82; }
+
+.astris-map-orbital-constellations button:hover {
+    transform: translateY(-1px);
+    opacity: .82;
+}
+
 .astris-map-orbital-constellations button > i {
-  width: .68rem;
-  height: .68rem;
-  border: 1px solid color-mix(in srgb, var(--constellation-color) 66%, #fff 8%);
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--constellation-color) 22%, transparent);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--constellation-color) 8%, transparent);
+    width: .68rem;
+    height: .68rem;
+    border: 1px solid color-mix(in srgb, var(--constellation-color) 66%, #fff 8%);
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--constellation-color) 22%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--constellation-color) 8%, transparent);
 }
-.astris-map-orbital-constellations button > span { min-width: 0; overflow: hidden; font-size: .68rem; font-weight: 780; text-overflow: ellipsis; white-space: nowrap; }
+
+.astris-map-orbital-constellations button > span {
+    min-width: 0;
+    overflow: hidden;
+    font-size: .68rem;
+    font-weight: 780;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .astris-map-orbital-constellations button > b {
-  min-width: 1.65rem;
-  padding: .16rem .36rem;
-  border-radius: 999px;
-  color: #9ca3af;
-  background: rgba(148,163,184,.08);
-  font-size: .66rem;
-  text-align: center;
+    min-width: 1.65rem;
+    padding: .16rem .36rem;
+    border-radius: 999px;
+    color: #9ca3af;
+    background: rgba(148, 163, 184, .08);
+    font-size: .66rem;
+    text-align: center;
 }
+
 .astris-map-orbital-constellations button.active {
-  border-color: color-mix(in srgb, var(--constellation-color) 58%, transparent);
-  color: #f8fafc;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--constellation-color) 17%, #090d17), rgba(10,14,24,.92));
-  box-shadow: inset 3px 0 0 var(--constellation-color), 0 0 20px color-mix(in srgb, var(--constellation-color) 8%, transparent);
-  opacity: 1;
+    border-color: color-mix(in srgb, var(--constellation-color) 58%, transparent);
+    color: #f8fafc;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--constellation-color) 17%, #090d17), rgba(10, 14, 24, .92));
+    box-shadow: inset 3px 0 0 var(--constellation-color), 0 0 20px color-mix(in srgb, var(--constellation-color) 8%, transparent);
+    opacity: 1;
 }
-.astris-map-orbital-constellations button.active > i { background: var(--constellation-color); box-shadow: 0 0 12px color-mix(in srgb, var(--constellation-color) 52%, transparent); }
-.astris-map-orbital-constellations button.active > b { color: var(--constellation-color); background: color-mix(in srgb, var(--constellation-color) 12%, transparent); }
+
+.astris-map-orbital-constellations button.active > i {
+    background: var(--constellation-color);
+    box-shadow: 0 0 12px color-mix(in srgb, var(--constellation-color) 52%, transparent);
+}
+
+.astris-map-orbital-constellations button.active > b {
+    color: var(--constellation-color);
+    background: color-mix(in srgb, var(--constellation-color) 12%, transparent);
+}
 
 .astris-map-orbital-filter-summary {
-  display: grid;
-  gap: .18rem;
-  margin: .48rem 0 .65rem;
-  padding: .52rem .62rem;
-  border-left: 3px solid #8b5cf6;
-  border-radius: .28rem .7rem .7rem .28rem;
-  background: rgba(139,92,246,.07);
+    display: grid;
+    gap: .18rem;
+    margin: .48rem 0 .65rem;
+    padding: .52rem .62rem;
+    border-left: 3px solid #8b5cf6;
+    border-radius: .28rem .7rem .7rem .28rem;
+    background: rgba(139, 92, 246, .07);
 }
-.astris-map-orbital-filter-summary small { color: #7f8796; font-size: .62rem; }
-.astris-map-orbital-filter-summary b { color: #ddd6fe; font-size: .68rem; line-height: 1.35; overflow-wrap: anywhere; }
+
+.astris-map-orbital-filter-summary small {
+    color: #7f8796;
+    font-size: .62rem;
+}
+
+.astris-map-orbital-filter-summary b {
+    color: #ddd6fe;
+    font-size: .68rem;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
 
 .astris-map-orbital-selected-card {
-  display: grid;
-  gap: .62rem;
-  margin: .65rem 0;
-  padding: .72rem;
-  border: 1px solid color-mix(in srgb, var(--constellation-color) 52%, transparent);
-  border-radius: .9rem;
-  background: linear-gradient(145deg, color-mix(in srgb, var(--constellation-color) 14%, #090d17), rgba(8,12,21,.96));
-  box-shadow: inset 3px 0 0 var(--constellation-color), 0 16px 36px rgba(0,0,0,.22);
+    display: grid;
+    gap: .62rem;
+    margin: .65rem 0;
+    padding: .72rem;
+    border: 1px solid color-mix(in srgb, var(--constellation-color) 52%, transparent);
+    border-radius: .9rem;
+    background: linear-gradient(145deg, color-mix(in srgb, var(--constellation-color) 14%, #090d17), rgba(8, 12, 21, .96));
+    box-shadow: inset 3px 0 0 var(--constellation-color), 0 16px 36px rgba(0, 0, 0, .22);
 }
-.astris-map-orbital-selected-card > div:first-child { display: grid; gap: .18rem; }
-.astris-map-orbital-selected-card small { color: #8e96a5; font-size: .62rem; }
-.astris-map-orbital-selected-card b { color: #fff; font-size: .92rem; }
-.astris-map-orbital-selected-card span { color: var(--constellation-color); font-size: .65rem; font-weight: 760; }
-.astris-map-orbital-selected-card dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .4rem; margin: 0; }
-.astris-map-orbital-selected-card dl > div { min-width: 0; padding: .45rem; border: 1px solid rgba(255,255,255,.06); border-radius: .62rem; background: rgba(255,255,255,.025); }
-.astris-map-orbital-selected-card dt { color: #747d8d; font-size: .58rem; }
-.astris-map-orbital-selected-card dd { margin: .15rem 0 0; color: #e5e7eb; font-size: .7rem; font-weight: 760; }
-.astris-map-orbital-selected-card > button { justify-self: start; padding: .38rem .58rem; border: 1px solid rgba(255,255,255,.1); border-radius: .58rem; color: #cbd5e1; background: rgba(255,255,255,.04); font-size: .64rem; }
+
+.astris-map-orbital-selected-card > div:first-child {
+    display: grid;
+    gap: .18rem;
+}
+
+.astris-map-orbital-selected-card small {
+    color: #8e96a5;
+    font-size: .62rem;
+}
+
+.astris-map-orbital-selected-card b {
+    color: #fff;
+    font-size: .92rem;
+}
+
+.astris-map-orbital-selected-card span {
+    color: var(--constellation-color);
+    font-size: .65rem;
+    font-weight: 760;
+}
+
+.astris-map-orbital-selected-card dl {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .4rem;
+    margin: 0;
+}
+
+.astris-map-orbital-selected-card dl > div {
+    min-width: 0;
+    padding: .45rem;
+    border: 1px solid rgba(255, 255, 255, .06);
+    border-radius: .62rem;
+    background: rgba(255, 255, 255, .025);
+}
+
+.astris-map-orbital-selected-card dt {
+    color: #747d8d;
+    font-size: .58rem;
+}
+
+.astris-map-orbital-selected-card dd {
+    margin: .15rem 0 0;
+    color: #e5e7eb;
+    font-size: .7rem;
+    font-weight: 760;
+}
+
+.astris-map-orbital-selected-card > button {
+    justify-self: start;
+    padding: .38rem .58rem;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: .58rem;
+    color: #cbd5e1;
+    background: rgba(255, 255, 255, .04);
+    font-size: .64rem;
+}
 
 .astris-map-orbital-pick-hint {
-  margin: .58rem 0;
-  padding: .58rem .65rem;
-  border: 1px dashed rgba(148,163,184,.18);
-  border-radius: .72rem;
-  color: #7e8797;
-  background: rgba(15,23,42,.32);
-  font-size: .65rem;
-  line-height: 1.4;
+    margin: .58rem 0;
+    padding: .58rem .65rem;
+    border: 1px dashed rgba(148, 163, 184, .18);
+    border-radius: .72rem;
+    color: #7e8797;
+    background: rgba(15, 23, 42, .32);
+    font-size: .65rem;
+    line-height: 1.4;
 }
+
 @media (max-width: 38rem) {
-  .astris-map-orbital-mode-lock { grid-template-columns: 1fr; }
-  .astris-map-orbital-constellations { grid-template-columns: 1fr; }
-  .astris-map-orbital-selected-card dl { grid-template-columns: 1fr; }
+    .astris-map-orbital-mode-lock {
+        grid-template-columns: 1fr;
+    }
+
+    .astris-map-orbital-constellations {
+        grid-template-columns: 1fr;
+    }
+
+    .astris-map-orbital-selected-card dl {
+        grid-template-columns: 1fr;
+    }
 }
 
 .astris-map-orbital-selected-card > button.active {
-  border-color: rgba(96,165,250,.7);
-  color: #dbeafe;
-  background: rgba(37,99,235,.18);
+    border-color: rgba(96, 165, 250, .7);
+    color: #dbeafe;
+    background: rgba(37, 99, 235, .18);
 }
 
 /* ASTRIS orbital control scaling, adapted from the stable SAT-3.6 map console. */
 section.astris-map-native[data-astris-map-native="true"] {
-  --sat36-control-font: clamp(.67rem, .61rem + .22cqi, .84rem);
-  --sat36-caption-font: clamp(.61rem, .56rem + .18cqi, .75rem);
+    --sat36-control-font: clamp(.67rem, .61rem + .22cqi, .84rem);
+    --sat36-caption-font: clamp(.61rem, .56rem + .18cqi, .75rem);
 }
+
 section.astris-map-native[data-astris-map-native="true"] .astris-map-native-workbench {
-  grid-template-columns: minmax(0, 1fr) clamp(310px, 23cqi, 390px);
+    grid-template-columns: minmax(0, 1fr) clamp(310px, 23cqi, 390px);
 }
+
 section.astris-map-native[data-astris-map-native="true"] .astris-map-native-panel {
-  min-width: 0;
-  container-type: inline-size;
+    min-width: 0;
+    container-type: inline-size;
 }
+
 section.astris-map-native[data-astris-map-native="true"] .astris-map-native-panel button,
 section.astris-map-native[data-astris-map-native="true"] .astris-map-native-panel select,
 section.astris-map-native[data-astris-map-native="true"] .astris-map-native-panel input,
 section.astris-map-native[data-astris-map-native="true"] .astris-map-native-panel label,
 section.astris-map-native[data-astris-map-native="true"] .astris-map-native-panel p {
-  font-size: var(--sat36-control-font);
+    font-size: var(--sat36-control-font);
 }
+
 section.astris-map-native[data-astris-map-native="true"] .astris-map-native-panel small,
 section.astris-map-native[data-astris-map-native="true"] .astris-map-native-panel .astris-map-space-attribution {
-  font-size: var(--sat36-caption-font);
-  line-height: 1.42;
+    font-size: var(--sat36-caption-font);
+    line-height: 1.42;
 }
+
 section.astris-map-native[data-astris-map-native="true"] .astris-map-native-panel button,
 section.astris-map-native[data-astris-map-native="true"] .astris-map-native-panel select {
-  min-height: 40px;
+    min-height: 40px;
 }
+
 section.astris-map-native[data-astris-map-native="true"] .astris-map-native-panel button,
 section.astris-map-native[data-astris-map-native="true"] .astris-map-native-panel label,
 section.astris-map-native[data-astris-map-native="true"] .astris-map-native-panel span,
 section.astris-map-native[data-astris-map-native="true"] .astris-map-native-panel small,
 section.astris-map-native[data-astris-map-native="true"] .astris-map-native-panel p,
 section.astris-map-native[data-astris-map-native="true"] .astris-map-native-panel b {
-  min-width: 0;
-  overflow-wrap: anywhere;
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
+
 section.astris-map-native[data-astris-map-native="true"] .astris-map-orbital-controls .astris-map-orbital-status {
-  grid-template-columns: repeat(auto-fit, minmax(82px, 1fr));
-  gap: 7px;
+    grid-template-columns: repeat(auto-fit, minmax(82px, 1fr));
+    gap: 7px;
 }
+
 section.astris-map-native[data-astris-map-native="true"] .astris-map-orbital-status > span {
-  min-height: 62px;
-  padding: 9px 8px;
+    min-height: 62px;
+    padding: 9px 8px;
 }
+
 section.astris-map-native[data-astris-map-native="true"] .astris-map-orbital-status b {
-  font-size: clamp(.88rem, .76rem + .4cqi, 1.16rem);
+    font-size: clamp(.88rem, .76rem + .4cqi, 1.16rem);
 }
+
 section.astris-map-native[data-astris-map-native="true"] .astris-map-orbital-status small {
-  font-size: clamp(.59rem, .54rem + .16cqi, .71rem);
-  line-height: 1.3;
+    font-size: clamp(.59rem, .54rem + .16cqi, .71rem);
+    line-height: 1.3;
 }
+
 section.astris-map-native[data-astris-map-native="true"] .astris-map-orbital-warning {
-  margin: 7px 0;
-  padding: 8px 10px;
-  border: 1px solid rgba(245,158,11,.38);
-  border-radius: 10px;
-  color: #fde68a;
-  background: rgba(245,158,11,.075);
-  font-size: var(--sat36-caption-font);
-  line-height: 1.4;
+    margin: 7px 0;
+    padding: 8px 10px;
+    border: 1px solid rgba(245, 158, 11, .38);
+    border-radius: 10px;
+    color: #fde68a;
+    background: rgba(245, 158, 11, .075);
+    font-size: var(--sat36-caption-font);
+    line-height: 1.4;
 }
+
 section.astris-map-native[data-astris-map-native="true"] .astris-map-orbital-options,
 section.astris-map-native[data-astris-map-native="true"] .astris-map-space-background-options {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+
 section.astris-map-native[data-astris-map-native="true"] .astris-map-orbital-options button,
 section.astris-map-native[data-astris-map-native="true"] .astris-map-space-background-options button {
-  min-height: 42px;
-  padding: 9px 10px;
-  font-size: var(--sat36-control-font);
+    min-height: 42px;
+    padding: 9px 10px;
+    font-size: var(--sat36-control-font);
 }
+
 section.astris-map-native[data-astris-map-native="true"] .astris-map-orbital-constellations {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+
 section.astris-map-native[data-astris-map-native="true"] .astris-map-orbital-selected-card dl {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+
 section.astris-map-native[data-astris-map-native="true"] .astris-map-building-controls {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
 }
+
 section.astris-map-native[data-astris-map-native="true"] .astris-map-building-range-row,
 section.astris-map-native[data-astris-map-native="true"] .astris-map-building-material-grid,
 section.astris-map-native[data-astris-map-native="true"] .astris-map-building-options {
-  min-width: 0;
+    min-width: 0;
 }
 
 @container (max-width: 350px) {
-  section.astris-map-native[data-astris-map-native="true"] .astris-map-orbital-options,
-  section.astris-map-native[data-astris-map-native="true"] .astris-map-space-background-options,
-  section.astris-map-native[data-astris-map-native="true"] .astris-map-orbital-constellations,
-  section.astris-map-native[data-astris-map-native="true"] .astris-map-orbital-selected-card dl {
-    grid-template-columns: 1fr;
-  }
+    section.astris-map-native[data-astris-map-native="true"] .astris-map-orbital-options,
+    section.astris-map-native[data-astris-map-native="true"] .astris-map-space-background-options,
+    section.astris-map-native[data-astris-map-native="true"] .astris-map-orbital-constellations,
+    section.astris-map-native[data-astris-map-native="true"] .astris-map-orbital-selected-card dl {
+        grid-template-columns: 1fr;
+    }
 }
+
 @media (max-width: 1120px) {
-  section.astris-map-native[data-astris-map-native="true"] .astris-map-native-workbench {
-    grid-template-columns: minmax(0, 1fr) min(360px, 38vw);
-  }
+    section.astris-map-native[data-astris-map-native="true"] .astris-map-native-workbench {
+        grid-template-columns: minmax(0, 1fr) min(360px, 38vw);
+    }
 }
+
 @media (max-width: 860px) {
-  section.astris-map-native[data-astris-map-native="true"] .astris-map-native-workbench {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  section.astris-map-native[data-astris-map-native="true"] .astris-map-native-panel {
-    width: min(410px, 92vw);
-  }
+    section.astris-map-native[data-astris-map-native="true"] .astris-map-native-workbench {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    section.astris-map-native[data-astris-map-native="true"] .astris-map-native-panel {
+        width: min(410px, 92vw);
+    }
 }
+
 /* Elevated orbital geometry synchronized with MapLibre's exact custom-layer
    camera matrix, including bearing, pitch and camera roll. */
 
 .astris-map-native-workbench .astris-map-native-canvas {
-  --astris-space-roll: 0deg;
+    --astris-space-roll: 0deg;
 }
 
 .astris-native-orbital-marker-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  z-index: 4;
-  overflow: visible;
-  pointer-events: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    z-index: 4;
+    overflow: visible;
+    pointer-events: auto;
 }
 
 .astris-native-orbital-marker {
-  --orbital-fill: #60a5fa;
-  --orbital-ring: rgb(71 85 105);
-  --orbital-size: 14px;
-  --orbital-ring-width: 1px;
-  --orbital-glow-radius: 6px;
-  --orbital-glow-opacity: .18;
-  --orbital-glow-color: rgba(96, 165, 250, .18);
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  min-width: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  color: var(--orbital-fill);
-  background: transparent;
-  appearance: none;
-  pointer-events: auto;
-  cursor: pointer;
-  transform-origin: center;
-  will-change: transform;
+    --orbital-fill: #60a5fa;
+    --orbital-ring: rgb(71 85 105);
+    --orbital-size: 14px;
+    --orbital-ring-width: 1px;
+    --orbital-glow-radius: 6px;
+    --orbital-glow-opacity: .18;
+    --orbital-glow-color: rgba(96, 165, 250, .18);
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    color: var(--orbital-fill);
+    background: transparent;
+    appearance: none;
+    pointer-events: auto;
+    cursor: pointer;
+    transform-origin: center;
+    will-change: transform;
 }
 
 .astris-native-orbital-marker__disc {
-  display: block;
-  width: var(--orbital-size);
-  height: var(--orbital-size);
-  flex: 0 0 auto;
-  border: var(--orbital-ring-width) solid var(--orbital-ring);
-  border-radius: 999px;
-  background: var(--orbital-fill);
-  box-shadow:
-    0 0 0 1px rgba(2, 6, 23, .72),
+    display: block;
+    width: var(--orbital-size);
+    height: var(--orbital-size);
+    flex: 0 0 auto;
+    border: var(--orbital-ring-width) solid var(--orbital-ring);
+    border-radius: 999px;
+    background: var(--orbital-fill);
+    box-shadow: 0 0 0 1px rgba(2, 6, 23, .72),
     0 0 var(--orbital-glow-radius) var(--orbital-glow-color);
 }
 
 .astris-native-orbital-marker > b {
-  display: block;
-  max-width: 100px;
-  color: currentColor;
-  font: 800 var(--orbital-label-size, 10px)/1 system-ui, sans-serif;
-  letter-spacing: .025em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-shadow:
-    0 1px 2px #020617,
+    display: block;
+    max-width: 100px;
+    color: currentColor;
+    font: 800 var(--orbital-label-size, 10px)/1 system-ui, sans-serif;
+    letter-spacing: .025em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 1px 2px #020617,
     0 0 4px #020617;
 }
 
 .astris-native-orbital-marker.is-selected .astris-native-orbital-marker__disc {
-  outline: 2px solid rgba(255,255,255,.96);
-  outline-offset: 3px;
-  box-shadow:
-    0 0 0 1px rgba(2, 6, 23, .84),
+    outline: 2px solid rgba(255, 255, 255, .96);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 1px rgba(2, 6, 23, .84),
     0 0 15px var(--orbital-glow-color);
 }
 
 .astris-native-orbital-marker.is-used .astris-native-orbital-marker__disc {
-  filter: brightness(1.18) saturate(1.08);
+    filter: brightness(1.18) saturate(1.08);
 }
 
 .astris-native-orbital-marker:hover,
 .astris-native-orbital-marker:focus-visible {
-  z-index: 1000 !important;
-  filter: brightness(1.2);
+    z-index: 1000 !important;
+    filter: brightness(1.2);
 }
 
 .astris-native-orbital-marker:focus-visible .astris-native-orbital-marker__disc {
-  outline: 2px solid rgba(191, 219, 254, .95);
-  outline-offset: 3px;
+    outline: 2px solid rgba(191, 219, 254, .95);
+    outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .astris-native-orbital-marker { will-change: auto; }
+    .astris-native-orbital-marker {
+        will-change: auto;
+    }
 }
 
 /* SAT-3.7.3: the visible satellite disc is rendered inside the same WebGL
    custom layer as its orbit. The DOM node remains only as a stable label and
    click target, avoiding a second camera/projection path during map gestures. */
 .astris-native-orbital-marker.is-webgl-disc {
-  width: var(--orbital-hit-size, 24px);
-  height: var(--orbital-hit-size, 24px);
-  transition: none;
-  backface-visibility: hidden;
+    width: var(--orbital-hit-size, 24px);
+    height: var(--orbital-hit-size, 24px);
+    transition: none;
+    backface-visibility: hidden;
 }
 
 .astris-native-orbital-marker.is-webgl-disc .astris-native-orbital-marker__disc {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  outline: 0;
-  opacity: 0;
-  background: transparent;
-  box-shadow: none;
-  filter: none;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    opacity: 0;
+    background: transparent;
+    box-shadow: none;
+    filter: none;
 }
 
 .astris-native-orbital-marker.is-webgl-disc > b {
-  position: absolute;
-  top: calc(100% + 2px);
-  left: 50%;
-  width: max-content;
-  min-width: 22px;
-  max-width: 104px;
-  padding: 1px 3px;
-  border-radius: 4px;
-  transform: translate3d(-50%, 0, 0);
-  overflow: visible;
-  color: var(--orbital-fill);
-  pointer-events: none;
-  font-variant-numeric: tabular-nums;
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 50%;
+    width: max-content;
+    min-width: 22px;
+    max-width: 104px;
+    padding: 1px 3px;
+    border-radius: 4px;
+    transform: translate3d(-50%, 0, 0);
+    overflow: visible;
+    color: var(--orbital-fill);
+    pointer-events: none;
+    font-variant-numeric: tabular-nums;
 }
 
 .astris-native-orbital-marker.is-webgl-disc.is-selected .astris-native-orbital-marker__disc,
 .astris-native-orbital-marker.is-webgl-disc.is-used .astris-native-orbital-marker__disc,
 .astris-native-orbital-marker.is-webgl-disc:focus-visible .astris-native-orbital-marker__disc {
-  outline: 0;
-  box-shadow: none;
-  filter: none;
+    outline: 0;
+    box-shadow: none;
+    filter: none;
 }
 
 
 /* Labels share the canvas coordinate space at the same sub-pixel precision as
    the WebGL disc and never animate independently of MapLibre. */
 .astris-native-orbital-marker-layer {
-  z-index: 12;
+    z-index: 12;
 }
+
 .astris-native-orbital-marker.is-webgl-disc,
 .astris-native-orbital-marker.is-webgl-disc > b {
-  transition: none;
-  animation: none;
+    transition: none;
+    animation: none;
 }
+
 .astris-native-orbital-marker.is-webgl-disc > b {
-  backface-visibility: hidden;
-  text-rendering: auto;
+    backface-visibility: hidden;
+    text-rendering: auto;
 }
 
 /* ASTRIS standalone composition */
-.workspace.workspace-map-only { min-height: 0; display: block; padding: 8px; }
-.workspace-map-only > .astris-map-native { height: 100%; min-height: 0; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,.22); }
-.astris-map-native { --border: rgba(125,141,168,.16); }
-.astris-map-native-stage > .orbital-map { position: absolute; inset: 0; z-index: 1; }
-.astris-map-native-stage .map-error { z-index: 30; }
-.astris-map-native-stage .maplibregl-map { position: absolute; inset: 0; }
+.workspace.workspace-map-only {
+    min-height: 0;
+    display: block;
+    padding: 8px;
+}
+
+.workspace-map-only > .astris-map-native {
+    height: 100%;
+    min-height: 0;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .22);
+}
+
+.astris-map-native {
+    --border: rgba(125, 141, 168, .16);
+}
+
+.astris-map-native-stage > .orbital-map {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.astris-map-native-stage .map-error {
+    z-index: 30;
+}
+
+.astris-map-native-stage .maplibregl-map {
+    position: absolute;
+    inset: 0;
+}
+
 .astris-map-native .orbital-map.is-space-orbit-bg::before {
-  content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: .82;
-  background-image:
-    radial-gradient(circle at 8% 22%, rgba(255,255,255,.92) 0 1px, transparent 1.4px),
-    radial-gradient(circle at 19% 72%, rgba(165,243,252,.72) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 37% 35%, rgba(221,214,254,.7) 0 1px, transparent 1.3px),
-    radial-gradient(circle at 56% 16%, rgba(255,255,255,.65) 0 1px, transparent 1.3px),
-    radial-gradient(circle at 68% 67%, rgba(147,197,253,.82) 0 1px, transparent 1.4px),
-    radial-gradient(circle at 82% 31%, rgba(255,255,255,.78) 0 1px, transparent 1.4px),
-    radial-gradient(circle at 93% 81%, rgba(196,181,253,.72) 0 1px, transparent 1.4px),
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: .82;
+    background-image: radial-gradient(circle at 8% 22%, rgba(255, 255, 255, .92) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 19% 72%, rgba(165, 243, 252, .72) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 37% 35%, rgba(221, 214, 254, .7) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 56% 16%, rgba(255, 255, 255, .65) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 68% 67%, rgba(147, 197, 253, .82) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 82% 31%, rgba(255, 255, 255, .78) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 93% 81%, rgba(196, 181, 253, .72) 0 1px, transparent 1.4px),
     radial-gradient(ellipse at center, #0b1020 0%, #02040a 58%, #000 100%);
 }
-.astris-map-native .orbital-map .maplibregl-canvas-container { z-index: 1; }
-.astris-map-native .orbital-map { filter: brightness(var(--map-brightness, .92)); transition: filter 180ms ease; background: #000; }
-.astris-map-native.is-dim .orbital-map { filter: brightness(calc(var(--map-brightness, .92) - .12)) saturate(.9); }
-.astris-observer-map-marker { --observer-core: 9px; --observer-halo: 24px; width: calc(var(--observer-halo) * 2 + 16px); height: calc(var(--observer-halo) * 2 + 16px); }
-.astris-observer-map-marker span { width: calc(var(--observer-core) * 2); height: calc(var(--observer-core) * 2); box-shadow: 0 0 0 var(--observer-halo) rgba(139,92,246,.10), 0 0 calc(var(--observer-halo) * .8) rgba(139,92,246,.55); }
-.astris-observer-map-marker b { top: calc(50% + var(--observer-core) + 8px); white-space: nowrap; }
-.astris-map-native .location-card, .astris-map-native .coordinate-grid, .astris-map-native .secondary-button, .astris-map-native .microcopy, .astris-map-native .search-box, .astris-map-native .search-results { font-size: var(--map-font-xs, 10px); }
-.astris-map-native-panel .location-card { margin: 0; }
-.astris-map-native-panel .coordinate-grid { margin-top: 0; }
-.astris-map-native-panel .search-results { max-height: 250px; }
-.astris-map-native-mode-row { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px; }
-.astris-map-space-background-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px; }
-.astris-map-space-background-options button { min-height:34px; border:1px solid var(--border); border-radius:8px; color:#8d96a6; background:#101012; font-size:var(--map-font-2xs); font-weight:760; }
-.astris-map-space-background-options button.active { color:#ede9fe; border-color:rgba(139,92,246,.45); background:rgba(139,92,246,.16); }
-.astris-map-space-background-options button:disabled { opacity:.35; }
-.astris-map-marker-controls { margin-top:10px; padding:10px; border:1px solid var(--border); border-radius:10px; background:rgba(255,255,255,.018); }
-.astris-map-marker-range-row { display:flex; flex-wrap:wrap; gap:8px; }
-.astris-map-marker-range-row > .astris-map-native-range { flex:1 1 145px; margin-top:0; }
-.astris-map-building-material-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
-.astris-map-building-material-grid label { display:grid; gap:5px; color:#8b8b93; font-size:var(--map-font-2xs); }
-.astris-map-building-material-grid select, .astris-map-graticule-settings select, .astris-map-graticule-settings button { min-height:36px; width:100%; border:1px solid #303846; border-radius:8px; color:#dfe4ec; background:#090c12; padding:0 8px; }
-.astris-map-building-options button.active, .astris-map-graticule-settings button.active { border-color:rgba(139,92,246,.45); color:#ede9fe; background:rgba(139,92,246,.16); }
-.astris-map-graticule-settings { display:grid; gap:8px; margin-top:10px; padding:10px; border:1px solid var(--border); border-radius:10px; background:rgba(3,5,9,.35); }
-.astris-map-graticule-row { display:grid; gap:8px; }
-.astris-map-graticule-row.two { grid-template-columns:repeat(2,minmax(0,1fr)); }
-.astris-map-graticule-settings label > span { display:block; margin-bottom:5px; color:#8b8b93; font-size:var(--map-font-2xs); }
-.astris-map-graticule-settings p, .astris-map-orbital-note { margin:0; color:#71717a; font-size:var(--map-font-2xs); line-height:1.45; }
-.astris-map-orbital-status { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:6px; }
-.astris-map-orbital-status > span { min-width:0; padding:7px; border:1px solid var(--border); border-radius:8px; background:#0b0d12; }
-.astris-map-orbital-status b, .astris-map-orbital-status small { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.astris-map-orbital-status b { color:#e7e5ff; font-size:var(--map-font-xs); }
-.astris-map-orbital-status small { margin-top:2px; color:#737b8b; font-size:var(--map-font-2xs); }
-.astris-map-orbital-mode-lock.is-flat-ready { border-color:rgba(34,211,238,.2); }
-.astris-map-orbital-mode-lock.is-flat-ready > span { color:#a5f3fc; }
-.astris-map-orbital-selected-card dl { grid-template-columns:repeat(3,minmax(0,1fr)); }
-.astris-map-native-layer-grid .layer-preview { position:relative; display:block; min-width:54px; height:40px; overflow:hidden; border-radius:8px; background:#0b0d12; }
-.astris-map-native-layer-grid .layer-preview img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.82; }
-.astris-map-native-layer-grid .layer-preview i { position:absolute; left:4px; bottom:3px; min-width:0 !important; min-height:0 !important; width:auto !important; height:auto !important; padding:2px 4px; background:rgba(0,0,0,.68) !important; border-radius:4px !important; }
-.astris-map-native-layer-grid button { grid-template-columns:56px minmax(0,1fr) 14px !important; }
-.astris-map-native-layer-grid button em { color:#c4b5fd; font-style:normal; font-weight:900; }
-.astris-map-native-panel button { cursor:pointer; }
-.astris-map-native-panel select { cursor:pointer; }
-@container (max-width: 720px) { .astris-map-orbital-status { grid-template-columns:repeat(2,minmax(0,1fr)); } .astris-map-building-material-grid, .astris-map-graticule-row.two { grid-template-columns:1fr; } }
+
+.astris-map-native .orbital-map .maplibregl-canvas-container {
+    z-index: 1;
+}
+
+.astris-map-native .orbital-map {
+    filter: brightness(var(--map-brightness, .92));
+    transition: filter 180ms ease;
+    background: #000;
+}
+
+.astris-map-native.is-dim .orbital-map {
+    filter: brightness(calc(var(--map-brightness, .92) - .12)) saturate(.9);
+}
+
+.astris-observer-map-marker {
+    --observer-core: 9px;
+    --observer-halo: 24px;
+    width: calc(var(--observer-halo) * 2 + 16px);
+    height: calc(var(--observer-halo) * 2 + 16px);
+}
+
+.astris-observer-map-marker span {
+    width: calc(var(--observer-core) * 2);
+    height: calc(var(--observer-core) * 2);
+    box-shadow: 0 0 0 var(--observer-halo) rgba(139, 92, 246, .10), 0 0 calc(var(--observer-halo) * .8) rgba(139, 92, 246, .55);
+}
+
+.astris-observer-map-marker b {
+    top: calc(50% + var(--observer-core) + 8px);
+    white-space: nowrap;
+}
+
+.astris-map-native .location-card, .astris-map-native .coordinate-grid, .astris-map-native .secondary-button, .astris-map-native .microcopy, .astris-map-native .search-box, .astris-map-native .search-results {
+    font-size: var(--map-font-xs, 10px);
+}
+
+.astris-map-native-panel .location-card {
+    margin: 0;
+}
+
+.astris-map-native-panel .coordinate-grid {
+    margin-top: 0;
+}
+
+.astris-map-native-panel .search-results {
+    max-height: 250px;
+}
+
+.astris-map-native-mode-row {
+    display: grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.astris-map-space-background-options {
+    display: grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.astris-map-space-background-options button {
+    min-height: 34px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: #8d96a6;
+    background: #101012;
+    font-size: var(--map-font-2xs);
+    font-weight: 760;
+}
+
+.astris-map-space-background-options button.active {
+    color: #ede9fe;
+    border-color: rgba(139, 92, 246, .45);
+    background: rgba(139, 92, 246, .16);
+}
+
+.astris-map-space-background-options button:disabled {
+    opacity: .35;
+}
+
+.astris-map-marker-controls {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .018);
+}
+
+.astris-map-marker-range-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.astris-map-marker-range-row > .astris-map-native-range {
+    flex: 1 1 145px;
+    margin-top: 0;
+}
+
+.astris-map-building-material-grid {
+    display: grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.astris-map-building-material-grid label {
+    display: grid;
+    gap: 5px;
+    color: #8b8b93;
+    font-size: var(--map-font-2xs);
+}
+
+.astris-map-building-material-grid select, .astris-map-graticule-settings select, .astris-map-graticule-settings button {
+    min-height: 36px;
+    width: 100%;
+    border: 1px solid #303846;
+    border-radius: 8px;
+    color: #dfe4ec;
+    background: #090c12;
+    padding: 0 8px;
+}
+
+.astris-map-building-options button.active, .astris-map-graticule-settings button.active {
+    border-color: rgba(139, 92, 246, .45);
+    color: #ede9fe;
+    background: rgba(139, 92, 246, .16);
+}
+
+.astris-map-graticule-settings {
+    display: grid;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(3, 5, 9, .35);
+}
+
+.astris-map-graticule-row {
+    display: grid;
+    gap: 8px;
+}
+
+.astris-map-graticule-row.two {
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+}
+
+.astris-map-graticule-settings label > span {
+    display: block;
+    margin-bottom: 5px;
+    color: #8b8b93;
+    font-size: var(--map-font-2xs);
+}
+
+.astris-map-graticule-settings p, .astris-map-orbital-note {
+    margin: 0;
+    color: #71717a;
+    font-size: var(--map-font-2xs);
+    line-height: 1.45;
+}
+
+.astris-map-orbital-status {
+    display: grid;
+    grid-template-columns:repeat(4, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.astris-map-orbital-status > span {
+    min-width: 0;
+    padding: 7px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #0b0d12;
+}
+
+.astris-map-orbital-status b, .astris-map-orbital-status small {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.astris-map-orbital-status b {
+    color: #e7e5ff;
+    font-size: var(--map-font-xs);
+}
+
+.astris-map-orbital-status small {
+    margin-top: 2px;
+    color: #737b8b;
+    font-size: var(--map-font-2xs);
+}
+
+.astris-map-orbital-mode-lock.is-flat-ready {
+    border-color: rgba(34, 211, 238, .2);
+}
+
+.astris-map-orbital-mode-lock.is-flat-ready > span {
+    color: #a5f3fc;
+}
+
+.astris-map-orbital-selected-card dl {
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+}
+
+.astris-map-native-layer-grid .layer-preview {
+    position: relative;
+    display: block;
+    min-width: 54px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #0b0d12;
+}
+
+.astris-map-native-layer-grid .layer-preview img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .82;
+}
+
+.astris-map-native-layer-grid .layer-preview i {
+    position: absolute;
+    left: 4px;
+    bottom: 3px;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 2px 4px;
+    background: rgba(0, 0, 0, .68) !important;
+    border-radius: 4px !important;
+}
+
+.astris-map-native-layer-grid button {
+    grid-template-columns:56px minmax(0, 1fr) 14px !important;
+}
+
+.astris-map-native-layer-grid button em {
+    color: #c4b5fd;
+    font-style: normal;
+    font-weight: 900;
+}
+
+.astris-map-native-panel button {
+    cursor: pointer;
+}
+
+.astris-map-native-panel select {
+    cursor: pointer;
+}
+
+@container (max-width: 720px) {
+    .astris-map-orbital-status {
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+    }
+
+    .astris-map-building-material-grid, .astris-map-graticule-row.two {
+        grid-template-columns:1fr;
+    }
+}
 
 
 /* v0.1.3 — IRMAS runtime/design parity finishing pass */
-.astris-map-native { contain: layout paint; background: #09090b; }
-.astris-map-native-workbench, .astris-map-native-stage, .astris-map-native-panel { min-width: 0; min-height: 0; }
-.astris-map-native-panel { overscroll-behavior: contain; scrollbar-gutter: stable; }
-.astris-map-native-canvas { isolation: isolate; contain: strict; }
-.astris-map-native-stage .maplibregl-canvas { outline: none; }
-.astris-map-native-stage .maplibregl-ctrl-group { border: 1px solid #2a303a !important; border-radius: 8px !important; overflow: hidden; background: rgba(9, 12, 18, .88) !important; box-shadow: 0 8px 24px rgba(0,0,0,.28) !important; backdrop-filter: blur(10px); }
-.astris-map-native-stage .maplibregl-ctrl-group button { background-color: transparent !important; }
-.astris-map-native-stage .maplibregl-ctrl-scale { border-color: #4b5563 !important; color: #9ca3af !important; background: rgba(5,7,13,.72) !important; }
-.astris-map-native-stage .maplibregl-ctrl-attrib { color: #737b8b !important; background: rgba(5,7,13,.76) !important; }
-.astris-map-native-view-presets button { min-height: 54px; }
+.astris-map-native {
+    contain: layout paint;
+    background: #09090b;
+}
+
+.astris-map-native-workbench, .astris-map-native-stage, .astris-map-native-panel {
+    min-width: 0;
+    min-height: 0;
+}
+
+.astris-map-native-panel {
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+}
+
+.astris-map-native-canvas {
+    isolation: isolate;
+    contain: strict;
+}
+
+.astris-map-native-stage .maplibregl-canvas {
+    outline: none;
+}
+
+.astris-map-native-stage .maplibregl-ctrl-group {
+    border: 1px solid #2a303a !important;
+    border-radius: 8px !important;
+    overflow: hidden;
+    background: rgba(9, 12, 18, .88) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .28) !important;
+    backdrop-filter: blur(10px);
+}
+
+.astris-map-native-stage .maplibregl-ctrl-group button {
+    background-color: transparent !important;
+}
+
+.astris-map-native-stage .maplibregl-ctrl-scale {
+    border-color: #4b5563 !important;
+    color: #9ca3af !important;
+    background: rgba(5, 7, 13, .72) !important;
+}
+
+.astris-map-native-stage .maplibregl-ctrl-attrib {
+    color: #737b8b !important;
+    background: rgba(5, 7, 13, .76) !important;
+}
+
+.astris-map-native-view-presets button {
+    min-height: 54px;
+}
+
 .astris-map-native-view-presets button:hover,
 .astris-map-native-layer-grid button:hover,
-.astris-map-native-panel button:hover { border-color: rgba(139,92,246,.38); }
-.astris-map-native-panel-section-body { content-visibility: auto; contain-intrinsic-size: auto 240px; }
-.astris-map-native.panel-closed .astris-map-native-stage { min-height: 0; }
-@media (max-width: 980px) {
-  .astris-map-native-workbench { grid-template-columns: minmax(0,1fr) minmax(250px, 34vw); }
+.astris-map-native-panel button:hover {
+    border-color: rgba(139, 92, 246, .38);
 }
+
+.astris-map-native-panel-section-body {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 240px;
+}
+
+.astris-map-native.panel-closed .astris-map-native-stage {
+    min-height: 0;
+}
+
+@media (max-width: 980px) {
+    .astris-map-native-workbench {
+        grid-template-columns: minmax(0, 1fr) minmax(250px, 34vw);
+    }
+}
+
 @media (max-width: 760px) {
-  .astris-map-native-workbench { grid-template-columns: minmax(0,1fr); }
-  .astris-map-native-panel { position:absolute; z-index:40; top:0; right:0; bottom:0; width:min(88vw,330px); box-shadow:-18px 0 44px rgba(0,0,0,.42); }
+    .astris-map-native-workbench {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .astris-map-native-panel {
+        position: absolute;
+        z-index: 40;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: min(88vw, 330px);
+        box-shadow: -18px 0 44px rgba(0, 0, 0, .42);
+    }
 }
 
 /* ========================================================================== */
@@ -1462,241 +2179,363 @@ section.astris-map-native[data-astris-map-native="true"] .astris-map-building-op
 /* IRMAS disclosure contract. v0.1.3 was missing this layer entirely, which
    left browser-default section headers and made the settings panel look broken. */
 .astris-map-native-panel > .astris-map-panel-section {
-  display: block;
-  margin: 0;
-  padding: 0;
-  border: 1px solid rgba(148, 163, 184, .14);
-  border-radius: 14px;
-  background: linear-gradient(155deg, rgba(19, 21, 28, .96), rgba(9, 10, 15, .98));
-  box-shadow: inset 0 1px rgba(255,255,255,.035), 0 7px 18px rgba(0,0,0,.16);
-  overflow: clip;
-  transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 1px solid rgba(148, 163, 184, .14);
+    border-radius: 14px;
+    background: linear-gradient(155deg, rgba(19, 21, 28, .96), rgba(9, 10, 15, .98));
+    box-shadow: inset 0 1px rgba(255, 255, 255, .035), 0 7px 18px rgba(0, 0, 0, .16);
+    overflow: clip;
+    transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
 }
-.astris-map-native-panel > .astris-map-panel-section + .astris-map-panel-section { margin-top: 10px; }
+
+.astris-map-native-panel > .astris-map-panel-section + .astris-map-panel-section {
+    margin-top: 10px;
+}
+
 .astris-map-native-panel > .astris-map-panel-section.is-open {
-  border-color: rgba(139, 92, 246, .30);
-  box-shadow: inset 3px 0 rgba(139,92,246,.34), inset 0 1px rgba(255,255,255,.045), 0 10px 24px rgba(0,0,0,.22);
+    border-color: rgba(139, 92, 246, .30);
+    box-shadow: inset 3px 0 rgba(139, 92, 246, .34), inset 0 1px rgba(255, 255, 255, .045), 0 10px 24px rgba(0, 0, 0, .22);
 }
+
 .astris-map-panel-section-summary {
-  appearance: none;
-  display: flex;
-  width: 100%;
-  min-width: 0;
-  min-height: 0 !important;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 11px 12px;
-  border: 0 !important;
-  border-radius: 0 !important;
-  color: #f4f4f5 !important;
-  background: linear-gradient(90deg, rgba(255,255,255,.035), rgba(255,255,255,.012)) !important;
-  box-shadow: none !important;
-  text-align: left;
-  cursor: pointer;
-  user-select: none;
+    appearance: none;
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    min-height: 0 !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 11px 12px;
+    border: 0 !important;
+    border-radius: 0 !important;
+    color: #f4f4f5 !important;
+    background: linear-gradient(90deg, rgba(255, 255, 255, .035), rgba(255, 255, 255, .012)) !important;
+    box-shadow: none !important;
+    text-align: left;
+    cursor: pointer;
+    user-select: none;
 }
-.astris-map-panel-section-summary:hover { background: linear-gradient(90deg, rgba(139,92,246,.10), rgba(255,255,255,.018)) !important; }
-.astris-map-panel-section-summary:focus-visible { outline: 2px solid rgba(167,139,250,.62); outline-offset: -2px; }
-.astris-map-panel-section-summary > span:first-child { display: grid; min-width: 0; gap: 2px; }
-.astris-map-panel-section-summary b { color: #f4f4f5 !important; font-size: clamp(12px, .78cqi, 15px) !important; line-height: 1.2; }
-.astris-map-panel-section-summary small { color: #818898 !important; font-size: clamp(9px, .59cqi, 12px) !important; line-height: 1.35; overflow-wrap: anywhere; }
+
+.astris-map-panel-section-summary:hover {
+    background: linear-gradient(90deg, rgba(139, 92, 246, .10), rgba(255, 255, 255, .018)) !important;
+}
+
+.astris-map-panel-section-summary:focus-visible {
+    outline: 2px solid rgba(167, 139, 250, .62);
+    outline-offset: -2px;
+}
+
+.astris-map-panel-section-summary > span:first-child {
+    display: grid;
+    min-width: 0;
+    gap: 2px;
+}
+
+.astris-map-panel-section-summary b {
+    color: #f4f4f5 !important;
+    font-size: clamp(12px, .78cqi, 15px) !important;
+    line-height: 1.2;
+}
+
+.astris-map-panel-section-summary small {
+    color: #818898 !important;
+    font-size: clamp(9px, .59cqi, 12px) !important;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
 .astris-map-panel-section-indicator {
-  flex: 0 0 auto;
-  display: grid !important;
-  width: 24px;
-  height: 24px;
-  place-items: center;
-  border: 1px solid rgba(167, 139, 250, .24);
-  border-radius: 8px;
-  color: #c4b5fd;
-  background: rgba(139,92,246,.075);
-  transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease;
+    flex: 0 0 auto;
+    display: grid !important;
+    width: 24px;
+    height: 24px;
+    place-items: center;
+    border: 1px solid rgba(167, 139, 250, .24);
+    border-radius: 8px;
+    color: #c4b5fd;
+    background: rgba(139, 92, 246, .075);
+    transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease;
 }
-.astris-map-panel-section-indicator svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.astris-map-panel-section.is-closed .astris-map-panel-section-indicator { transform: rotate(-90deg); }
-.astris-map-panel-section.is-open .astris-map-panel-section-indicator { border-color: rgba(196,181,253,.44); background: rgba(139,92,246,.16); }
+
+.astris-map-panel-section-indicator svg {
+    width: 15px;
+    height: 15px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.astris-map-panel-section.is-closed .astris-map-panel-section-indicator {
+    transform: rotate(-90deg);
+}
+
+.astris-map-panel-section.is-open .astris-map-panel-section-indicator {
+    border-color: rgba(196, 181, 253, .44);
+    background: rgba(139, 92, 246, .16);
+}
+
 .astris-map-panel-section-body {
-  display: grid;
-  gap: 8px;
-  padding: 11px 12px 13px;
-  border-top: 1px solid rgba(148,163,184,.08);
-  background: rgba(3,5,9,.28);
+    display: grid;
+    gap: 8px;
+    padding: 11px 12px 13px;
+    border-top: 1px solid rgba(148, 163, 184, .08);
+    background: rgba(3, 5, 9, .28);
 }
 
 /* Canonical panel controls. Explicit appearance/background prevents Chromium
    default white buttons seen in v0.1.3. */
-.astris-map-native-panel button { appearance: none; font-family: inherit; }
+.astris-map-native-panel button {
+    appearance: none;
+    font-family: inherit;
+}
+
 .astris-map-native-panel .control-section-head > button,
 .astris-map-building-options button,
 .astris-map-building-detail-mode button,
 .astris-map-marker-control-head button,
 .astris-map-native-clear,
 .astris-map-orbital-selected-card > button {
-  min-height: 36px;
-  padding: 7px 10px;
-  border: 1px solid rgba(148, 163, 184, .22);
-  border-radius: 9px;
-  color: #cbd5e1;
-  background: rgba(22, 25, 33, .92);
-  box-shadow: inset 0 1px rgba(255,255,255,.025);
-  font-size: var(--map-font-xs, 10px);
-  font-weight: 760;
-  cursor: pointer;
+    min-height: 36px;
+    padding: 7px 10px;
+    border: 1px solid rgba(148, 163, 184, .22);
+    border-radius: 9px;
+    color: #cbd5e1;
+    background: rgba(22, 25, 33, .92);
+    box-shadow: inset 0 1px rgba(255, 255, 255, .025);
+    font-size: var(--map-font-xs, 10px);
+    font-weight: 760;
+    cursor: pointer;
 }
+
 .astris-map-native-panel .control-section-head > button:hover,
 .astris-map-building-options button:hover,
 .astris-map-building-detail-mode button:hover,
 .astris-map-marker-control-head button:hover,
-.astris-map-orbital-selected-card > button:hover { border-color: rgba(167,139,250,.55); color: #fff; background: #17171b; }
+.astris-map-orbital-selected-card > button:hover {
+    border-color: rgba(167, 139, 250, .55);
+    color: #fff;
+    background: #17171b;
+}
 
 .astris-map-native-panel .astris-map-orbital-options,
 .astris-map-native-panel .astris-map-space-background-options {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 7px;
-  margin: 4px 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    margin: 4px 0;
 }
+
 .astris-map-native-panel .astris-map-orbital-options button,
 .astris-map-native-panel .astris-map-space-background-options button {
-  appearance: none;
-  min-width: 0;
-  min-height: 38px;
-  padding: 8px 9px;
-  border: 1px solid rgba(148, 163, 184, .25);
-  border-radius: 10px;
-  color: #cbd5e1;
-  background: rgba(22, 25, 33, .92);
-  box-shadow: inset 0 1px rgba(255,255,255,.025);
-  font-size: var(--map-font-xs, .625rem);
-  font-weight: 800;
-  line-height: 1.2;
-  white-space: normal;
+    appearance: none;
+    min-width: 0;
+    min-height: 38px;
+    padding: 8px 9px;
+    border: 1px solid rgba(148, 163, 184, .25);
+    border-radius: 10px;
+    color: #cbd5e1;
+    background: rgba(22, 25, 33, .92);
+    box-shadow: inset 0 1px rgba(255, 255, 255, .025);
+    font-size: var(--map-font-xs, .625rem);
+    font-weight: 800;
+    line-height: 1.2;
+    white-space: normal;
 }
+
 .astris-map-native-panel .astris-map-orbital-options button:hover,
-.astris-map-native-panel .astris-map-space-background-options button:hover { border-color: rgba(167,139,250,.55); color: #fff; }
+.astris-map-native-panel .astris-map-space-background-options button:hover {
+    border-color: rgba(167, 139, 250, .55);
+    color: #fff;
+}
+
 .astris-map-native-panel .astris-map-orbital-options button.active,
 .astris-map-native-panel .astris-map-space-background-options button.active {
-  border-color: rgba(139,92,246,.78);
-  color: #f5f3ff;
-  background: rgba(91,33,182,.30);
-  box-shadow: inset 0 0 0 1px rgba(196,181,253,.10), 0 0 16px rgba(109,40,217,.12);
+    border-color: rgba(139, 92, 246, .78);
+    color: #f5f3ff;
+    background: rgba(91, 33, 182, .30);
+    box-shadow: inset 0 0 0 1px rgba(196, 181, 253, .10), 0 0 16px rgba(109, 40, 217, .12);
 }
+
 .astris-map-native-panel .astris-map-orbital-options button:disabled,
-.astris-map-native-panel .astris-map-space-background-options button:disabled { opacity: .34; cursor: not-allowed; }
-.astris-map-space-attribution { display: block; color: #71798a; font-size: var(--map-font-2xs, .5625rem); line-height: 1.35; }
+.astris-map-native-panel .astris-map-space-background-options button:disabled {
+    opacity: .34;
+    cursor: not-allowed;
+}
+
+.astris-map-space-attribution {
+    display: block;
+    color: #71798a;
+    font-size: var(--map-font-2xs, .5625rem);
+    line-height: 1.35;
+}
 
 /* IRMAS segmented control used for physical vs legacy LOS. */
 .astris-segmented-control {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 3px;
-  padding: 3px;
-  border: 1px solid rgba(148,163,184,.18);
-  border-radius: 12px;
-  background: rgba(7,8,12,.88);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3px;
+    padding: 3px;
+    border: 1px solid rgba(148, 163, 184, .18);
+    border-radius: 12px;
+    background: rgba(7, 8, 12, .88);
 }
+
 .astris-segmented-control > button {
-  min-width: 0;
-  min-height: 36px;
-  padding: 7px 9px;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  color: #858b97;
-  background: transparent;
-  font-size: var(--map-font-2xs, 9px);
-  font-weight: 820;
-  line-height: 1.2;
-  cursor: pointer;
+    min-width: 0;
+    min-height: 36px;
+    padding: 7px 9px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: #858b97;
+    background: transparent;
+    font-size: var(--map-font-2xs, 9px);
+    font-weight: 820;
+    line-height: 1.2;
+    cursor: pointer;
 }
-.astris-segmented-control > button:hover { color: #f4f4f5; background: rgba(255,255,255,.035); }
+
+.astris-segmented-control > button:hover {
+    color: #f4f4f5;
+    background: rgba(255, 255, 255, .035);
+}
+
 .astris-segmented-control > button.active,
 .astris-segmented-control > button[aria-pressed='true'] {
-  color: #f5f3ff;
-  border-color: rgba(139,92,246,.42);
-  background: rgba(139,92,246,.18);
-  box-shadow: 0 0 16px rgba(109,40,217,.10);
+    color: #f5f3ff;
+    border-color: rgba(139, 92, 246, .42);
+    background: rgba(139, 92, 246, .18);
+    box-shadow: 0 0 16px rgba(109, 40, 217, .10);
 }
-.astris-map-orbital-note.is-los-note { padding: 8px 9px; border: 1px solid rgba(139,92,246,.13); border-radius: 9px; background: rgba(139,92,246,.045); }
+
+.astris-map-orbital-note.is-los-note {
+    padding: 8px 9px;
+    border: 1px solid rgba(139, 92, 246, .13);
+    border-radius: 9px;
+    background: rgba(139, 92, 246, .045);
+}
 
 /* Canonical IRMAS range control instead of the bright browser-native track. */
 .astris-map-native input[type='range'] {
-  box-sizing: border-box;
-  inline-size: 100%;
-  min-inline-size: 0;
-  min-block-size: 30px;
-  block-size: 30px;
-  margin-block: 0;
-  padding-block: 6px;
-  cursor: pointer;
-  accent-color: #8b5cf6;
-  color-scheme: dark;
-  background: transparent;
+    box-sizing: border-box;
+    inline-size: 100%;
+    min-inline-size: 0;
+    min-block-size: 30px;
+    block-size: 30px;
+    margin-block: 0;
+    padding-block: 6px;
+    cursor: pointer;
+    accent-color: #8b5cf6;
+    color-scheme: dark;
+    background: transparent;
 }
-.astris-map-native input[type='range']::-webkit-slider-runnable-track { height: 4px; border-radius: 999px; background: #24242b; }
-.astris-map-native input[type='range']::-webkit-slider-thumb { appearance: none; width: 18px; height: 18px; margin-top: -7px; border: 0; border-radius: 50%; background: #8b5cf6; box-shadow: 0 0 0 3px rgba(139,92,246,.12), 0 0 12px rgba(139,92,246,.22); }
-.astris-map-native input[type='range']::-moz-range-track { height: 4px; border-radius: 999px; background: #24242b; }
-.astris-map-native input[type='range']::-moz-range-progress { height: 4px; border-radius: 999px; background: #6d4ad0; }
-.astris-map-native input[type='range']::-moz-range-thumb { width: 18px; height: 18px; border: 0; border-radius: 50%; background: #8b5cf6; box-shadow: 0 0 0 3px rgba(139,92,246,.12), 0 0 12px rgba(139,92,246,.22); }
+
+.astris-map-native input[type='range']::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 999px;
+    background: #24242b;
+}
+
+.astris-map-native input[type='range']::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    margin-top: -7px;
+    border: 0;
+    border-radius: 50%;
+    background: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, .12), 0 0 12px rgba(139, 92, 246, .22);
+}
+
+.astris-map-native input[type='range']::-moz-range-track {
+    height: 4px;
+    border-radius: 999px;
+    background: #24242b;
+}
+
+.astris-map-native input[type='range']::-moz-range-progress {
+    height: 4px;
+    border-radius: 999px;
+    background: #6d4ad0;
+}
+
+.astris-map-native input[type='range']::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border: 0;
+    border-radius: 50%;
+    background: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, .12), 0 0 12px rgba(139, 92, 246, .22);
+}
 
 /* ASTRIS v0.1.16 infinite starfield. The Sun keeps the accepted v0.1.12
    projection/occlusion math; only the star backdrop is replaced. Three
    independently tiled random catalogues eliminate the finite-image edge and
    make repetition effectively non-obvious while staying GPU/compositor cheap. */
 .astris-map-native .orbital-map.is-space-orbit-bg::before {
-  content: '';
-  position: absolute;
-  inset: -82%;
-  z-index: 0;
-  pointer-events: none;
-  opacity: .96;
-  transform-origin: center;
-  transform: rotate(var(--astris-space-roll, 0deg)) scale(var(--astris-space-scale, 1.04));
-  transition: none;
-  will-change: transform, background-position;
+    content: '';
+    position: absolute;
+    inset: -82%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: .96;
+    transform-origin: center;
+    transform: rotate(var(--astris-space-roll, 0deg)) scale(var(--astris-space-scale, 1.04));
+    transition: none;
+    will-change: transform, background-position;
 }
+
 .astris-map-native .orbital-map.is-space-orbit-bg.is-space-synthetic::before {
-  background-color: #020204;
-  background-image:
-    url('../assets/starfield/astris-map-starfield-a.svg'),
+    background-color: #020204;
+    background-image: url('../assets/starfield/astris-map-starfield-a.svg'),
     url('../assets/starfield/astris-map-starfield-b.svg'),
     url('../assets/starfield/astris-map-starfield-c.svg'),
-    radial-gradient(ellipse at 50% 48%, rgba(99,102,241,.024), transparent 46%),
+    radial-gradient(ellipse at 50% 48%, rgba(99, 102, 241, .024), transparent 46%),
     linear-gradient(180deg, #020204 0%, #010102 100%);
-  background-repeat: repeat, repeat, repeat, no-repeat, no-repeat;
-  background-size: 1733px 975px, 2279px 1281px, 2957px 1663px, 100% 100%, 100% 100%;
-  background-position:
-    var(--astris-star-a-x, 0px) var(--astris-star-a-y, 0px),
+    background-repeat: repeat, repeat, repeat, no-repeat, no-repeat;
+    background-size: 1733px 975px, 2279px 1281px, 2957px 1663px, 100% 100%, 100% 100%;
+    background-position: var(--astris-star-a-x, 0px) var(--astris-star-a-y, 0px),
     var(--astris-star-b-x, 317px) var(--astris-star-b-y, -191px),
     var(--astris-star-c-x, -223px) var(--astris-star-c-y, 271px),
     center,
     center;
 }
+
 .astris-map-native .orbital-map.is-space-orbit-bg.is-space-synthetic::after {
-  content: '';
-  position: absolute;
-  left: var(--astris-sun-x, 84%);
-  top: var(--astris-sun-y, 18%);
-  z-index: 0;
-  width: clamp(18px, 2.8vw, 42px);
-  aspect-ratio: 1;
-  pointer-events: none;
-  opacity: var(--astris-sun-opacity, 0);
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: radial-gradient(circle, #fff 0 10%, #fff7d6 22%, #ffd36a 48%, #ff9f2f 66%, rgba(255,156,47,0) 72%);
-  box-shadow: 0 0 16px 6px rgba(255,210,111,.45), 0 0 48px 18px rgba(255,153,47,.22), 0 0 96px 34px rgba(255,184,74,.10);
+    content: '';
+    position: absolute;
+    left: var(--astris-sun-x, 84%);
+    top: var(--astris-sun-y, 18%);
+    z-index: 0;
+    width: clamp(18px, 2.8vw, 42px);
+    aspect-ratio: 1;
+    pointer-events: none;
+    opacity: var(--astris-sun-opacity, 0);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff 0 10%, #fff7d6 22%, #ffd36a 48%, #ff9f2f 66%, rgba(255, 156, 47, 0) 72%);
+    box-shadow: 0 0 16px 6px rgba(255, 210, 111, .45), 0 0 48px 18px rgba(255, 153, 47, .22), 0 0 96px 34px rgba(255, 184, 74, .10);
 }
+
 .astris-map-native .orbital-map.is-space-orbit-bg > .maplibregl-canvas-container,
-.astris-map-native .orbital-map.is-space-orbit-bg > .maplibregl-control-container { position: relative; z-index: 1; }
+.astris-map-native .orbital-map.is-space-orbit-bg > .maplibregl-control-container {
+    position: relative;
+    z-index: 1;
+}
 
 @container (max-width: 350px) {
-  .astris-map-native-panel .astris-map-orbital-options,
-  .astris-map-native-panel .astris-map-space-background-options,
-  .astris-segmented-control { grid-template-columns: 1fr; }
+    .astris-map-native-panel .astris-map-orbital-options,
+    .astris-map-native-panel .astris-map-space-background-options,
+    .astris-segmented-control {
+        grid-template-columns: 1fr;
+    }
 }
 
-/* ========================================================================== 
+/* ==========================================================================
    ASTRIS v0.1.9 — synchronization / immediate-apply fixes
    Visual contract: head + semantic strip + meta = v0.1.6
    ========================================================================== */
@@ -1704,314 +2543,697 @@ section.astris-map-native[data-astris-map-native="true"] .astris-map-building-op
 /* Keep the v0.1.4 disclosure markup, but restore the accepted v0.1.6 body
    surface. This intentionally targets the current React <section> contract. */
 .astris-map-native .astris-map-panel-section-body {
-  display:grid !important;
-  gap:8px !important;
-  min-width:0;
-  padding:11px 12px 13px !important;
-  border-top:1px solid rgba(148,163,184,.08) !important;
-  background:rgba(3,5,9,.28) !important;
-  box-shadow:inset 0 1px rgba(255,255,255,.012);
+    display: grid !important;
+    gap: 8px !important;
+    min-width: 0;
+    padding: 11px 12px 13px !important;
+    border-top: 1px solid rgba(148, 163, 184, .08) !important;
+    background: rgba(3, 5, 9, .28) !important;
+    box-shadow: inset 0 1px rgba(255, 255, 255, .012);
 }
-.astris-map-native .astris-map-panel-section-body > * { min-width:0; }
+
+.astris-map-native .astris-map-panel-section-body > * {
+    min-width: 0;
+}
+
 .astris-map-native .astris-map-panel-section-body > .control-section-head.is-master-only {
-  display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 0 0 2px;
 }
+
 .astris-map-native .astris-map-panel-section-body > .control-section-head.is-master-only > span {
-  color:#818898;font-size:clamp(9px,.59cqi,12px);line-height:1.35;
+    color: #818898;
+    font-size: clamp(9px, .59cqi, 12px);
+    line-height: 1.35;
 }
 
 /* Exact v0.1.6 semantic strip model. */
-.astris-map-native-strip { --map-strip-accent:#71717a;--map-strip-soft:rgba(113,113,122,.08); }
-.astris-map-native-strip.tone-fix { --map-strip-accent:#3b82f6;--map-strip-soft:rgba(59,130,246,.10); }
-.astris-map-native-strip.tone-tentative { --map-strip-accent:#ef4444;--map-strip-soft:rgba(239,68,68,.09); }
-.astris-map-native-strip.tone-danger { --map-strip-accent:#dc2626;--map-strip-soft:rgba(220,38,38,.11); }
-.astris-map-native-strip.tone-offline { --map-strip-accent:#f59e0b;--map-strip-soft:rgba(245,158,11,.08); }
+.astris-map-native-strip {
+    --map-strip-accent: #71717a;
+    --map-strip-soft: rgba(113, 113, 122, .08);
+}
+
+.astris-map-native-strip.tone-fix {
+    --map-strip-accent: #3b82f6;
+    --map-strip-soft: rgba(59, 130, 246, .10);
+}
+
+.astris-map-native-strip.tone-tentative {
+    --map-strip-accent: #ef4444;
+    --map-strip-soft: rgba(239, 68, 68, .09);
+}
+
+.astris-map-native-strip.tone-danger {
+    --map-strip-accent: #dc2626;
+    --map-strip-soft: rgba(220, 38, 38, .11);
+}
+
+.astris-map-native-strip.tone-offline {
+    --map-strip-accent: #f59e0b;
+    --map-strip-soft: rgba(245, 158, 11, .08);
+}
+
 .astris-map-native-strip .astris-map-native-status {
-  --map-card-background:linear-gradient(100deg,var(--map-strip-soft),#0d0d10 64%);
-  --map-value-color:color-mix(in srgb,var(--map-strip-accent) 72%,#fff);
-  box-shadow:inset 3px 0 var(--map-strip-accent);
-  background:var(--map-card-background) !important;
+    --map-card-background: linear-gradient(100deg, var(--map-strip-soft), #0d0d10 64%);
+    --map-value-color: color-mix(in srgb, var(--map-strip-accent) 72%, #fff);
+    box-shadow: inset 3px 0 var(--map-strip-accent);
+    background: var(--map-card-background) !important;
 }
+
 .astris-map-native-metric {
-  --map-metric-accent:#71717a;
-  --map-card-background:linear-gradient(105deg,color-mix(in srgb,var(--map-metric-accent) 7%,transparent),#0d0d10 58%);
-  box-shadow:inset 2px 0 color-mix(in srgb,var(--map-metric-accent) 72%,transparent);
-  background:var(--map-card-background) !important;
+    --map-metric-accent: #71717a;
+    --map-card-background: linear-gradient(105deg, color-mix(in srgb, var(--map-metric-accent) 7%, transparent), #0d0d10 58%);
+    box-shadow: inset 2px 0 color-mix(in srgb, var(--map-metric-accent) 72%, transparent);
+    background: var(--map-card-background) !important;
 }
-.astris-map-native-metric b { color:var(--map-value-color,#d4d4d8) !important; }
-.astris-map-native-metric.tone-info { --map-metric-accent:#8b5cf6;--map-value-color:#c4b5fd; }
-.astris-map-native-metric.tone-fix { --map-metric-accent:#3b82f6;--map-value-color:#93c5fd; }
-.astris-map-native-metric.tone-ok { --map-metric-accent:#22c55e;--map-value-color:#86efac; }
+
+.astris-map-native-metric b {
+    color: var(--map-value-color, #d4d4d8) !important;
+}
+
+.astris-map-native-metric.tone-info {
+    --map-metric-accent: #8b5cf6;
+    --map-value-color: #c4b5fd;
+}
+
+.astris-map-native-metric.tone-fix {
+    --map-metric-accent: #3b82f6;
+    --map-value-color: #93c5fd;
+}
+
+.astris-map-native-metric.tone-ok {
+    --map-metric-accent: #22c55e;
+    --map-value-color: #86efac;
+}
+
 .astris-map-native-metric.tone-tentative,
-.astris-map-native-metric.tone-danger { --map-metric-accent:#ef4444;--map-value-color:#fca5a5; }
-.astris-map-native-metric.tone-warn { --map-metric-accent:#f59e0b;--map-value-color:#fbbf24; }
-.astris-map-native-metric.tone-offline { --map-metric-accent:#f59e0b;--map-value-color:#fbbf24; }
+.astris-map-native-metric.tone-danger {
+    --map-metric-accent: #ef4444;
+    --map-value-color: #fca5a5;
+}
+
+.astris-map-native-metric.tone-warn {
+    --map-metric-accent: #f59e0b;
+    --map-value-color: #fbbf24;
+}
+
+.astris-map-native-metric.tone-offline {
+    --map-metric-accent: #f59e0b;
+    --map-value-color: #fbbf24;
+}
 
 /* v0.1.6 map footer. */
 .astris-map-native-meta {
-  display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;
-  padding:7px 10px;color:#a0a0a8 !important;border:1px solid var(--border) !important;
-  border-radius:9px;background:rgba(10,10,12,.88) !important;
-  font-size:clamp(9px,calc(.20cqi + 7px),13px) !important;
-  backdrop-filter:blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 0;
+    padding: 7px 10px;
+    color: #a0a0a8 !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 9px;
+    background: rgba(10, 10, 12, .88) !important;
+    font-size: clamp(9px, calc(.20cqi + 7px), 13px) !important;
+    backdrop-filter: blur(10px);
 }
-.astris-map-native-meta > span { min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
-.astris-map-native-meta > span:nth-child(2) { text-align:center; }
-.astris-map-native-meta > span:last-child { text-align:right; }
-.astris-map-native-meta .map-position-fix { color:#7dd3fc !important; }
-.astris-map-native-meta .map-position-tentative { color:#fca5a5 !important; }
+
+.astris-map-native-meta > span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.astris-map-native-meta > span:nth-child(2) {
+    text-align: center;
+}
+
+.astris-map-native-meta > span:last-child {
+    text-align: right;
+}
+
+.astris-map-native-meta .map-position-fix {
+    color: #7dd3fc !important;
+}
+
+.astris-map-native-meta .map-position-tentative {
+    color: #fca5a5 !important;
+}
 
 /* v0.1.6 header/profile manager, with responsive typography retained. */
-.astris-map-native-head { align-items:flex-start !important;gap:14px; }
-.astris-map-native-title { min-width:220px;flex:1 1 auto; }
-.astris-map-native-head .module-kicker { font-size:clamp(9px,calc(.20cqi + 7px),13px) !important; }
-.astris-map-native-head h2 { font-size:clamp(15px,calc(.52cqi + 8px),25px) !important; }
-.astris-map-native-head p { font-size:clamp(10px,calc(.28cqi + 7px),15px) !important; }
+.astris-map-native-head {
+    align-items: flex-start !important;
+    gap: 14px;
+}
+
+.astris-map-native-title {
+    min-width: 220px;
+    flex: 1 1 auto;
+}
+
+.astris-map-native-head .module-kicker {
+    font-size: clamp(9px, calc(.20cqi + 7px), 13px) !important;
+}
+
+.astris-map-native-head h2 {
+    font-size: clamp(15px, calc(.52cqi + 8px), 25px) !important;
+}
+
+.astris-map-native-head p {
+    font-size: clamp(10px, calc(.28cqi + 7px), 15px) !important;
+}
+
 .astris-map-profile-manager {
-  flex:0 1 620px;display:grid !important;
-  grid-template-columns:minmax(145px,.8fr) minmax(170px,1fr) auto;
-  align-items:center !important;gap:7px 8px !important;padding:8px 9px;
-  max-width:none;
-  border:1px solid rgba(139,92,246,.20);border-radius:12px;
-  background:linear-gradient(145deg,rgba(139,92,246,.055),rgba(8,10,15,.90));
-  box-shadow:inset 0 1px rgba(255,255,255,.025);
+    flex: 0 1 620px;
+    display: grid !important;
+    grid-template-columns:minmax(145px, .8fr) minmax(170px, 1fr) auto;
+    align-items: center !important;
+    gap: 7px 8px !important;
+    padding: 8px 9px;
+    max-width: none;
+    border: 1px solid rgba(139, 92, 246, .20);
+    border-radius: 12px;
+    background: linear-gradient(145deg, rgba(139, 92, 246, .055), rgba(8, 10, 15, .90));
+    box-shadow: inset 0 1px rgba(255, 255, 255, .025);
 }
-.astris-map-profile-manager label { display:grid;gap:4px;min-width:0; }
+
+.astris-map-profile-manager label {
+    display: grid;
+    gap: 4px;
+    min-width: 0;
+}
+
 .astris-map-profile-manager label > span {
-  color:#747d8c;font-size:clamp(9px,calc(.20cqi + 7px),12px);font-weight:800;
-  letter-spacing:.07em;text-transform:uppercase;
+    color: #747d8c;
+    font-size: clamp(9px, calc(.20cqi + 7px), 12px);
+    font-weight: 800;
+    letter-spacing: .07em;
+    text-transform: uppercase;
 }
+
 .astris-map-profile-manager :is(select,input) {
-  width:100%;min-width:0;height:31px;padding:0 9px;border:1px solid rgba(148,163,184,.16);
-  border-radius:8px;color:#dce3ee;background:#0a0d13;outline:none;font:inherit;
-  font-size:clamp(10px,calc(.24cqi + 7px),14px);
+    width: 100%;
+    min-width: 0;
+    height: 31px;
+    padding: 0 9px;
+    border: 1px solid rgba(148, 163, 184, .16);
+    border-radius: 8px;
+    color: #dce3ee;
+    background: #0a0d13;
+    outline: none;
+    font: inherit;
+    font-size: clamp(10px, calc(.24cqi + 7px), 14px);
 }
+
 .astris-map-profile-manager :is(select,input):focus {
-  border-color:rgba(139,92,246,.55);box-shadow:0 0 0 2px rgba(139,92,246,.10);
+    border-color: rgba(139, 92, 246, .55);
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, .10);
 }
-.astris-map-profile-manager .profile-actions { display:flex;gap:5px;align-items:center;align-self:center;justify-self:center;height:31px; }
+
+.astris-map-profile-manager .profile-actions {
+    display: flex;
+    gap: 5px;
+    align-self: center;
+    justify-self: center;
+    height: 31px;
+}
+
 .astris-map-profile-manager .profile-actions :is(button,a) {
-  display:inline-flex;align-items:center;justify-content:center;gap:5px;height:31px;min-width:31px;padding:0 8px;
-  border:1px solid rgba(148,163,184,.16);border-radius:8px;color:#aeb8c7;background:rgba(14,18,27,.9);
-  text-decoration:none;cursor:pointer;font-size:clamp(10px,calc(.24cqi + 7px),14px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    height: 31px;
+    min-width: 31px;
+    padding: 0 8px;
+    border: 1px solid rgba(148, 163, 184, .16);
+    border-radius: 8px;
+    color: #aeb8c7;
+    background: rgba(14, 18, 27, .9);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: clamp(10px, calc(.24cqi + 7px), 14px);
 }
+
 .astris-map-profile-manager .profile-actions button:first-child {
-  color:#ddd6fe;border-color:rgba(139,92,246,.34);background:rgba(139,92,246,.11);
+    color: #ddd6fe;
+    border-color: rgba(139, 92, 246, .34);
+    background: rgba(139, 92, 246, .11);
 }
-.astris-map-profile-manager .profile-actions :is(button,a):hover { border-color:rgba(167,139,250,.46);color:#f4f4f5; }
-.astris-map-profile-manager .profile-actions button:disabled { opacity:.36;cursor:not-allowed; }
+
+.astris-map-profile-manager .profile-actions :is(button,a):hover {
+    border-color: rgba(167, 139, 250, .46);
+    color: #f4f4f5;
+}
+
+.astris-map-profile-manager .profile-actions button:disabled {
+    opacity: .36;
+    cursor: not-allowed;
+}
+
 .astris-map-profile-manager > small {
-  grid-column:1/-1;color:#697486;font-size:clamp(9px,calc(.18cqi + 7px),12px);
-  line-height:1.3;overflow-wrap:anywhere;text-align:left;white-space:normal;
+    grid-column: 1/-1;
+    color: #697486;
+    font-size: clamp(9px, calc(.18cqi + 7px), 12px);
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+    text-align: left;
+    white-space: normal;
 }
-.astris-map-profile-manager > small.is-error { color:#fca5a5; }
+
+.astris-map-profile-manager > small.is-error {
+    color: #fca5a5;
+}
 
 /* MapLibre controls stay in map-owned fixed corners. Navigation is explicitly
    top-left; scale remains bottom-left. The scale BAR width may change with
    zoom by design, but its anchor never moves. */
 .astris-map-native-stage .orbital-map > .maplibregl-control-container,
 .astris-map-native-stage .orbital-map.is-space-orbit-bg > .maplibregl-control-container {
-  position:absolute !important;inset:0 !important;z-index:8 !important;
-  pointer-events:none !important;transform:none !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 8 !important;
+    pointer-events: none !important;
+    transform: none !important;
 }
+
 .astris-map-native-stage .maplibregl-ctrl-top-left,
 .astris-map-native-stage .maplibregl-ctrl-top-right,
 .astris-map-native-stage .maplibregl-ctrl-bottom-left,
 .astris-map-native-stage .maplibregl-ctrl-bottom-right {
-  position:absolute !important;margin:0 !important;transform:none !important;pointer-events:none !important;
+    position: absolute !important;
+    margin: 0 !important;
+    transform: none !important;
+    pointer-events: none !important;
 }
-.astris-map-native-stage .maplibregl-ctrl-top-left { top:10px !important;left:10px !important; }
-.astris-map-native-stage .maplibregl-ctrl-top-right { top:10px !important;right:10px !important; }
-.astris-map-native-stage .maplibregl-ctrl-bottom-left { bottom:10px !important;left:10px !important; }
-.astris-map-native-stage .maplibregl-ctrl-bottom-right { right:10px !important;bottom:10px !important; }
-.astris-map-native-stage .maplibregl-ctrl { pointer-events:auto !important;transform:none !important; }
-.astris-map-native-stage .maplibregl-ctrl-group { margin:0 !important; }
+
+.astris-map-native-stage .maplibregl-ctrl-top-left {
+    top: 10px !important;
+    left: 10px !important;
+}
+
+.astris-map-native-stage .maplibregl-ctrl-top-right {
+    top: 10px !important;
+    right: 10px !important;
+}
+
+.astris-map-native-stage .maplibregl-ctrl-bottom-left {
+    bottom: 10px !important;
+    left: 10px !important;
+}
+
+.astris-map-native-stage .maplibregl-ctrl-bottom-right {
+    right: 10px !important;
+    bottom: 10px !important;
+}
+
+.astris-map-native-stage .maplibregl-ctrl {
+    pointer-events: auto !important;
+    transform: none !important;
+}
+
+.astris-map-native-stage .maplibregl-ctrl-group {
+    margin: 0 !important;
+}
+
 .astris-map-native .maplibregl-ctrl-group {
-  overflow:hidden;border:1px solid var(--border);border-radius:10px;
-  background:rgba(11,11,14,.9);box-shadow:0 12px 28px rgba(0,0,0,.38);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(11, 11, 14, .9);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .38);
 }
+
 .astris-map-native .maplibregl-ctrl-group button {
-  width:clamp(34px,2.8cqi,46px);height:clamp(34px,2.8cqi,46px);background-color:transparent;
+    width: clamp(34px, 2.8cqi, 46px);
+    height: clamp(34px, 2.8cqi, 46px);
+    background-color: transparent;
 }
+
 .astris-map-native .maplibregl-ctrl-scale,
 .astris-map-native .maplibregl-ctrl-attrib {
-  color:#b5b5bd !important;border-color:var(--border) !important;
-  background:rgba(8,8,10,.78) !important;
-  font-size:clamp(9px,calc(.20cqi + 7px),13px) !important;backdrop-filter:blur(10px);
+    color: #b5b5bd !important;
+    border-color: var(--border) !important;
+    background: rgba(8, 8, 10, .78) !important;
+    font-size: clamp(9px, calc(.20cqi + 7px), 13px) !important;
+    backdrop-filter: blur(10px);
 }
+
 .astris-map-native .maplibregl-ctrl-scale {
-  min-width:58px;padding:2px 6px 1px !important;border-width:0 0 2px 2px !important;
-  border-style:solid !important;line-height:1.25;margin:0 !important;
-  transform:none !important;transform-origin:left bottom !important;white-space:nowrap;
+    min-width: 58px;
+    padding: 2px 6px 1px !important;
+    border-width: 0 0 2px 2px !important;
+    border-style: solid !important;
+    line-height: 1.25;
+    margin: 0 !important;
+    transform: none !important;
+    transform-origin: left bottom !important;
+    white-space: nowrap;
 }
 
 /* Restored map information affordance. */
 .astris-map-native-info-popover {
-  position:absolute;z-index:18;top:clamp(9px,.8cqi,16px);right:clamp(56px,4.6cqi,76px);
-  width:min(360px,calc(100% - 82px));padding:10px;border:1px solid rgba(139,92,246,.28);
-  border-radius:12px;color:#d9e0ea;background:rgba(7,9,14,.96);
-  box-shadow:0 18px 48px rgba(0,0,0,.48),inset 0 1px rgba(255,255,255,.035);
-  backdrop-filter:blur(16px);
+    position: absolute;
+    z-index: 18;
+    top: clamp(9px, .8cqi, 16px);
+    right: clamp(56px, 4.6cqi, 76px);
+    width: min(360px, calc(100% - 82px));
+    padding: 10px;
+    border: 1px solid rgba(139, 92, 246, .28);
+    border-radius: 12px;
+    color: #d9e0ea;
+    background: rgba(7, 9, 14, .96);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, .48), inset 0 1px rgba(255, 255, 255, .035);
+    backdrop-filter: blur(16px);
 }
-.astris-map-native-info-head { display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px; }
-.astris-map-native-info-head > span { display:flex;align-items:center;gap:6px;color:#ddd6fe;font-size:var(--map-font-xs); }
+
+.astris-map-native-info-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.astris-map-native-info-head > span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #ddd6fe;
+    font-size: var(--map-font-xs);
+}
+
 .astris-map-native-info-head button {
-  display:grid;width:28px;height:28px;place-items:center;padding:0;border:1px solid var(--border);
-  border-radius:8px;color:#aeb8c7;background:#111114;cursor:pointer;
+    display: grid;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: #aeb8c7;
+    background: #111114;
+    cursor: pointer;
 }
-.astris-map-native-info-popover dl { display:grid;gap:5px;margin:0; }
+
+.astris-map-native-info-popover dl {
+    display: grid;
+    gap: 5px;
+    margin: 0;
+}
+
 .astris-map-native-info-popover dl > div {
-  display:grid;grid-template-columns:minmax(86px,.75fr) minmax(0,1.25fr);gap:8px;align-items:baseline;
-  padding:5px 6px;border-radius:7px;background:rgba(255,255,255,.018);
+    display: grid;
+    grid-template-columns:minmax(86px, .75fr) minmax(0, 1.25fr);
+    gap: 8px;
+    align-items: baseline;
+    padding: 5px 6px;
+    border-radius: 7px;
+    background: rgba(255, 255, 255, .018);
 }
-.astris-map-native-info-popover dt { color:#727c8c;font-size:var(--map-font-2xs); }
-.astris-map-native-info-popover dd { min-width:0;margin:0;color:#cbd5e1;font-size:var(--map-font-xs);text-align:right;overflow-wrap:anywhere; }
+
+.astris-map-native-info-popover dt {
+    color: #727c8c;
+    font-size: var(--map-font-2xs);
+}
+
+.astris-map-native-info-popover dd {
+    min-width: 0;
+    margin: 0;
+    color: #cbd5e1;
+    font-size: var(--map-font-xs);
+    text-align: right;
+    overflow-wrap: anywhere;
+}
 
 /* Advanced tuning is deliberately a sub-surface inside the v0.1.6 body, not
    another competing card language. */
 .astris-map-orbital-advanced {
-  display:grid;gap:8px;padding:9px;border:1px solid rgba(148,163,184,.10);
-  border-radius:10px;background:rgba(7,9,14,.38);
+    display: grid;
+    gap: 8px;
+    padding: 9px;
+    border: 1px solid rgba(148, 163, 184, .10);
+    border-radius: 10px;
+    background: rgba(7, 9, 14, .38);
 }
-.astris-map-subsection-title { display:flex;align-items:center;gap:6px;color:#b9b3d7;font-size:var(--map-font-xs);font-weight:800; }
-.astris-map-orbital-reset-row { display:flex;justify-content:flex-end; }
+
+.astris-map-subsection-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #b9b3d7;
+    font-size: var(--map-font-xs);
+    font-weight: 800;
+}
+
+.astris-map-orbital-reset-row {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .astris-map-orbital-reset-row button {
-  min-height:32px;padding:0 10px;border:1px solid rgba(139,92,246,.24);border-radius:8px;
-  color:#c4b5fd;background:rgba(139,92,246,.08);
+    min-height: 32px;
+    padding: 0 10px;
+    border: 1px solid rgba(139, 92, 246, .24);
+    border-radius: 8px;
+    color: #c4b5fd;
+    background: rgba(139, 92, 246, .08);
 }
+
 .astris-orbital-dom-marker b,
-.astris-orbital-label { color:var(--orbital-fill,#cbd5e1) !important; }
+.astris-orbital-label {
+    color: var(--orbital-fill, #cbd5e1) !important;
+}
 
 /* Responsive type additions without altering v0.1.6 geometry. */
 .astris-map-native-panel,
-.astris-map-native-strip { font-size:var(--map-font-xs); }
-.astris-map-native-panel :is(button,input,select) { font-size:max(var(--map-font-2xs),10px); }
+.astris-map-native-strip {
+    font-size: var(--map-font-xs);
+}
+
+.astris-map-native-panel :is(button,input,select) {
+    font-size: max(var(--map-font-2xs), 10px);
+}
 
 @container (max-width:980px) {
-  .astris-map-profile-manager { flex:1 1 100%;width:100%;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto; }
-  .astris-map-native-meta { flex-direction:column;align-items:stretch; }
-  .astris-map-native-meta > span,
-  .astris-map-native-meta > span:nth-child(2),
-  .astris-map-native-meta > span:last-child { text-align:left;white-space:normal; }
+    .astris-map-profile-manager {
+        flex: 1 1 100%;
+        width: 100%;
+        grid-template-columns:minmax(0, 1fr) minmax(0, 1fr) auto;
+    }
+
+    .astris-map-native-meta {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .astris-map-native-meta > span,
+    .astris-map-native-meta > span:nth-child(2),
+    .astris-map-native-meta > span:last-child {
+        text-align: left;
+        white-space: normal;
+    }
 }
+
 @container (max-width:620px) {
-  .astris-map-profile-manager { grid-template-columns:1fr; }
-  .astris-map-profile-manager .profile-actions { justify-content:flex-start; }
+    .astris-map-profile-manager {
+        grid-template-columns:1fr;
+    }
+
+    .astris-map-profile-manager .profile-actions {
+        justify-content: flex-start;
+    }
 }
 
 
 /* v0.1.10 — close the Chromium default-button gaps that appeared as white
    rectangles in the 3D building and observer-marker controls. */
 .astris-map-native-panel .astris-map-building-detail-mode {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
 }
+
 .astris-map-native-panel .astris-map-building-detail-mode button,
 .astris-map-native-panel .astris-map-marker-control-head button {
-  appearance: none;
-  border: 1px solid rgba(148,163,184,.22);
-  border-radius: 9px;
-  color: #cbd5e1;
-  background: rgba(22,25,33,.92);
-  box-shadow: inset 0 1px rgba(255,255,255,.025);
-  font-family: inherit;
-  font-size: var(--map-font-xs, 10px);
-  font-weight: 760;
-  line-height: 1.15;
-  cursor: pointer;
+    appearance: none;
+    border: 1px solid rgba(148, 163, 184, .22);
+    border-radius: 9px;
+    color: #cbd5e1;
+    background: rgba(22, 25, 33, .92);
+    box-shadow: inset 0 1px rgba(255, 255, 255, .025);
+    font-family: inherit;
+    font-size: var(--map-font-xs, 10px);
+    font-weight: 760;
+    line-height: 1.15;
+    cursor: pointer;
 }
+
 .astris-map-native-panel .astris-map-building-detail-mode button {
-  min-height: 36px;
-  padding: 7px 10px;
+    min-height: 36px;
+    padding: 7px 10px;
 }
+
 .astris-map-native-panel .astris-map-marker-control-head button {
-  min-height: 30px;
-  padding: 5px 8px;
+    min-height: 30px;
+    padding: 5px 8px;
 }
+
 .astris-map-native-panel .astris-map-building-detail-mode button.active,
 .astris-map-native-panel .astris-map-marker-control-head button.active {
-  border-color: rgba(139,92,246,.52);
-  color: #ede9fe;
-  background: rgba(139,92,246,.16);
+    border-color: rgba(139, 92, 246, .52);
+    color: #ede9fe;
+    background: rgba(139, 92, 246, .16);
 }
+
 .astris-map-native-panel button:disabled {
-  color: rgba(148,163,184,.42) !important;
-  border-color: rgba(148,163,184,.12) !important;
-  background: rgba(12,15,21,.64) !important;
-  opacity: .65;
-  cursor: not-allowed;
+    color: rgba(148, 163, 184, .42) !important;
+    border-color: rgba(148, 163, 184, .12) !important;
+    background: rgba(12, 15, 21, .64) !important;
+    opacity: .65;
+    cursor: not-allowed;
 }
 
 /* Restore the native compact MapLibre attribution/info control from v0.1.4.
    Its collapsed circular “i” button is the map-information affordance. */
 .astris-map-native-stage .maplibregl-ctrl-attrib.maplibregl-compact {
-  border: 1px solid rgba(96,165,250,.42) !important;
-  border-radius: 999px !important;
-  background: rgba(3,7,13,.88) !important;
-  box-shadow: 0 0 0 1px rgba(2,6,23,.6), 0 6px 18px rgba(0,0,0,.24) !important;
+    border: 1px solid rgba(96, 165, 250, .42) !important;
+    border-radius: 999px !important;
+    background: rgba(3, 7, 13, .88) !important;
+    box-shadow: 0 0 0 1px rgba(2, 6, 23, .6), 0 6px 18px rgba(0, 0, 0, .24) !important;
 }
+
 .astris-map-native-stage .maplibregl-ctrl-attrib.maplibregl-compact-show {
-  border-radius: 8px !important;
-  padding: 4px 8px !important;
-  color: #7f8aa0 !important;
-  background: rgba(3,7,13,.94) !important;
+    border-radius: 8px !important;
+    padding: 4px 8px !important;
+    color: #7f8aa0 !important;
+    background: rgba(3, 7, 13, .94) !important;
 }
+
 .astris-map-native-stage .maplibregl-ctrl-attrib-button {
-  filter: none !important;
+    filter: none !important;
 }
 
 /* Globe DOM labels are viewport-budgeted in v0.1.10 and inherit the exact
    constellation color of the WebGL satellite disc. */
 .astris-native-orbital-marker.is-webgl-disc > b {
-  color: var(--orbital-fill);
+    color: var(--orbital-fill);
 }
 
 
 /* ASTRIS v0.1.15 — exact v0.1.5 quick-actions visual contract. */
 .astris-map-native-quick-actions button {
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  min-height: 30px;
-  padding: 0 8px;
-  white-space: nowrap;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    min-height: 30px;
+    padding: 0 8px;
+    white-space: nowrap;
 }
+
 .astris-map-native-quick-actions button > svg {
-  width: 14px;
-  height: 14px;
-  flex: 0 0 auto;
-  stroke-width: 1.8;
+    width: 14px;
+    height: 14px;
+    flex: 0 0 auto;
+    stroke-width: 1.8;
 }
-.astris-map-native-quick-actions button > span { line-height: 1; }
+
+.astris-map-native-quick-actions button > span {
+    line-height: 1;
+}
 
 /* v0.1.18 — isolate map renderer failures instead of letting React clear the app. */
-.astris-map-boundary-host { min-width: 0; min-height: 0; height: 100%; }
-.astris-map-runtime-error {
-  min-height: min(720px, calc(100vh - 150px));
-  display: grid;
-  place-items: center;
-  grid-template-columns: auto minmax(0, 620px);
-  gap: 16px;
-  padding: 32px;
-  border: 1px solid rgba(248, 113, 113, .28);
-  border-radius: 18px;
-  background: radial-gradient(circle at 35% 20%, rgba(127, 29, 29, .22), transparent 42%), #050609;
-  color: #e5e7eb;
+.astris-map-boundary-host {
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
 }
-.astris-map-runtime-error__icon { align-self: start; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 13px; background: rgba(127, 29, 29, .28); color: #fca5a5; }
-.astris-map-runtime-error__copy h2 { margin: 4px 0 8px; font-size: clamp(18px, 2vw, 28px); }
-.astris-map-runtime-error__copy p { margin: 0 0 12px; color: #94a3b8; }
-.astris-map-runtime-error__copy code { display: block; max-width: 100%; overflow: auto; padding: 10px 12px; border-radius: 10px; background: #090b10; border: 1px solid rgba(148, 163, 184, .16); color: #fda4af; }
-.astris-map-runtime-error__actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-.astris-map-runtime-error__actions button { display: inline-flex; align-items: center; gap: 7px; min-height: 34px; padding: 7px 11px; border: 1px solid rgba(148, 163, 184, .22); border-radius: 9px; background: rgba(15, 23, 42, .72); color: #e2e8f0; cursor: pointer; }
-.astris-map-runtime-error__actions button:hover { border-color: rgba(167, 139, 250, .6); background: rgba(76, 29, 149, .22); }
-@media (max-width: 720px) { .astris-map-runtime-error { grid-template-columns: 1fr; place-items: start; padding: 22px; } }
+
+.astris-map-runtime-error {
+    min-height: min(720px, calc(100vh - 150px));
+    display: grid;
+    place-items: center;
+    grid-template-columns: auto minmax(0, 620px);
+    gap: 16px;
+    padding: 32px;
+    border: 1px solid rgba(248, 113, 113, .28);
+    border-radius: 18px;
+    background: radial-gradient(circle at 35% 20%, rgba(127, 29, 29, .22), transparent 42%), #050609;
+    color: #e5e7eb;
+}
+
+.astris-map-runtime-error__icon {
+    align-self: start;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+    background: rgba(127, 29, 29, .28);
+    color: #fca5a5;
+}
+
+.astris-map-runtime-error__copy h2 {
+    margin: 4px 0 8px;
+    font-size: clamp(18px, 2vw, 28px);
+}
+
+.astris-map-runtime-error__copy p {
+    margin: 0 0 12px;
+    color: #94a3b8;
+}
+
+.astris-map-runtime-error__copy code {
+    display: block;
+    max-width: 100%;
+    overflow: auto;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #090b10;
+    border: 1px solid rgba(148, 163, 184, .16);
+    color: #fda4af;
+}
+
+.astris-map-runtime-error__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.astris-map-runtime-error__actions button {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 34px;
+    padding: 7px 11px;
+    border: 1px solid rgba(148, 163, 184, .22);
+    border-radius: 9px;
+    background: rgba(15, 23, 42, .72);
+    color: #e2e8f0;
+    cursor: pointer;
+}
+
+.astris-map-runtime-error__actions button:hover {
+    border-color: rgba(167, 139, 250, .6);
+    background: rgba(76, 29, 149, .22);
+}
+
+@media (max-width: 720px) {
+    .astris-map-runtime-error {
+        grid-template-columns: 1fr;
+        place-items: start;
+        padding: 22px;
+    }
+}
 
 
-
-/* ========================================================================== 
+/* ==========================================================================
    ASTRIS v0.2.1 — panel typography + Sun/layout synchronization visual contract
    ========================================================================== */
 
@@ -2020,78 +3242,79 @@ section.astris-map-native[data-astris-map-native="true"] .astris-map-building-op
    strings such as “3D будівліASTRIS overlay” and “Мітка спостерігачаРозміри…”. */
 .astris-map-native-panel .astris-map-building-status,
 .astris-map-native-panel .astris-map-marker-control-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 10px;
-  min-width: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    min-width: 0;
 }
 
 .astris-map-native-panel .astris-map-building-title,
 .astris-map-native-panel .astris-map-marker-control-head > div {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  min-width: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    min-width: 0;
 }
 
 .astris-map-native-panel .astris-map-building-title > span:first-child,
 .astris-map-native-panel .astris-map-marker-control-head > div > span:first-child {
-  flex: 0 0 auto;
-  line-height: 1.2;
+    flex: 0 0 auto;
+    line-height: 1.2;
 }
 
 .astris-map-native-panel .astris-map-building-title > span:last-child,
 .astris-map-native-panel .astris-map-marker-control-head > div > span:last-child {
-  display: grid;
-  min-width: 0;
-  gap: 3px;
+    display: grid;
+    min-width: 0;
+    gap: 3px;
 }
 
 .astris-map-native-panel .astris-map-building-title b,
 .astris-map-native-panel .astris-map-marker-control-head b {
-  display: block;
-  margin: 0;
-  color: #e5e7eb;
-  font-size: clamp(11px, .72cqi, 13px);
-  font-weight: 800;
-  line-height: 1.25;
-  overflow-wrap: normal;
-  word-break: normal;
+    display: block;
+    margin: 0;
+    color: #e5e7eb;
+    font-size: clamp(11px, .72cqi, 13px);
+    font-weight: 800;
+    line-height: 1.25;
+    overflow-wrap: normal;
+    word-break: normal;
 }
 
 .astris-map-native-panel .astris-map-building-title small,
 .astris-map-native-panel .astris-map-marker-control-head small {
-  display: block;
-  margin: 0;
-  color: #7f8796;
-  font-size: clamp(9px, .58cqi, 11px);
-  font-weight: 500;
-  line-height: 1.4;
-  overflow-wrap: anywhere;
+    display: block;
+    margin: 0;
+    color: #7f8796;
+    font-size: clamp(9px, .58cqi, 11px);
+    font-weight: 500;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
 }
 
 .astris-map-native-panel .astris-map-building-status > strong {
-  flex: 0 0 auto;
-  align-self: center;
-  color: #c4b5fd;
-  font-size: clamp(9px, .58cqi, 11px);
-  line-height: 1.2;
-  white-space: nowrap;
+    flex: 0 0 auto;
+    align-self: center;
+    color: #c4b5fd;
+    font-size: clamp(9px, .58cqi, 11px);
+    line-height: 1.2;
+    white-space: nowrap;
 }
 
 .astris-map-native-panel .astris-map-marker-control-head > button {
-  flex: 0 0 auto;
-  align-self: center;
+    flex: 0 0 auto;
+    align-self: center;
 }
 
 @container (max-width: 360px) {
-  .astris-map-native-panel .astris-map-building-status,
-  .astris-map-native-panel .astris-map-marker-control-head {
-    gap: 7px;
-  }
-  .astris-map-native-panel .astris-map-building-title,
-  .astris-map-native-panel .astris-map-marker-control-head > div {
-    gap: 6px;
-  }
+    .astris-map-native-panel .astris-map-building-status,
+    .astris-map-native-panel .astris-map-marker-control-head {
+        gap: 7px;
+    }
+
+    .astris-map-native-panel .astris-map-building-title,
+    .astris-map-native-panel .astris-map-marker-control-head > div {
+        gap: 6px;
+    }
 }
